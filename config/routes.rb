@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  get 'streets/index'
 
-  get 'streets/new'
-
-  get 'streets/create'
-
-
-  root 'streets#new'
+  resources :routes
+  root 'routes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -22,6 +22,7 @@ gem 'pg' # Use postgresql as the database for Active Record
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'rails-assets-openlayers3' # Open Street Map support
+gem 'rails-assets-magnific-popup' # 
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

@@ -1,17 +1,17 @@
 class RoutesController < ApplicationController
   def index
     @routes = Route.unique
+    @route = Route.new({})
   end
 
   def new
-    @route  = Route.new({})
   end
 
   def create
     @route  = Route.new(route_params)
     if @route.save!
       flash[:notice] = 'Adicionado'
-      render :new
+      redirect_to routes_path
     else 
       flash[:notice] = 'Ops'
       render :new

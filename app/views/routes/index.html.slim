@@ -1,3 +1,5 @@
+= content_for(:title, "MapLab")
+
 javascript:
   window.routesArray = [];
 
@@ -5,9 +7,8 @@ javascript:
   #map-canvas
 
 
-
   #routes
-    = link_to "Adicionar novo percurso", new_route_path, class: :button
+    = link_to "Adicionar novo percurso", '#form', class: 'button mfp-inline open-popup-window'
     ol
     - @routes.each do |route|
       li
@@ -18,32 +19,45 @@ javascript:
 
       javascript:
         window.routesArray.push({ 
-        title: "#{route.fullname}", 
-        lat: "#{route.lat}", 
-        long: "#{route.long}", 
-        icon: "#{image_url("pin_#{route.transport}.png")}" });
+        title:  "#{route.fullname}", 
+        lat:    "#{route.lat}", 
+        long:   "#{route.long}", 
+        icon:   "#{image_url("pin_#{route.transport}.png")}" });
 
 
-javascript:
-
-  function initialize(){
-
-    var myOptions = {
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      zoom: 12,
-      center: new google.maps.LatLng(-22.911589, -43.357264),
-    };
-    var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 
 
-    for (i = 0; i < window.routesArray.length; i++) { 
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(window.routesArray[i].lat, window.routesArray[i].long),
-        icon: window.routesArray[i].icon,
-        map: map,
-        title: window.routesArray[i].title
-      });
-    }
 
-  };
-  google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+.row#form.mfp-hide
+  .medium-12.medium-centered.columns
+    h2.text-center Onde você quer que passe? 
+
+
+    = form_for @route do |t|
+
+      label
+        |Saindo de: 
+        = t.text_field :fullname, id: :searchTextField, value: 'Rua '
+      = t.hidden_field :lat,  id: :searchLatField
+      = t.hidden_field :long, id: :searchLongField
+
+
+
+      label
+        |Terminando em:
+        = text_field_tag :arrival, 'Rua '
+
+      label.radio
+        = t.radio_button :transport, :bike
+        |Ciclovia
+
+      label.radio
+        = t.radio_button :transport, :bus
+        |Onibus
+
+      = t.button "Incluir este percurso", type: :submit
+

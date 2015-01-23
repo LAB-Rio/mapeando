@@ -15,7 +15,9 @@ gem 'foundation-rails'
 # Database
 gem 'pg' # Use postgresql as the database for Active Record
 
-
+group :production do
+  gem 'rails_12factor'
+end
 
 
 # Asset Pipeline

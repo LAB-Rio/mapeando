@@ -5,14 +5,12 @@ describe User do
 
   # TODO: do this test
   context "Validations & Associations" do
-    user = User.create first_name: '', last_name: '', address_district: 'Zona Norte'
+    it { should validate_presence_of :first_name }
+    it { should validate_presence_of :last_name }
+    it { should validate_presence_of :address_district }
 
-    it "should validate the presence of first name and last name" do
-      expect(user.valid?).to be_falsey
-      expect(user.errors.size).to eq(2)
-    end
+    it { should have_many :demands }
 
-    
   end
 
 

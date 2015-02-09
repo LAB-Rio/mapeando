@@ -55,6 +55,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'poltergeist' # Node.js is required to run spec/features/ tests: https://github.com/teampoltergeist/poltergeist
   gem 'database_cleaner'
+  gem 'shoulda-matchers', require: false
 
   
 end

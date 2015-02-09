@@ -1,5 +1,6 @@
 # Gems
 source 'https://rubygems.org'
+
 # Assets
 source 'https://rails-assets.org'
 
@@ -7,10 +8,13 @@ ruby '2.2.0'
 gem 'rails', '4.2.0'
 
 
+# Template
 gem 'slim-rails'
 gem 'foundation-rails'
 
 
+# Authentication
+gem 'devise'
 
 # Database
 gem 'pg' # Use postgresql as the database for Active Record
@@ -49,6 +53,9 @@ gem 'jquery-rails'
 group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'poltergeist' # Node.js is required to run spec/features/ tests: https://github.com/teampoltergeist/poltergeist
+  gem 'database_cleaner'
+
   
 end
 

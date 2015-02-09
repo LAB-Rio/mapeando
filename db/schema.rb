@@ -11,18 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112183533) do
+ActiveRecord::Schema.define(version: 20150206164345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "routes", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "transport",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+
+  create_table "demands", force: :cascade do |t|
     t.text     "fullname",   default: "", null: false
-    t.string   "lat",        default: "", null: false
-    t.string   "long",       default: "", null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.string   "transport",               null: false
+    t.integer  "user_id",                 null: false
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name",       default: "", null: false
+    t.string   "last_name",        default: "", null: false
+    t.string   "address_district", default: "", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "email",                         null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

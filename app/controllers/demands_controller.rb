@@ -1,14 +1,14 @@
-class RoutesController < ApplicationController
+class DemandsController < ApplicationController
   def index
-    @routes = Route.unique
-    @route = Route.new({})
+    @routes = Demand.unique
+    @route = Demand.new({})
   end
 
   def new
   end
 
   def create
-    @route  = Route.new(route_params)
+    @route  = Demand.new(route_params)
     if @route.save!
       flash[:notice] = 'Adicionado'
       redirect_to routes_path
@@ -20,6 +20,6 @@ class RoutesController < ApplicationController
 
 
   def route_params
-    params.require(:route).permit(:fullname, :lat, :long, :transport)
+    params.require(:demand).permit(:fullname, :lat, :long, :transport)
   end
 end

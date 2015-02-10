@@ -11,26 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206164345) do
+ActiveRecord::Schema.define(version: 20150210144525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "transport",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                        null: false
+    t.string   "travel_mode",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "issue",       default: false, null: false
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+  add_index "categories", ["travel_mode"], name: "index_categories_on_travel_mode", using: :btree
 
   create_table "demands", force: :cascade do |t|
-    t.text     "fullname",   default: "", null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "user_id",                 null: false
+    t.text     "fullname",    default: "", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id",                  null: false
+    t.integer  "category_id",              null: false
   end
+
+  add_index "demands", ["category_id"], name: "index_demands_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",       default: "", null: false

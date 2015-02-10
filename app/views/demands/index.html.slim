@@ -8,7 +8,10 @@ javascript:
 
 
   #routes
-    = link_to "Criar Nova Demanda", '#form', class: 'button mfp-inline open-popup-window'
+    = link_to '#form', class: 'button mfp-inline open-popup-window' do
+      = image_tag "pin.png"
+      |Adicionar Demanda 
+
 /    ol
     /- @routes.each do |route|
       /li

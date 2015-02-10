@@ -8,21 +8,21 @@ javascript:
 
 
   #routes
-    = link_to "Adicionar novo percurso", '#form', class: 'button mfp-inline open-popup-window'
-    ol
-    - @routes.each do |route|
-      li
-        span
-          = route.insertions
-          |&nbsp;
-          = route.fullname.split(',')[0]
+    = link_to "Criar Nova Demanda", '#form', class: 'button mfp-inline open-popup-window'
+/    ol
+    /- @routes.each do |route|
+      /li
+        /span
+          /= route.insertions
+          /|&nbsp;
+          /= route.fullname.split(',')[0]
 
-      javascript:
-        window.routesArray.push({ 
-        title:  "#{route.fullname}", 
-        lat:    "#{route.lat}", 
-        long:   "#{route.long}", 
-        icon:   "#{image_url("pin_#{route.transport}.png")}" });
+      /javascript:
+        /window.routesArray.push({ 
+        /title:  "#{route.fullname}", 
+        /lat:    "#{route.lat}", 
+        /long:   "#{route.long}", 
+        /icon:   "#{image_url("pin_#{route.transport}.png")}" });
 
 
 
@@ -37,27 +37,16 @@ javascript:
     h2.text-center Onde você quer que passe? 
 
 
-    = form_for @route do |t|
+    = form_for Demand.new do |t|
 
       label
         |Saindo de: 
         = t.text_field :fullname, id: :searchTextField, value: 'Rua '
-      = t.hidden_field :lat,  id: :searchLatField
-      = t.hidden_field :long, id: :searchLongField
 
 
-
-      label
-        |Terminando em:
-        = text_field_tag :arrival, 'Rua '
-
-      label.radio
-        = t.radio_button :transport, :bike
-        |Ciclovia
-
-      label.radio
-        = t.radio_button :transport, :bus
-        |Onibus
 
       = t.button "Incluir este percurso", type: :submit
 
+
+#user-not-logged
+  |Você precisa estar logado para criar uma demanda. Clique aqui." 

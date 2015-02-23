@@ -15,12 +15,30 @@
   <body>
     <%= alert or notice %>
     <div id="header">
-      <h1>Map</h1>
+      <div class="row">
+        <div class="medium-3 columns">
+          &nbsp;
+        </div>
+
+        <div class="medium-6 columns">
+          <input type="text" name="search" placeholder="Busque um rua, endereço etc"/>
+        </div>
+
+        <div class="medium-3 columns menu end">
+          <nav>
+            <%= link_to '#', id: 'new-demand' do %>
+              <%= image_tag('new.png', size: '40x40') %>
+              <span><i>Adicionar</i><i>Demanda</i></span>
+            <% end %>
+          </nav>
+        </div>
+
+      </div>
 
     </div>
     <%= yield %>
     
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&region=BR&language=pt_BR&output=json" %>
+    <% javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&region=BR&language=pt_BR&output=json" %>
     <%= javascript_include_tag "application" %>
 
   </body>

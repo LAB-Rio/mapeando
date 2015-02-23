@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require foundation/foundation
 //= require magnific-popup
+//= require leaflet
+//= require angular
 //= require_tree .
 
 $(function(){ 
@@ -28,18 +30,34 @@ $(function(){
 window.App = {
 
   initialize: function(){
-    this.myMap = new google.maps.Map(document.getElementById("map-canvas"), this.myOptions);
-    this.setMapPins();
-    this.setAutoComplete();
+
+
+    this.loadMap();
+    //this.setMapPins();
+    //this.setAutoComplete();
     //google.maps.event.addDomListener(window, 'load', App.initialize);
 
   },
 
-  myOptions: {
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      zoom: 12,
-      center: new google.maps.LatLng(-22.911589, -43.357264),
+
+
+  loadMap: function() {
+    var map = L.map('map').setView([-22.911589, -43.357264], 13);
+
+
+    var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+      attribution: 'Map tiles by <a href="http://cartodb.com/attributions#basemaps">CartoDB</a>, under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Data by <a href="http://www.openstreetmap.org/">OpenStreetMap</a>, under ODbL.'
+    });
+
+
+    map.addLayer(layer);
+
   },
+
+
+
+
+
 
   setAutoComplete: function(){
     var defaultBounds = new google.maps.LatLngBounds(
@@ -68,7 +86,8 @@ window.App = {
   },
 
 
-
+  // TODO: migrate to LEAFLET
+  //
   setMapPins: function(){
     var self = this;
     var map = window.App.myMap;

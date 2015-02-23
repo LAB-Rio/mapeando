@@ -1,55 +1,13 @@
 = content_for(:title, "MapLab")
 
-javascript:
-  window.routesArray = [];
 
-#canvas[style="width: 100%; height: 100%"]
-  #map-canvas
-
-
-  #routes
-    = link_to '#form', class: 'button mfp-inline open-popup-window' do
-      = image_tag "pin.png"
-      |Adicionar Demanda 
-
-/    ol
-    /- @routes.each do |route|
-      /li
-        /span
-          /= route.insertions
-          /|&nbsp;
-          /= route.fullname.split(',')[0]
-
-      /javascript:
-        /window.routesArray.push({ 
-        /title:  "#{route.fullname}", 
-        /lat:    "#{route.lat}", 
-        /long:   "#{route.long}", 
-        /icon:   "#{image_url("pin_#{route.transport}.png")}" });
-
-
-
-
-
-
-
-
-
-.row#form.mfp-hide
-  .medium-12.medium-centered.columns
-    h2.text-center Onde você quer que passe? 
-
-
-    = form_for Demand.new do |t|
-
-      label
-        |Saindo de: 
-        = t.text_field :fullname, id: :searchTextField, value: 'Rua '
-
-
-
-      = t.button "Incluir este percurso", type: :submit
-
-
-#user-not-logged
+#user-not-logged.mfp-hide
   |Você precisa estar logado para criar uma demanda. Clique aqui." 
+
+#new-demand-box.mfp-hide
+  |Onde é sua demanda?
+
+
+#map
+
+

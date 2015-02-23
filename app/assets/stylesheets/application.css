@@ -14,9 +14,11 @@
  *= require_self
  *= require foundation_and_overrides
  *= require magnific-popup 
+ *= require leaflet 
+ *= require font-awesome
 
 
  */
 
 
-body { -webkit-font-smoothing: antialiased; }
+body { -webkit-font-smoothing: antialiased; font-family: 'Lato', 'Helvetica', Arial, sans-serif; }

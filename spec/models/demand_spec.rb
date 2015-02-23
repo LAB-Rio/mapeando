@@ -10,4 +10,7 @@ describe Demand do
     it { should validate_presence_of :fullname }
   end
 
+
+  it { expect(Demand.new() )
+
 end

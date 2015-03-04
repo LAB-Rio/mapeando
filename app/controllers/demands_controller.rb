@@ -1,23 +1,23 @@
 class DemandsController < ApplicationController
+
+  respond_to :json, :html
+
   def index
+    @demands = Demand.all
+    respond_with @demands
   end
 
   def new
   end
 
   def create
-#    @route  = Demand.new(route_params)
-    #if @route.save!
-      #flash[:notice] = 'Adicionado'
-      #redirect_to routes_path
-    #else 
-      #flash[:notice] = 'Ops'
-      #render :new
-    #end
+
   end
 
 
   def route_params
     params.require(:demand).permit(:fullname, :lat, :long, :transport)
   end
+
+
 end

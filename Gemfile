@@ -5,8 +5,15 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
 ruby '2.2.0'
+
+
 gem 'rails', '4.2.0'
 
+
+
+# Controller
+gem 'responders'
+gem 'active_model_serializers', '~> 0.9.0'
 
 # Template
 gem 'slim-rails'
@@ -31,7 +38,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'rails-assets-openlayers3' # Open Street Map support
 gem 'rails-assets-magnific-popup' # 
-gem 'angular-rails'
+gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'font-awesome-rails'
 
@@ -59,13 +66,9 @@ gem 'jquery-rails'
 # gem 'capistrano-rails', group: :development
 
 group :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'poltergeist' # Node.js is required to run spec/features/ tests: https://github.com/teampoltergeist/poltergeist
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
-
-  
 end
 
 group :development, :test do
@@ -77,5 +80,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   #gem 'spring'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 

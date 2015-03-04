@@ -1,0 +1,44 @@
+<div class="row new-demand">
+
+  <div class="medium-9 medium-centered columns">
+    <h1>Nova demanda</h1>
+
+    
+    
+    <form action="/demands/create" method="POST">
+      <h4>Sobre a sua demanda</h4>
+      <h6>Máximo 140 caracteres</h6>
+
+      <label>
+        <input type="text" name="demand[fullname]" placeholder="Qual a descrição do que você está mapeando?" />
+      </label>
+
+
+
+
+
+
+
+      <div class="categories">
+        <h4>Em que se encaixa sua demanda? </h4>
+        <h6>Selecione uma das opções abaixo</h6>
+        <br/>
+        <ol>
+          <li ng-repeat="category in categories.categories" class="ng-hide" ng-hide="{{ category.issue ? isDemand : isIssue}}" ng-show="{{ category.issue ? isIssue : isDemand }}">
+            <label><input type="radio" value="{{ category.id }}" name="demand[category_id]"/>{{ category.name }}</label>
+          </li>
+        </ol>
+      </div>
+
+
+      <div class="pins">
+
+
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+

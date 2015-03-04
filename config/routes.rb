@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :demands
+
+  resources :demands, only: [:index]
+  resources :categories, only: [:index]
+
   root 'demands#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

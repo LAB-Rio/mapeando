@@ -8,5 +8,9 @@ class Demand < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
  
+  has_many :pins
+
   validates :user, :category, :fullname, presence: true
+
+
 end

@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato" %>
 
@@ -12,31 +11,53 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body ng-app="demandsApp">
     <%= alert or notice %>
+ 
+
+    <div id="labrio-header">
+      <div class="row">
+        <div class="medium-12 columns">
+          <a href="http://labrio.cc" target="_blank" title="Visitar o site do Laboratório de Participação do Rio"><%= image_tag('labrio-header.png') %></a>
+        </div>
+      </div>
+
+    </div>
+
+
+
     <div id="header">
       <div class="row">
+        <div class="medium-3 text-left logo columns">
+          <%= link_to image_tag('new.png', size: '40x40'), '#/' %>
+        </div>
+
         <div class="medium-3 columns">
           &nbsp;
         </div>
 
-        <div class="medium-6 columns">
-          <input type="text" name="search" placeholder="Busque um rua, endereço etc"/>
-        </div>
-
-        <div class="medium-3 columns menu end">
+        <div class="medium-6 columns menu end">
           <nav>
-            <%= link_to '#', id: 'new-demand' do %>
-              <%= image_tag('new.png', size: '40x40') %>
-              <span><i>Adicionar</i><i>Demanda</i></span>
-            <% end %>
+            <a href="#/demands/new/demand"> 
+              <%= image_tag('idea.png', size: '30x30') %>
+              <span><i>Tenho </i><i>uma ideia</i></span>
+            </a>
+
+            <a href="#/demands/new/issue"> 
+              <%= image_tag('issue.png', size: '30x30') %>
+              <span><i>Tenho </i><i>um problema</i></span>
+            </a>
+
           </nav>
         </div>
 
       </div>
 
     </div>
-    <%= yield %>
+
+    <div class="view-container">
+      <div class="view-animate" ng-view></div>
+    </div>
     
     <% javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&region=BR&language=pt_BR&output=json" %>
     <%= javascript_include_tag "application" %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lat: MyString
+  long: MyString
+  fullname: MyString
+  demand_id: 
+
+two:
+  lat: MyString
+  long: MyString
+  fullname: MyString
+  demand_id: 

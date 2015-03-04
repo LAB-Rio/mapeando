@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211171728) do
+ActiveRecord::Schema.define(version: 20150223210755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 20150211171728) do
   end
 
   add_index "demands", ["category_id"], name: "index_demands_on_category_id", using: :btree
+
+  create_table "pins", force: :cascade do |t|
+    t.string   "lat",        default: "", null: false
+    t.string   "long",       default: "", null: false
+    t.string   "fullname",   default: "", null: false
+    t.integer  "demand_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "pins", ["demand_id", "lat", "long"], name: "index_pins_on_demand_id_and_lat_and_long", unique: true, using: :btree
+  add_index "pins", ["demand_id"], name: "index_pins_on_demand_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false
@@ -65,4 +77,5 @@ ActiveRecord::Schema.define(version: 20150211171728) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "pins", "demands"
 end

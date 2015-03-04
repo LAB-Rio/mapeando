@@ -8,9 +8,8 @@ describe Demand do
     it { should validate_presence_of :user }
     it { should validate_presence_of :category }
     it { should validate_presence_of :fullname }
+
+    it { should have_many :pins }
   end
-
-
-  it { expect(Demand.new() )
 
 end

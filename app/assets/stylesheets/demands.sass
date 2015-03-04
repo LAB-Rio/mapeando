@@ -1,7 +1,20 @@
-#header
+body, html
+  -webkit-font-smoothing: antialiased
+
+#labrio-header
+  background: black
+  padding: 0 .8em 0 .8em
+  color: white
+  
+.logo a
+  display: block
   position: relative
-  input
-    margin: .8em 0
+  top: .6em
+
+
+#header
+  box-shadow: 0 1px 2px #eee
+  z-index: 9990
 
 
 .menu 
@@ -12,10 +25,12 @@
   position: relative
   color: #666
   padding: .8em 1em
-  top: -.2em
+  top: 0
   transition: all .2s cubic-bezier(0.25,0.1,0.25,1)
   img
     float: left
+
+
 .menu span
   display: inline-block
   line-height: 1em
@@ -31,15 +46,72 @@
   text-transform: uppercase
   font-weight: bold !important
   font-style: normal
-  
-.menu a:hover
-  background: #f3f3f3
 
-.menu a:active
-  position: relative
-  top: 2px
+
+
+
+.menu a:hover
+  color: #333
+  background: #ffd503 
+  img
+    -webkit-filter: invert(1)
 
 #map
   width: 100% 
-  height: 90%
+  height: 60%
+  min-height: 400px
 
+
+.view-animate
+  position: relative
+
+.view-animate.ng-enter, .view-animate.ng-leave 
+  -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .4s
+  -moz-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .4s
+  -ms-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .4s
+  transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .4s
+  display: block
+  width: 100%
+  position: absolute
+  left: 0
+  right: 0
+
+.view-animate.ng-enter
+  left: 100%
+
+.view-animate.ng-enter.ng-enter-active
+  left: 0
+
+.view-animate.ng-leave.ng-leave-active
+  left: -100%
+
+
+
+// Demands.new
+
+
+
+.categories ol
+  margin: 0
+  padding: 0
+
+.categories ol li
+  list-style-type: none
+  display: inline-block
+  margin: .4em .4em .4em 0
+  background: #eee 
+  transition: all .3s
+  label
+    padding: .7em .8em
+  &:hover
+    background: #ffd503 
+    label
+      color: #333
+
+.categories li input 
+  display: inline-block
+  margin: .1em .4em
+
+
+.new-demand
+  padding: .8em 0

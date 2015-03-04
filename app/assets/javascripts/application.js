@@ -10,52 +10,24 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require foundation/foundation
-//= require magnific-popup
-//= require leaflet
 //= require angular
+//= require angular-resource
+//= require angular-route
+//= require angular-animate
+//= require angular-rails-templates
+//
+//= require demands
+//= require_tree ./angular/factories
+//= require_tree ./angular/controllers
+//
+//= require leaflet
+//= require_tree ../templates
 //= require_tree .
-
-$(function(){ 
-  $(document).foundation(); 
-  $('.open-popup-window').magnificPopup();
-  $('.pac-container').css('z-index', 9999);
-});
 
 
 
 
 window.App = {
-
-  initialize: function(){
-
-
-    this.loadMap();
-    //this.setMapPins();
-    //this.setAutoComplete();
-    //google.maps.event.addDomListener(window, 'load', App.initialize);
-
-  },
-
-
-
-  loadMap: function() {
-    var map = L.map('map').setView([-22.911589, -43.357264], 13);
-
-
-    var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
-      attribution: 'Map tiles by <a href="http://cartodb.com/attributions#basemaps">CartoDB</a>, under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Data by <a href="http://www.openstreetmap.org/">OpenStreetMap</a>, under ODbL.'
-    });
-
-
-    map.addLayer(layer);
-
-  },
-
-
-
 
 
 
@@ -106,4 +78,3 @@ window.App = {
 
 };
 
-window.App.initialize();

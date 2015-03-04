@@ -3,9 +3,7 @@ demandsApp = angular.module('demandsApp', [
   'controllers', 
   'ngAnimate', 
   'ngRoute', 
-  'ngResource',
-  'categoryFactory'
-
+  'ngResource'
 ]);
 
 demandsApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){

@@ -29,32 +29,24 @@
 
 window.App = {
 
+  initialize: function(){
+    var map = L.map('map', { 
+      fullScreen: true, 
+      scrollWheelZoom: false 
+    }).setView([-22.9083, -43.2108], 13);
 
 
-  setAutoComplete: function(){
-    var defaultBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(-22.911589, -43.797264),
-      new google.maps.LatLng(-22.911589, -43.149070)
-    );
-
-    var options = { bounds: defaultBounds };
-    var input = document.getElementById('searchTextField');
-
-    var autocomplete = new google.maps.places.Autocomplete(input, options);
-    
-
-
-    google.maps.event.addListener(autocomplete, 'place_changed', function(){
-
-      var latField = document.getElementById('searchLatField');
-      var longField = document.getElementById('searchLongField');
-
-      var place = autocomplete.getPlace();
-
-      latField.value = place.geometry.location.k;
-      longField.value = place.geometry.location.D;
+    var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v4/luizfonseca.7532f8a3/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibHVpemZvbnNlY2EiLCJhIjoiMTFNcXRXdyJ9.5PRw57nx5srpwP838-KjVQ', {
+      attribution: ''
     });
 
+
+    map.addLayer(layer);
+
+
+  },
+
+  setAutoComplete: function(){
   },
 
 
@@ -78,3 +70,5 @@ window.App = {
 
 };
 
+
+window.App.initialize();

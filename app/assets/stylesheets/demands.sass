@@ -13,22 +13,22 @@ body, html
 
 
 #header
-  box-shadow: 0 1px 2px #eee
+  box-shadow: 0 1px 2px #aaa
   z-index: 9990
 
 
 .menu 
-  text-align: right
+  text-align: left 
 
-.menu a
+.nav-link
   display: inline-block
   position: relative
   color: #666
   padding: .8em 1em
   top: 0
   transition: all .2s cubic-bezier(0.25,0.1,0.25,1)
-  img
-    float: left
+.nav-link img
+  float: left
 
 
 .menu span
@@ -50,7 +50,7 @@ body, html
 
 
 
-.menu a:hover
+.nav-link:hover
   color: #333
   background: #ffd503 
   img
@@ -61,9 +61,14 @@ body, html
   height: 60%
   min-height: 400px
 
+.view-container
+  position: fixed
+  height: auto 
+  width: 100%
+  top: 20%
 
-.view-animate
-  position: relative
+.view-content
+  background: white
 
 .view-animate.ng-enter, .view-animate.ng-leave 
   -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .4s
@@ -73,14 +78,20 @@ body, html
   display: block
   width: 100%
   position: absolute
-  left: 0
-  right: 0
+  -webkit-transform: scale(0)
 
 .view-animate.ng-enter
-  left: 100%
+  transition: all .2s
+  -webkit-transform: scale(0)
+  -ms-transform: scale(0)
+  -moz-transform: scale(0)
+  transform: scale(0)
 
 .view-animate.ng-enter.ng-enter-active
-  left: 0
+  -webkit-transform: scale(1)
+  -ms-transform: scale(1)
+  -moz-transform: scale(1)
+  transform: scale(1)
 
 .view-animate.ng-leave.ng-leave-active
   left: -100%
@@ -99,7 +110,7 @@ body, html
   list-style-type: none
   display: inline-block
   margin: .4em .4em .4em 0
-  background: #eee 
+  background: #dfdfdf 
   transition: all .3s
   label
     padding: .7em .8em
@@ -115,3 +126,24 @@ body, html
 
 .new-demand
   padding: .8em 0
+
+
+.new-demand-form button 
+  background: #ffd500 
+  color: #333
+  width: 100%
+  margin-top: 1em
+  &:disabled
+    background: #ddd 
+    color: #333
+    -webkit-filter: grayscale(1)
+    opacity: .3
+    &:hover
+      background:  #ddd 
+      color: inherit
+
+
+
+.edit-pin-form
+  width: 90%
+  margin: 0 auto 

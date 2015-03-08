@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato" %>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -38,16 +37,20 @@
 
         <div class="medium-6 columns menu end">
           <nav>
-            <a href="#/demands/new/demand"> 
+            <a href="#/demands/new?type=demand" class="nav-link"> 
               <%= image_tag('idea.png', size: '30x30') %>
               <span><i>Tenho </i><i>uma ideia</i></span>
             </a>
 
-            <a href="#/demands/new/issue"> 
+            <a href="#/demands/new?type=issue" class="nav-link"> 
               <%= image_tag('issue.png', size: '30x30') %>
               <span><i>Tenho </i><i>um problema</i></span>
             </a>
 
+
+            <a href="#" class="login">
+              <%= image_tag('http://placehold.it/50x50') %>
+            </a>
           </nav>
         </div>
 
@@ -55,11 +58,14 @@
 
     </div>
 
+    <div id="map"></div>
+
+
     <div class="view-container">
       <div class="view-animate" ng-view></div>
     </div>
     
-    <% javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&region=BR&language=pt_BR&output=json" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&region=BR&language=pt_BR&output=json" %>
     <%= javascript_include_tag "application" %>
 
   </body>

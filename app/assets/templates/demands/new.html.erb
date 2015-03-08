@@ -1,18 +1,19 @@
 <div class="row new-demand">
 
-  <div class="medium-9 medium-centered columns">
-    <h1>Nova demanda</h1>
+  <div class="medium-8 medium-centered view-content columns">
+    <h1>{{ demandTypes[paramType].header }}</h1>
 
     
     
-    <form action="/demands/create" method="POST">
+    <form name="form" novalidate class="new-demand-form" ng-submit="nextStep()">
       <h4>Sobre a sua demanda</h4>
       <h6>Máximo 140 caracteres</h6>
 
       <label>
-        <input type="text" name="demand[fullname]" placeholder="Qual a descrição do que você está mapeando?" />
+        <input ng-model="demand.fullname" ng-minlength="10" ng-maxlength="140" required type="text" name="demand[fullname]" />
       </label>
 
+        <span ng-class="error" ng-show="form['demand[fullname]'].$error.minlength">Mínimo de 10 caracteres</span>
 
 
 
@@ -20,19 +21,30 @@
 
 
       <div class="categories">
-        <h4>Em que se encaixa sua demanda? </h4>
-        <h6>Selecione uma das opções abaixo</h6>
+        <h4>{{ demandTypes[paramType].category_header }}</h4>
+        <h6>Escolha uma das opções abaixo</h6>
         <br/>
-        <ol>
-          <li ng-repeat="category in categories.categories" class="ng-hide" ng-hide="{{ category.issue ? isDemand : isIssue}}" ng-show="{{ category.issue ? isIssue : isDemand }}">
-            <label><input type="radio" value="{{ category.id }}" name="demand[category_id]"/>{{ category.name }}</label>
-          </li>
-        </ol>
+
+        <label>
+          <select name="demand[category_id]" ng-required="true" ng-model="demand.category_id">
+
+          <optgroup label="Escolha uma opção da lista">
+            <option ng-repeat="category in categories.categories" value="{{ category.id }}" class="ng-hide" ng-hide="{{ category.issue ? isDemand : isIssue}}" ng-show="{{ category.issue ? isIssue : isDemand }}">{{ category.name }}</option>
+          <optgroup>
+          </select>
+        </label>
       </div>
 
 
       <div class="pins">
-
+        <h4> A sua ideia fica onde?</h4> 
+        <h6> Clique no botão abaixo para escolher um ponto no mapa</h6> 
+        <div class="actions-submit text-center">
+          <button type="submit" ng-disabled="!form.$valid">
+            <%= image_tag "pin-red.png", size: '16x16' %>
+            Pesquisar no mapa
+          </button>
+        </div>
 
       </div>
 

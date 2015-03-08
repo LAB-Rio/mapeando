@@ -3,7 +3,7 @@ controllers.controller('DemandsController', ['$scope', function($scope){
 
 
   $scope.initialize = function(){
-    $scope.loadMap();
+    //$scope.loadMap();
   }
 
   $scope.loadMap = function(){

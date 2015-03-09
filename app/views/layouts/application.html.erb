@@ -59,12 +59,15 @@
 
     </div>
 
+    
 
-
+    <div class="static-content"><%= yield %></div>
     <div class="view-container">
       <div class="view-animate" ng-view></div>
     </div>
-    
+
+
+
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&region=BR&language=pt_BR&output=json" %>
     <%= javascript_include_tag "application" %>
 

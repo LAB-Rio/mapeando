@@ -17,6 +17,7 @@ FactoryGirl.define do
   factory :category do
     name
     travel_mode { 'driving' }
+    icon_url { 'http://test.com/imagem.png' }
   end
 
   factory :user do

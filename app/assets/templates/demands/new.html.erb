@@ -4,17 +4,6 @@
     
     <form name="form" novalidate class="new-demand-form" ng-submit="nextStep()">
       <br/>
-      <h4>Escreva uma breve descrição da sua ideia</h4>
-      <span class="info">Ex.: Ciclofaixa/Ponto de ônibus na Rua X</span>
-
-      <label>
-        <input ng-model="demand.fullname" ng-minlength="10" ng-maxlength="140" required type="text" name="demand[fullname]" />
-      </label>
-
-        <span ng-class="error" class="error" ng-show="form['demand[fullname]'].$error.minlength">Mínimo de 10 caracteres</span>
-
-
-
 
 
 
@@ -32,6 +21,20 @@
           </select>
         </label>
       </div>
+
+      <div>
+        <h4>Comentários</h4>
+        <span class="info">Obs.: Este campo é opcional</span>
+
+        <label>
+          <textarea ng-model="demand.fullname" ng-minlength="10" ng-maxlength="500" name="demand[fullname]"></textarea>
+        </label>
+
+
+      </div>
+
+
+
 
 
       <div class="pins">

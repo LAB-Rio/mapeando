@@ -10,7 +10,7 @@ class Demand < ActiveRecord::Base
  
   has_many :pins
 
-  validates :user, :category, :fullname, presence: true
+  validates :user, :category, presence: true
 
   accepts_nested_attributes_for :pins, reject_if: :all_blank
 end

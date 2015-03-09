@@ -12,7 +12,6 @@ controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFact
     var markers = [];
 
     var size = demands.length;
-    var icon = L.icon({ iconUrl: 'http://i.imgur.com/73DJGd1.png', iconSize: [30, 41]});
 
     for (i = 0; i < size; i++) {
 
@@ -23,6 +22,10 @@ controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFact
         var pin_size = demands[i].pins.length;
 
         for (index = 0; index < pin_size; index++) {
+
+          
+          var icon = L.icon({ iconUrl: pin[index].icon, iconSize: [26, 26]});
+
           marker = L.marker([pin[index].lat, pin[index].long], { icon: icon }); 
           markers.push(marker);
         }

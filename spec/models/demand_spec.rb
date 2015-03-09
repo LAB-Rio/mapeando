@@ -7,7 +7,6 @@ describe Demand do
     it { should belong_to :user }
     it { should validate_presence_of :user }
     it { should validate_presence_of :category }
-    it { should validate_presence_of :fullname }
 
     it { should have_many :pins }
   end

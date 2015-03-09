@@ -40,6 +40,7 @@ gem 'rails-assets-openlayers3' # Open Street Map support
 gem 'rails-assets-magnific-popup' # 
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
 gem 'font-awesome-rails'
 
 # Gem to work with maps: http://leafletjs.com/

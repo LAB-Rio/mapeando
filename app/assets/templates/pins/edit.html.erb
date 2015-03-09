@@ -1,6 +1,29 @@
-<div class="edit-pin-form">
-  <form ng-submit="void()">
-    <input type="text" name="search" id="searchTextField" placeholder="Pesquise por endereço, CEP, rua..." />
-  </form>
 
+<div class="edit-pin-form">
+  <div class="row">
+
+    <form ng-submit="void()" >
+      <label>Pesquise pelo nome da rua ou lugar próximo e selecione da lista: <br/><input ng-model="demand.pin_fullname" type="text" name="search" id="searchTextField" placeholder="Digite aqui o nome da rua, logradouro ou bairro" />
+      
+        <span ng-show="demand.pin_fullname" class="info" ng-hide="!demand.pin_fullname">Dica: você pode arrastar o ponto no mapa para onde quiser.</span>
+      </label>
+      
+    </form>
+  </div>
+
+</div>
+
+<div class="map-data">
+  <div id="map"></div>
+
+  <div class="form-options">
+    <div class="row ">
+      <div class="medium-6 columns text-left">
+        <a href="#"  class="reset" ng-click="reset()">Cancelar</a>
+      </div>
+      <div class="medium-6 end columns text-right">
+        <a class="button save" ng-click="nextStep()">Salvar e Finalizar</a>
+      </div>
+    </div>
+  </div>
 </div>

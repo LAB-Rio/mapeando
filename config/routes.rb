@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :demands, only: [:index]
+  resources :demands, only: [:index, :create]
   resources :categories, only: [:index]
 
   root 'demands#index'

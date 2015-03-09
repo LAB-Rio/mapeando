@@ -5,7 +5,16 @@ body, html
   background: black
   padding: 0 .8em 0 .8em
   color: white
-  
+  .row:first-child
+    width: 100%
+    max-width: 100%
+
+
+#header .row:first-child
+  width: 100%
+  max-width: 100%
+
+
 .logo a
   display: block
   position: relative
@@ -15,6 +24,7 @@ body, html
 #header
   box-shadow: 0 1px 2px #aaa
   z-index: 9990
+  position: relative
 
 
 .menu 
@@ -56,19 +66,18 @@ body, html
   img
     -webkit-filter: invert(1)
 
-#map
+.index #map
   width: 100% 
   height: 60%
   min-height: 400px
 
-.view-container
-  position: fixed
-  height: auto 
-  width: 100%
-  top: 20%
+.view-container, .view-animate
+  height: 100%
 
-.view-content
+.view-container
   background: white
+  position: relative
+  z-index: 98
 
 .view-animate.ng-enter, .view-animate.ng-leave 
   -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .4s
@@ -143,7 +152,65 @@ body, html
       color: inherit
 
 
-
+// Edit Pins / Add new Marker
 .edit-pin-form
-  width: 90%
+  width: 100%
   margin: 0 auto 
+  position: absolute 
+  top: 7%
+  z-index: 9999
+
+.edit-pin-form label
+  background: white
+  padding: .6em .8em
+  text-indent: .5em
+  font-size: 1.1em
+  box-shadow: 0 1px 1px #666
+
+.edit-pin-form .info
+  color: #009517
+  font-size: .8em
+  opacity: .7
+
+#searchTextField 
+  top: 6px
+  display: inline-block
+  width: 100% 
+  position: relative
+  border: none 
+  box-shadow: none
+  border-bottom: 1px solid #aaa
+  font-size: 1.2em
+  color: #333
+  padding: 1.2em .4em !important
+  height: 40px
+
+
+.leaflet-control-zoom
+  position: relative
+  top: 4em
+
+.map-data 
+  height: 100%
+
+.map-data #map
+  height: 90% !important
+
+
+.map-data .form-options
+  position: fixed
+  height: 14%
+  width: 100%
+  background: white
+  bottom: 0
+
+
+.form-options .save
+  margin-top: .4em
+
+.form-options .reset
+  display: inline-block
+  position: relative
+  top: 1.2em
+  border-bottom: 1px solid #666
+  color: #666

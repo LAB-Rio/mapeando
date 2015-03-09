@@ -1,4 +1,4 @@
-controllers.controller('NewPinController', ['$scope', 'demandFormFactory', '$location', function($scope, demandFormFactory, $location){
+controllers.controller('newPinController', ['$scope', 'demandFormFactory', '$location', function($scope, demandFormFactory, $location){
 
 
   $scope.demand = demandFormFactory;

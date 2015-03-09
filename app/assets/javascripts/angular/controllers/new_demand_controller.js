@@ -1,4 +1,4 @@
-controllers.controller('NewDemandController', [
+controllers.controller('newDemandController', [
   '$scope', '$location', '$resource', '$route', 'categoryFactory', 'demandFormFactory', 
   function($scope, $location, $resource, $route, categoryFactory, demandFormFactory){
 

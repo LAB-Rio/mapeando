@@ -12,5 +12,5 @@ class Demand < ActiveRecord::Base
 
   validates :user, :category, :fullname, presence: true
 
-
+  accepts_nested_attributes_for :pins, reject_if: :all_blank
 end

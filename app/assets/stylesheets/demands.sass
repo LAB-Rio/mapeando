@@ -7,13 +7,13 @@ body, html
 
 
 .button
-  background: #ffd500 !important 
-  color: #333 !important
+  background: #FF0136 !important 
+  color: white !important
   margin-top: 1em !important
   border-radius: 4px !important
   box-shadow: 0 1px 1px #333 !important
   &:hover
-    background: #F5EF00 !important
+    background: #B80100 !important
   &:active
     position: relative
     top: 2px
@@ -93,14 +93,14 @@ body, html
 
 
 .nav-link:hover
-  color: #333
-  background: #ffd503 
+  color: white
+  background: #FF0136 
   img
     -webkit-filter: invert(1)
 
-.index #map
+.index #map, .index 
   width: 100% 
-  height: 60%
+  height: 100% !important
   min-height: 400px
 
 
@@ -112,7 +112,7 @@ body, html
 
 .view-container, .view-animate
   height: 100%
-  background: image-url('background.png') no-repeat
+  background: #eee 
   background-size: cover
 
 .view-container
@@ -263,3 +263,11 @@ body, html
   top: 1.2em
   border-bottom: 1px solid #666
   color: #666
+
+
+.footer
+  position: fixed
+  height: 80px
+  background: white
+  width: 100%
+  bottom: 0

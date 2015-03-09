@@ -31,6 +31,17 @@ class DemandsController < ApplicationController
   end
 
 
+
+
+  def show
+    @demand = Demand.find_by(id: params[:id])
+    render json: @demand
+  end
+
+
+
+
+
   def demand_params
     params.require(:demand).permit(:fullname, :category_id, :user_id, pins_attributes: [:fullname, :lat, :long])
   end

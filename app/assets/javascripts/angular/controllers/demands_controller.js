@@ -26,8 +26,13 @@ controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFact
           
           var icon = L.icon({ iconUrl: pin[index].icon, iconSize: [26, 26]});
 
-          marker = L.marker([pin[index].lat, pin[index].long], { icon: icon }); 
+          marker = L.marker([pin[index].lat, pin[index].long], { icon: icon, riseOnHover: true }); 
           markers.push(marker);
+
+
+          $scope.subscribeMarkerEvents(marker, demands[i]);
+
+
         }
       }
       
@@ -36,6 +41,25 @@ controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFact
 
     var group = L.layerGroup(markers).addTo($scope.map);
   }
+
+
+  $scope.subscribeMarkerEvents = function(marker, demand) {
+    marker.on('click', function(event){
+      marker.bindPopup('<p>Hello</p>').openPopup();
+    });
+
+
+    marker.on('mouseover', function(event) {
+      var html = '<div class="marker-view">';
+      html += '<h6>'+ demand.category + '</h6>';
+      html += '<blockquote>' + demand.fullname + '</blockquote>';
+      html += '<p class="text-right"><a class="button" href="#/demands/'+ demand.id + '">Ver mais</a></p>';
+      html += '</div>';
+      marker.bindPopup(html).openPopup();
+    });
+  }
+
+
 
 
   $scope.loadDemands = function() {

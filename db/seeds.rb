@@ -11,24 +11,24 @@
 Category.create([
 
   # A pe
-  { name: 'Novas travessias de pedestres', travel_mode: 'walking', icon_url: 'http://i.imgur.com/lweavVT.png' },
-  { name: 'Novas passarelas de pedestres', travel_mode: 'walking', icon_url: 'http://i.imgur.com/lweavVT.png' },
-  { name: 'Estações de alta capacidade (Trem, Metro, BRT) que precisem de um projeto de requalificação do entorno', travel_mode: 'walking', icon_url: 'http://i.imgur.com/lweavVT.png' },
-  { name: 'Locais de travessia de pedestres inseguras', travel_mode: 'walking', issue: true, icon_url: 'http://i.imgur.com/lweavVT.png' },
-  { name: 'Trechos de calçada deteriorados', travel_mode: 'walking', issue: true, icon_url: 'http://i.imgur.com/lweavVT.png' },
+  { name: 'Novas travessias de pedestres', travel_mode: 'walking', icon_url: 'http://i.imgur.com/Z2nzN8a.png' },
+  { name: 'Novas passarelas de pedestres', travel_mode: 'walking', icon_url: 'http://i.imgur.com/Z2nzN8a.png' },
+  { name: 'Estações de alta capacidade (Trem, Metro, BRT) que precisem de um projeto de requalificação do entorno', travel_mode: 'walking', icon_url: 'http://i.imgur.com/Z2nzN8a.png' },
+  { name: 'Locais de travessia de pedestres inseguras', travel_mode: 'walking', issue: true, icon_url: 'http://i.imgur.com/Z2nzN8a.png' },
+  { name: 'Trechos de calçada deteriorados', travel_mode: 'walking', issue: true, icon_url: 'http://i.imgur.com/Z2nzN8a.png' },
 
   # Bicicleta
-  { name: 'Novos bicicletários', travel_mode: 'biking', icon_url: 'http://i.imgur.com/97gg492.png' },
+  { name: 'Novos bicicletários', travel_mode: 'biking', icon_url: 'http://i.imgur.com/niSXPaT.png' },
 
   # Coletivo
-  { name: 'Indicar novos terminais de onibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/V4OnsU2.png' },
-  { name: 'Novos pontos de onibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/V4OnsU2.png' },
+  { name: 'Indicar novos terminais de onibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/jYFs3hD.png' },
+  { name: 'Novos pontos de onibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/jYFs3hD.png' },
 
 
   # Motorizado individual
-  { name: 'Indicar fechamento de ruas para transito exclusivo de pedestres', travel_mode: 'driving', icon_url: 'http://i.imgur.com/t7fq9ZS.png' },
-  { name: 'Indicar ruas de trafego moderado (zona 30)', travel_mode: 'driving', icon_url: 'http://i.imgur.com/t7fq9ZS.png' },
-  { name: 'Perimetro de pedagio urbano', travel_mode: 'driving', icon_url: 'http://i.imgur.com/t7fq9ZS.png' },
+  { name: 'Indicar fechamento de ruas para transito exclusivo de pedestres', travel_mode: 'driving', icon_url: 'http://i.imgur.com/rd3TOby.png' },
+  { name: 'Indicar ruas de trafego moderado (zona 30)', travel_mode: 'driving', icon_url: 'http://i.imgur.com/rd3TOby.png' },
+  { name: 'Perimetro de pedagio urbano', travel_mode: 'driving', icon_url: 'http://i.imgur.com/rd3TOby.png' },
 
 
 ])

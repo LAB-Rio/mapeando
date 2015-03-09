@@ -1,9 +1,11 @@
 demandsApp.factory('mapFactory', ['$resource', function($resource){
   
   return { 
-    buildMap: function() {
- 
-      var map = L.map('map', { 
+    buildMap: function(map_name) {
+      
+      var map_id = (map_name == '') ? 'map' : map_name;
+
+      var map = L.map(map_id, { 
         fullScreen: true, 
         scrollWheelZoom: false 
       }).setView([-22.9083, -43.2108], 13);

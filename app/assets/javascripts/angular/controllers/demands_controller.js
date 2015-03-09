@@ -3,7 +3,7 @@ controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFact
   $scope.map, $scope.result;
 
   $scope.initialize = function(){
-    $scope.map = mapFactory.buildMap();
+    $scope.map = mapFactory.buildMap('map');
     $scope.loadDemands();
   }
 

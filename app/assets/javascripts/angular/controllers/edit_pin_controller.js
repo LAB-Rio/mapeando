@@ -9,7 +9,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
   $scope.initialize = function() {
 
 
-    $scope.map = mapFactory.buildMap();
+    $scope.map = mapFactory.buildMap('map');
     $scope.setupAutoComplete();
   }
 

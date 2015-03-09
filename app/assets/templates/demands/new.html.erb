@@ -1,19 +1,17 @@
 <div class="row new-demand">
 
-  <div class="medium-8 medium-centered view-content columns">
-    <h1>{{ demandTypes[paramType].header }}</h1>
-
-    
+  <div class="medium-7 medium-centered view-content columns">
     
     <form name="form" novalidate class="new-demand-form" ng-submit="nextStep()">
-      <h4>Sobre a sua demanda</h4>
-      <h6>Máximo 140 caracteres</h6>
+      <br/>
+      <h4>Escreva uma breve descrição da sua ideia</h4>
+      <span class="info">Ex.: Ciclofaixa/Ponto de ônibus na Rua X</span>
 
       <label>
         <input ng-model="demand.fullname" ng-minlength="10" ng-maxlength="140" required type="text" name="demand[fullname]" />
       </label>
 
-        <span ng-class="error" ng-show="form['demand[fullname]'].$error.minlength">Mínimo de 10 caracteres</span>
+        <span ng-class="error" class="error" ng-show="form['demand[fullname]'].$error.minlength">Mínimo de 10 caracteres</span>
 
 
 
@@ -21,8 +19,8 @@
 
 
       <div class="categories">
-        <h4>{{ demandTypes[paramType].category_header }}</h4>
-        <h6>Escolha uma das opções abaixo</h6>
+        <h4>Em qual categoria ela se encaixa?</h4>
+        <span class="info">Ex.: Novos Pontos de Ônibus</span>
         <br/>
 
         <label>
@@ -37,12 +35,9 @@
 
 
       <div class="pins">
-        <h4> A sua ideia fica onde?</h4> 
-        <h6> Clique no botão abaixo para escolher um ponto no mapa</h6> 
-        <div class="actions-submit text-center">
-          <button type="submit" ng-disabled="!form.$valid">
-            <%= image_tag "pin-red.png", size: '16x16' %>
-            Pesquisar no mapa
+        <div class="actions-submit text-right">
+          <button type="submit" class="button" ng-disabled="!form.$valid">
+            Próximo passo 
           </button>
         </div>
 

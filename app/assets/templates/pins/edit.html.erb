@@ -22,7 +22,7 @@
         <a href="#"  class="reset" ng-click="reset()">Cancelar</a>
       </div>
       <div class="medium-6 end columns text-right">
-        <a class="button save" ng-click="nextStep()">Salvar e Finalizar</a>
+        <button class="button save" ng-click="nextStep()" ng-disabled="!(demand.latitude && demand.longitude)">Salvar e Finalizar</button>
       </div>
     </div>
   </div>

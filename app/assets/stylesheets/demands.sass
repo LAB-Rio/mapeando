@@ -1,8 +1,40 @@
 body, html
   -webkit-font-smoothing: antialiased
 
+
+.padding-1
+  padding: 1em
+
+
+.button
+  background: #ffd500 !important 
+  color: #333 !important
+  margin-top: 1em !important
+  border-radius: 4px !important
+  box-shadow: 0 1px 1px #333 !important
+  &:hover
+    background: #F5EF00 !important
+  &:active
+    position: relative
+    top: 2px
+  &:disabled
+    background: #ddd !important 
+    color: #333 !important
+    -webkit-filter: grayscale(1) !important
+    opacity: .3 !important
+    cursor: not-allowed !important
+    box-shadow: none
+    &:hover
+      background:  #ddd 
+      color: inherit
+
+
+
+
+
+
 #labrio-header
-  background: black
+  background: #333 
   padding: 0 .8em 0 .8em
   color: white
   .row:first-child
@@ -22,7 +54,7 @@ body, html
 
 
 #header
-  box-shadow: 0 1px 2px #aaa
+  box-shadow: 0 1px 1px #666
   z-index: 9990
   position: relative
 
@@ -71,8 +103,17 @@ body, html
   height: 60%
   min-height: 400px
 
+
+
+.view-content
+  background: white
+  margin-top: 2em
+  box-shadow: 0 1px 1px #333
+
 .view-container, .view-animate
   height: 100%
+  background: image-url('background.png') no-repeat
+  background-size: cover
 
 .view-container
   background: white
@@ -136,21 +177,29 @@ body, html
 .new-demand
   padding: .8em 0
 
+.new-demand-form
+  padding: 1em
+  h4 
+    font-weight: 500
+    padding: 0
+    margin: 1em 0 0 0
+    line-height: 1em
+  .info
+    color: #999
+    font-size: .9em 
+    display: inline-block
+    margin-bottom: 1.4em
+  .error
+    font-size: small
 
-.new-demand-form button 
-  background: #ffd500 
-  color: #333
-  width: 100%
-  margin-top: 1em
-  &:disabled
-    background: #ddd 
-    color: #333
-    -webkit-filter: grayscale(1)
-    opacity: .3
-    &:hover
-      background:  #ddd 
-      color: inherit
-
+.demand-info
+  h3
+    font-weight: 500
+    margin-top: .4em
+  p
+    color: #444
+    width: 80%
+    margin: 0 auto
 
 // Edit Pins / Add new Marker
 .edit-pin-form

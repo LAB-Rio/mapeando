@@ -53,7 +53,7 @@ controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFact
       var html = '<div class="marker-view">';
       html += '<h6>'+ demand.category + '</h6>';
       html += '<blockquote>' + demand.fullname + '</blockquote>';
-      html += '<p class="text-right"><a class="button" href="#/demands/'+ demand.id + '">Ver mais</a></p>';
+      html += '<p class="text-right"><a class="button" href="#/demands/show/'+ demand.id + '">Ver mais</a></p>';
       html += '</div>';
       marker.bindPopup(html).openPopup();
     });

@@ -69,6 +69,10 @@ controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFact
   }
 
 
+  $scope.$on('$locationChangeStart', function(){
+    $scope.map.remove();
+  });
+
 
   $scope.initialize();
 

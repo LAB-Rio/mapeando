@@ -1,15 +1,13 @@
 controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'mapFactory' ,'$location', function($scope, demandFormFactory, mapFactory, $location){
 
   $scope.markers = null;
+  $scope.map = mapFactory.buildMap('user-map');
   $scope.demand = demandFormFactory;
   $scope.userMarker;
 
 
 
   $scope.initialize = function() {
-
-
-    $scope.map = mapFactory.buildMap('map');
     $scope.setupAutoComplete();
   }
 
@@ -112,6 +110,11 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
   $scope.nextStep = function() {
     $location.path('/demands/create'); 
   }
+
+
+  $scope.$on('$locationChangeStart', function(event){
+    $scope.map.remove();
+  });
  
 
 

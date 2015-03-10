@@ -13,7 +13,8 @@ demandsApp.config(['$routeProvider', '$locationProvider', function($routeProvide
     .when('/demands/new/pins', { templateUrl: 'pins/new.html', controller: 'newPinController' })
     .when('/demands/create', { templateUrl: 'demands/create.html', controller: 'createDemandController' })
     .when('/demands/new/pins/edit', { templateUrl: 'pins/edit.html', controller: 'editPinController' })
-    .when('/demands/show/:id',{ templateUrl: 'demands/show.html', controller: 'showDemandController' });
+    .when('/demands/show/:id',{ templateUrl: 'demands/show.html', controller: 'showDemandController' })
+    .when('/login', { templateUrl: 'users/login.html', controller: 'userLogin' });
 
 
   //$locationProvider.html5Mode(true); 

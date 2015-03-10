@@ -10,7 +10,6 @@ ruby '2.2.0'
 gem 'rails', '4.2.0'
 
 
-
 # Controller
 gem 'responders'
 gem 'active_model_serializers', '~> 0.9.0'
@@ -38,6 +37,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'rails-assets-openlayers3' # Open Street Map support
 gem 'rails-assets-magnific-popup' # 
+gem 'rails-assets-angular-devise'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'

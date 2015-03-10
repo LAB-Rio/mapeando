@@ -61,7 +61,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
         $scope.markers.clearLayers();
     }
 
-    var icon = L.icon({ iconUrl: 'http://i.imgur.com/73DJGd1.png', iconSize: [40, 54]});
+    var icon = L.icon({ iconUrl: 'http://i.imgur.com/S7CbL0Q.png', iconSize: [60, 106]});
     var marker = L.marker([lat, lng], { icon: icon, draggable: true });
 
     $scope.markers = L.layerGroup([marker])

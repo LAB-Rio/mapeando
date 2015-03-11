@@ -3,7 +3,8 @@ demandsApp = angular.module('demandsApp', [
   'controllers', 
   'ngAnimate', 
   'ngRoute', 
-  'ngResource'
+  'ngResource',
+  'Devise'
 ]);
 
 demandsApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
@@ -14,8 +15,8 @@ demandsApp.config(['$routeProvider', '$locationProvider', function($routeProvide
     .when('/demands/create', { templateUrl: 'demands/create.html', controller: 'createDemandController' })
     .when('/demands/new/pins/edit', { templateUrl: 'pins/edit.html', controller: 'editPinController' })
     .when('/demands/show/:id',{ templateUrl: 'demands/show.html', controller: 'showDemandController' })
-    .when('/login', { templateUrl: 'users/login.html', controller: 'userLogin' })
-    .when('/signup', { templateUrl: 'users/signup.html', controller: 'userLogin' });
+    .when('/login', { templateUrl: 'users/login.html', controller: 'userLoginController' })
+    .when('/signup', { templateUrl: 'users/signup.html', controller: 'userSignupController' });
 
 
   //$locationProvider.html5Mode(true); 

@@ -1,5 +1,6 @@
 body, html
   -webkit-font-smoothing: antialiased
+  font-family: 'Helvetica', 'Arial', sans-serif
 
 
 .padding-1
@@ -52,6 +53,9 @@ body, html
   position: relative
   top: .6em
 
+.logo img
+  display: block
+  padding: .2em .6em
 
 #header
   box-shadow: 0 1px 1px #666
@@ -59,44 +63,24 @@ body, html
   position: relative
 
 
-.menu 
-  text-align: left 
+.menu .button
+  box-shadow: none !important 
+  margin: 0
+  margin-top: 0
+  padding: .8em 1em
+  position: relative
+  top: -.5em
 
 .nav-link
-  display: inline-block
-  position: relative
-  color: #666
-  padding: .8em 1em
-  top: 0
-  transition: all .2s cubic-bezier(0.25,0.1,0.25,1)
+  margin-left: 1em
+
+
+
 .nav-link img
-  float: left
-
-
-.menu span
-  display: inline-block
-  line-height: 1em
   position: relative
-  left: .4em
-  top: .2em
+  top: -.2em
+  -webkit-filter: invert(1)
 
-.menu span i
-  display: block
-  font-size: .7em
-  text-align: left
-  letter-spacing: 1px
-  text-transform: uppercase
-  font-weight: bold !important
-  font-style: normal
-
-
-
-
-.nav-link:hover
-  color: white
-  background: #FF0032 
-  img
-    -webkit-filter: invert(1)
 
 .index #map, .index 
   width: 100% 
@@ -297,3 +281,65 @@ body, html
 
 .fbFooterBorder, .fbConnectWidgetFooter
   display: none !important
+
+
+
+
+.login-box, .signup-box
+  margin-top: 1em
+
+  .logo-icon
+    padding-top: 1em
+ 
+  input
+    font-size: 'Verdana' !important
+    font-size: 1.2em !important
+    color: #000 !important
+
+  .view-content
+    padding: 1em 2em
+
+.logo-icon
+  h4 
+    font-weight: 400
+
+
+.signup-block
+  .view-content
+    padding: 0
+
+  .button 
+    background: none !important
+    box-shadow: none !important
+    color: #496CBB !important
+    margin: 0 !important
+
+
+
+.avatar-list
+  background: #f9f9f9
+  padding: .8em
+  img
+    width: 20%
+    transition: all .2s
+    margin: 0 .2em
+    border: 2px solid white
+    border-radius: 200px
+    -webkit-filter: grayscale(1)
+    &:hover
+      -webkit-filter: grayscale(0)
+
+.avatar-block
+  margin-top: 1em
+  img
+    width: 70%
+    display: block
+    margin: 0 auto
+
+  a
+    font-size: .75em
+    display: inline-block
+    padding: .6em 0
+    text-decoration: underline
+    &:hover
+      text-decoration: none 

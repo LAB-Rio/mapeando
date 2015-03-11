@@ -1,3 +1,6 @@
+# encoding: UTF-8
+#
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -6,7 +9,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-
+require 'csv'
 
 Category.create([
 
@@ -35,3 +38,11 @@ Category.create([
 
 
 User.create(first_name: 'Luiz', email: 'eu@luiz.cc', last_name: 'Claudio', address_district: 'Botafogo', password: '123456')
+
+
+districts = CSV.read(Rails.root.join('db/sampledata/bairros.csv'), encoding: 'ISO8859-1')
+
+
+districts.each do |row|
+  District.create(name: row[0].encode('utf-8'), lat: row[1], long: row[2])
+end

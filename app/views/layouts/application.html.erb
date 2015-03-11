@@ -4,10 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= content_for?(:title) ? yield(:title) : "Mapeando" %></title>
-    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato" %>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= csrf_meta_tags %>
   </head>
 
   <body ng-app="demandsApp">
@@ -37,20 +35,21 @@
 
         <div class="medium-6 columns menu text-right end">
           <nav>
-            <a href="#/demands/new?type=demand" class="nav-link"> 
-              <%= image_tag('idea.png', size: '30x30') %>
-              <span><i>Tenho </i><i>uma ideia</i></span>
+            <a href="#/demands/new?type=demand" class="nav-link button"> 
+              <%# image_tag('idea.png', size: '20x20') %>
+              <span>Tenho uma ideia</span>
             </a>
 
+        <!--
             <a href="#/demands/new?type=issue" class="nav-link"> 
               <%= image_tag('issue.png', size: '30x30') %>
-              <span><i>Tenho </i><i>um problema</i></span>
-            </a>
+              <span>Tenho <i>&nbsp;</i>um problema</span>
+            </a>-->
 
 
             <a href="#/login" class="login nav-link" >
-              <%= image_tag('http://placehold.it/30x30', size: '30x30') %>
-              <span><i>&nbsp;</i><i>Login</i></span>
+              <%# image_tag('http://placehold.it/30x30', size: '30x30') %>
+              <span>Login</span>
             </a>
           </nav>
         </div>
@@ -71,16 +70,5 @@
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&region=BR&language=pt_BR&output=json" %>
     <%= javascript_include_tag "application" %>
 
-
-
-    <div id="fb-root"></div>
-
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=430204343811421&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
   </body>
 </html>

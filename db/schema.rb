@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309191651) do
+ActiveRecord::Schema.define(version: 20150311023905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20150309191651) do
 
   add_index "demands", ["category_id"], name: "index_demands_on_category_id", using: :btree
 
+  create_table "districts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lat"
+    t.string   "long"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pins", force: :cascade do |t|
     t.string   "lat",        default: "", null: false
     t.string   "long",       default: "", null: false
@@ -53,7 +61,6 @@ ActiveRecord::Schema.define(version: 20150309191651) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false
     t.string   "last_name",              default: "", null: false
-    t.string   "address_district",       default: "", null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                               null: false
@@ -72,9 +79,12 @@ ActiveRecord::Schema.define(version: 20150309191651) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "avatar",                 default: "", null: false
+    t.integer  "district_id",            default: 0,  null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["district_id"], name: "index_users_on_district_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 

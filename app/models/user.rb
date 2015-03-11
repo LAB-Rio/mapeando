@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, omniauth_providers: [:facebook]
   
   has_many :demands
-  validates :first_name, :last_name, :address_district, presence: true
+  belongs_to :district 
+
+  validates :first_name, :last_name, :district_id, presence: true
 end

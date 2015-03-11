@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :demands, only: [:index, :create, :show]
   resources :categories, only: [:index]
+  resources :districts, only: [:index]
 
   root 'demands#index'
 

@@ -26,6 +26,7 @@ FactoryGirl.define do
     last_name { 'Data' }
     password { '123456' }
     address_district { 'Botafogo' }
+    avatar { 'http://placehold.it/60x60' }
   end
 
   factory :demand do
@@ -53,6 +54,12 @@ FactoryGirl.define do
     lat { rand(1..40) }
     long { rand(1..30) }
     demand
+  end
+
+  factory :district do
+    name "Copabacana"
+    lat "-14.182827"
+    long "-43.2424"
   end
 
 

@@ -15,6 +15,7 @@
 //= require angular-route
 //= require angular-animate
 //= require angular-rails-templates
+//= require angular-devise/devise
 //
 //= require demands
 //= require_tree ./angular/factories

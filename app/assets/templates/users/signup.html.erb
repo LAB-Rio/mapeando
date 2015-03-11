@@ -1,54 +1,100 @@
-<div class="row">
-  <div class="medium-7 medium-centered columns view-content">
-    
+<div class="row signup-box">
+  <div class="medium-6 medium-centered columns view-content">
+    <div class="text-center logo-icon">
+      <%= image_tag('logo-icon.png', size: '60x60') %>
+      <h4>Cadastro</h4>
+    </div>
+
+
+      <div class="row avatar-list" ng-show="showAvatarList" ng-hide="!showAvatarList">
+        <div class="medium-12 text-center columns">
+          <h6> Clique para selecionar </h6>
+          <a ng-click="setAvatar(0)"><img src="http://i.imgur.com/8QrR1AH.png" alt="avatar 1"/></a>
+          <a ng-click="setAvatar(1)"><img src="http://i.imgur.com/IRyJj1Z.png" alt="avatar 2"/></a>
+          <a ng-click="setAvatar(2)"><img src="http://i.imgur.com/Cwswft7.png" alt="avatar 3"/></a>
+          <a ng-click="setAvatar(3)"><img src="http://i.imgur.com/kCCo23M.png" alt="avatar 4"/></a>
+        </div>
+      </div>
     <h3>&nbsp;</h3>
-    <form ng-submit="">
-      
+
+    <form ng-submit="registerUser()" name="signupForm" novalidate>
+
+      <span class="error" ng-show="loginError">{{ loginErrorMessage }}</span>
+
       <div class="row">
-        <div class="medium-4 columns">
-          <img src="http://placehold.it/140x120"/>
+        <div class="medium-4 text-center avatar-block columns">
+          <img src="{{ avatar }}" alt="avatar"/>
+          <a ng-click="showAvatarList = true">Escolher avatar</a>
+
         </div>
         <div class="medium-8 columns end">
           <label>
             Nome 
-            <input type="text" ng-model="email" name="email"/>
+            <input type="text" ng-model="user.first_name" name="user[first_name]" ng-minlength="2" required placeholder="Digite seu nome"/>
           </label>
+          <span class="error" ng-show="signupForm['user[first_name]'].$error.minlength">Campo obrigatório</span>
 
           
           <label>
             Sobrenome 
-            <input type="text" ng-model="email" name="email"/>
+            <input type="text" ng-model="user.last_name" required name="user[last_name]" ng-minlength="2" placeholder="Digite seu sobrenome"/>
           </label>         
+          <span class="error" ng-show="signupForm['user[last_name]'].$error.minlength">Campo obrigatório</span>
         </div>
 
       </div>
 
+
+      <div>
+        <label>
+          Bairro
+          <select name="user[district_id]" required>
+            <option>Selecione um bairro da lista</option>
+            <option ng-repeat="district in districts.districts" value="{{ district.id }}"> {{ district.name }}</option>
+          </select>
+        </label>
+
+      </div>
 
 
       <div>
         <label>
           Email
-          <input type="text" ng-model="email" name="email"/>
+          <input type="text" ng-model="user.email" ng-pattern="/^[^@]+@[^@]+\.[^@]+$/" required ng-minlength="4" name="user[email]" placeholder="Digite seu email"/>
         </label>
+        <span class="error" ng-show="signupForm['user[email]'].$error.pattern">Email precisa ser um email válido :)</span>
       </div>
 
       <div>
         <label>
          Senha 
-          <input type="password" ng-model="password" name="password"/>
+          <input type="password" ng-model="user.password" ng-minlength="6" placeholder="Digite sua senha" required name="user[password]"/>
+
         </label>
+        <span class="error" ng-show="signupForm['user[password]'].$error.minlength">A senha precisa ter 6 ou mais caracteres</span>
+
         <label>
          Confirme a senha 
-          <input type="password" ng-model="password" name="password"/>
+          <input type="password" ng-model="user.password_confirmation" placeholder="Confirme sua senha" ng-minlength="6" required name="user[password_confirmation]"/>
         </label>
+          <span class="error" ng-show="!(user.password == user.password_confirmation)">A confirmação precisa ser igual a senha acima :) </span>
       </div>
 
+
+      <input type="hidden" name="user[avatar]" ng-model="user.avatar" value="{{ avatar }}"/>
 
       <div class="text-right">
-        <button type="submit" class="button" ng-disabled="!form.$valid">Cadastrar meu usuário</button>
+        <button type="submit" class="button" ng-disabled="!signupForm.$valid">Cadastrar meu usuário</button>
       </div>
+
     </form>
   </div>
 
 </div>
 
+
+<div class="row signup-block">
+  <div class="medium-6 text-center medium-centered columns view-content">
+    <a href="#/login" class="signup-link button">Já possui cadastro? Clique aqui </a>
+  </div>
+</div>

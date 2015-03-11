@@ -54,4 +54,11 @@ controllers.controller("userSignupController", ['$scope', '$location', 'Auth', '
   }
 
 
+  $scope.$on('devise:new-registration', function(event, user){
+
+    $location.path('/user/confirmation');
+  
+  });
+
+
 }]);

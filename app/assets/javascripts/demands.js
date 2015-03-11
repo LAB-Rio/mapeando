@@ -4,7 +4,8 @@ demandsApp = angular.module('demandsApp', [
   'ngAnimate', 
   'ngRoute', 
   'ngResource',
-  'Devise'
+  'Devise',
+  'angular-loading-bar'
 ]);
 
 demandsApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){

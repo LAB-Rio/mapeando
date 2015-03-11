@@ -27,7 +27,7 @@ gem 'omniauth-facebook'
 # Database
 gem 'pg' # Use postgresql as the database for Active Record
 
-group :production do
+group :production, :staging do
   gem 'rails_12factor'
 end
 

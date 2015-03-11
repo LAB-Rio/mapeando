@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.default_url_options = { :host => 'mapeando.rio.gov.br' }
+  config.action_mailer.default_url_options = { :host => 'mapeando-staging.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
  
 
@@ -92,3 +92,4 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 end
+

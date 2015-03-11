@@ -37,7 +37,6 @@ Category.create([
 ])
 
 
-User.create(first_name: 'Luiz', email: 'eu@luiz.cc', last_name: 'Claudio', address_district: 'Botafogo', password: '123456')
 
 
 districts = CSV.read(Rails.root.join('db/sampledata/bairros.csv'), encoding: 'ISO8859-1')
@@ -46,3 +45,7 @@ districts = CSV.read(Rails.root.join('db/sampledata/bairros.csv'), encoding: 'IS
 districts.each do |row|
   District.create(name: row[0].encode('utf-8'), lat: row[1], long: row[2])
 end
+
+
+
+User.create(first_name: 'Luiz', email: 'eu@luiz.cc', district_id: District.first.id, last_name: 'Claudio', password: '123456')

@@ -4,6 +4,11 @@ controllers.controller('createDemandController', ['$scope', '$location', 'demand
 
 
   $scope.initialize = function() {
+
+    if (!$scope.demand.user) {
+      $location.path('/demands/new');
+    }
+
     $scope.createDemand();
   }
 
@@ -15,7 +20,7 @@ controllers.controller('createDemandController', ['$scope', '$location', 'demand
         demand: {
           fullname: demand.fullname,
           category_id: demand.category_id,
-          user_id: 1,
+          user_id: demand.user.id,
           pins_attributes: [{
             lat: demand.latitude,
             long: demand.longitude,

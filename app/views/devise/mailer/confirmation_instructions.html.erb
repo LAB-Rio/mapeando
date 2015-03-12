@@ -1,5 +1,28 @@
-<p>Bem vindo! <%= @email %>!</p>
+<div style="font-family: Arial">
 
-<p>Você pode confirmar seu email pelo link abaixo (só clicar):</p>
+<h4>Olá!</h4>
 
-<p><%= link_to 'Confirmar minha conta', root_url(anchor: "/user/confirmation/#{@token}")%></p>
+<p>
+  Bem vindo ao <strong>Mapeando</strong>! Esperamos que participe e se sinta em casa. Afinal, a casa é sua! :-)
+</p>  
+
+<p>
+  Você pode confirmar seu email pelo link abaixo (só clicar): <br/><%= link_to 'Confirmar minha conta', root_url(anchor: "/user/confirmation/#{@token}")%>
+  
+  <br/><br/><br/><br/>
+  Se você tiver alguma dúvida, pode mandar um email para <a href="mailto:contato@labrio.cc">contato@labrio.cc</a> que responderemos o mais rápido possível.
+  <br/>
+</p>
+
+
+
+
+
+<p>
+  <br/><br/>
+  Um abraço de toda a Equipe do Mapeando.
+</p>
+
+
+
+</div>

@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
   has_many :demands
   belongs_to :district 
 
-  validates :first_name, :last_name, :district_id, presence: true
+  validates :first_name, :last_name, :district_id, :avatar, presence: true
 
 end

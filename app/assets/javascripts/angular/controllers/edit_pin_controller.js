@@ -8,6 +8,10 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
 
   $scope.initialize = function() {
+    if (!$scope.demand.user) {
+      $location.path('/demands/new');
+    }
+
     $scope.setupAutoComplete();
   }
 

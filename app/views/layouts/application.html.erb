@@ -23,29 +23,37 @@
           &nbsp;
         </div>
 
-        <div class="medium-6 columns menu text-right end">
-          <ol class="navigation">
+        <div class="medium-6 columns menu text-right end" ng-controller="userSessionController">
+          <ol class="navigation" ng-class="{ 'user-logged': currentUser }">
             <li class="navigation-link button-action">
-              <a href="#/demands/new?type=demand"> 
+              <a href="#/demands/new"> 
                 <span>Tenho uma ideia!</span>
 
               </a>
             </li>
 
-            <li class="navigation-link">
+
+            <li class="navigation-link" ng-show="!currentUser">
               <a href="#/signup" class="signup" >
                 <span> Inscreva-se </span>
               </a>
             </li>
 
-            <li class="navigation-link">
+            <li class="navigation-link" ng-show="!currentUser">
               <a href="#/login" class="login" >
                 <span> Login </span>
               </a>
             </li>
 
+            <li class="navigation-link" ng-show="currentUser">
+              <a class="current-user">
+                <img src="{{ currentUser.avatar }}" width="40" height="40" alt="avatar"/>
+              </a>
+            </li>
+
 
           </ol>
+
         </div>
 
       </div>

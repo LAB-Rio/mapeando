@@ -63,22 +63,36 @@ body
   padding: 0
   margin: 0
 
+.user-logged .navigation-link a
+  top: 22% !important
+
+
 .menu .navigation-link
   list-style-position: inside !important
   margin: 0 !important
   height: 60px
+  max-height: 60px
   display: inline-block
   padding: .2em 1em 
   transition: all .2s
   border-left: .5px solid #eee
   border-right: .5px solid #eee
 
+
+
   a
     position: relative
     top: 28%
     color: #333
+    transition: all .2s linear
     &:hover
       text-decoration: underline
+    
+    &.current-user
+      img
+        margin: 0
+        padding: 0
+
 
   &.button-action a
     background: #FF0032

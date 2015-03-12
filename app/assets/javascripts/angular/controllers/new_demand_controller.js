@@ -1,14 +1,25 @@
 controllers.controller('newDemandController', [
-  '$scope', '$location', '$resource', '$route', 'categoryFactory', 'demandFormFactory', 
-  function($scope, $location, $resource, $route, categoryFactory, demandFormFactory){
+  '$scope', '$location', '$resource', '$route', 'categoryFactory', 'demandFormFactory', 'currentUserFactory', 
+  function($scope, $location, $resource, $route, categoryFactory, demandFormFactory, currentUserFactory){
 
   $scope.demand = demandFormFactory;
   $scope.isIssue, $scope.isDemand = false;
-
+  $scope.session = currentUserFactory;
 
 
   $scope.initialize = function(){
+
     $scope.setDemandTypes();
+
+    if (!$scope.session.user) {
+      $scope.session.referrer = '/demands/new';
+      $location.path('/login');
+    } else {
+      $scope.demand.user = $scope.session.user;
+    }
+
+
+
     $scope.categories = categoryFactory.index();
   }
 

@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/pivotal/jasmine-gem.git
+  revision: 4ddc2b5b4aab6f482f76e7949294eff8878c1c46
+  specs:
+    jasmine (2.2.0)
+      jasmine-core (~> 2.2)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -93,6 +103,7 @@ GEM
     hashie (3.4.0)
     hike (1.2.3)
     i18n (0.7.0)
+    jasmine-core (2.2.0)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -129,6 +140,7 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    phantomjs (1.9.8.0)
     poltergeist (1.6.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -257,6 +269,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-rails
   foundation-rails
+  jasmine!
   jquery-rails
   omniauth-facebook
   pg

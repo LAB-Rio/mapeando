@@ -1,4 +1,4 @@
-controllers.controller("userLoginController", ['$scope', '$location', 'Auth' , function($scope, $location, Auth){
+controllers.controller("userLoginController", ['$scope', '$location', '$rootScope', 'Auth', 'currentUserFactory' , function($scope, $location, $rootScope, Auth, currentUserFactory){
 
 
   $scope.user;
@@ -24,11 +24,6 @@ controllers.controller("userLoginController", ['$scope', '$location', 'Auth' , f
       $scope.loginErrorMessage = error.data['error'];
     });
   }
-
-
-  $scope.$on('devise:login', function(event, currentUser){
-     
-  });
 
 
 

@@ -1,9 +1,3 @@
-demandsApp.factory('currentUserFactory', ['$resource', function($resource){
-
-  return { 
-    currentUser: function() {
-      return false;
-    }
-  }
-
+demandsApp.factory('currentUserFactory', ['Auth', function(Auth){
+  return { user: null }
 }]);

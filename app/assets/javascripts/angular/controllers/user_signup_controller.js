@@ -27,6 +27,7 @@ controllers.controller("userSignupController", ['$scope', '$location', 'Auth', '
 
   $scope.registerUser = function() {
     var user = $scope.user;
+    var avatar = $scope.avatar;
 
     var credentials = {
       first_name: user.first_name,
@@ -34,7 +35,8 @@ controllers.controller("userSignupController", ['$scope', '$location', 'Auth', '
       email: user.email,
       district_id: user.district_id,
       password: user.password,
-      password_confirmation: user.password_confirmation
+      password_confirmation: user.password_confirmation,
+      avatar: avatar 
 
     }
 

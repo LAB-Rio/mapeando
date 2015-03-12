@@ -4,8 +4,7 @@ demandsApp = angular.module('demandsApp', [
   'ngAnimate', 
   'ngRoute', 
   'ngResource',
-  'Devise',
-  'angular-loading-bar'
+  'Devise'
 ]);
 
 demandsApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
@@ -17,6 +16,8 @@ demandsApp.config(['$routeProvider', '$locationProvider', function($routeProvide
     .when('/demands/new/pins/edit', { templateUrl: 'pins/edit.html', controller: 'editPinController' })
     .when('/demands/show/:id',{ templateUrl: 'demands/show.html', controller: 'showDemandController' })
     .when('/login', { templateUrl: 'users/login.html', controller: 'userLoginController' })
+    .when('/user/confirmation', { templateUrl: 'users/confirmation.html' })
+    .when('/user/confirmation/:token', { templateUrl: 'users/confirmation.html', controller: 'userConfirmationController' })
     .when('/signup', { templateUrl: 'users/signup.html', controller: 'userSignupController' });
 
 

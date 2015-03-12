@@ -1,0 +1,5 @@
+<p>Bem vindo! <%= @email %>!</p>
+
+<p>Você pode confirmar seu email pelo link abaixo (só clicar):</p>
+
+<p><%= link_to 'Confirmar minha conta', root_url(anchor: "/user/confirmation/#{@token}")%></p>

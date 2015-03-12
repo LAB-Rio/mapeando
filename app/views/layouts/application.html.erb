@@ -12,16 +12,6 @@
     <%= alert or notice %>
  
 
-    <div id="labrio-header">
-      <div class="row">
-        <div class="medium-12 columns">
-          <a href="http://labrio.cc" target="_blank" title="Visitar o site do Laboratório de Participação do Rio"><%= image_tag('labrio-header.png') %></a>
-        </div>
-      </div>
-
-    </div>
-
-
 
     <div id="header" style="width: 100%">
       <div class="row" style="width: 100%;">
@@ -34,24 +24,28 @@
         </div>
 
         <div class="medium-6 columns menu text-right end">
-          <nav>
-            <a href="#/demands/new?type=demand" class="nav-link button"> 
-              <%# image_tag('idea.png', size: '20x20') %>
-              <span>Tenho uma ideia</span>
-            </a>
+          <ol class="navigation">
+            <li class="navigation-link button-action">
+              <a href="#/demands/new?type=demand"> 
+                <span>Tenho uma ideia!</span>
 
-        <!--
-            <a href="#/demands/new?type=issue" class="nav-link"> 
-              <%= image_tag('issue.png', size: '30x30') %>
-              <span>Tenho <i>&nbsp;</i>um problema</span>
-            </a>-->
+              </a>
+            </li>
+
+            <li class="navigation-link">
+              <a href="#/signup" class="signup" >
+                <span> Inscreva-se </span>
+              </a>
+            </li>
+
+            <li class="navigation-link">
+              <a href="#/login" class="login" >
+                <span> Login </span>
+              </a>
+            </li>
 
 
-            <a href="#/login" class="login nav-link" >
-              <%# image_tag('http://placehold.it/30x30', size: '30x30') %>
-              <span>Login</span>
-            </a>
-          </nav>
+          </ol>
         </div>
 
       </div>

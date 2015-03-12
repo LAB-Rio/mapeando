@@ -1,0 +1,42 @@
+<div class="row signup-box" ng-show="!token">
+  
+  <div class="medium-7 medium-centered text-center columns view-content">
+    <h3>Confirme o seu email</h3>
+
+    <p> <br/><strong>Enviamos um link para o seu email</strong> para confirmação. Você só precisa clicar no link que já poderá fazer o login! <br/><br/>Se você não receber nenhum email em até 5 minutos, envie um email para <strong>contato@labrio.cc</strong>.</p>
+    
+    <a href="#/">Ir para a home page</a>
+  </div>
+
+</div>
+
+
+
+<div class="row signup-box" ng-show="token && confirmationError">
+  
+  <div class="medium-7 medium-centered text-center columns view-content">
+    <h3>Ops, parece que temos um problema</h3>
+
+    <p> Seu token <strong>{{ confirmationErrorMessage[0] }}.</strong> </p> 
+    
+    <a href="#/">Ir para a home page</a> &nbsp;| &nbsp; 
+    <a href="mailto:contato@labrio.cc">contato@labrio.cc</a>
+  </div>
+
+</div>
+
+
+<div class="row signup-box" ng-show="token && confirmationSuccess">
+  
+  <div class="medium-7 medium-centered text-center columns view-content">
+    <h3>Confirmação de email</h3>
+
+    <p> Seu email foi <strong>confirmado com sucesso</strong>. <a href="#/login">Clique aqui</a> para entrar com seu login e senha que foram cadastrados! :-) </p> 
+    
+    <a href="#/">Ir para a home page</a> 
+  </div>
+
+</div>
+
+
+

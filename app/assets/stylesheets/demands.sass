@@ -2,11 +2,18 @@ body, html
   -webkit-font-smoothing: antialiased
   font-family: 'Helvetica', 'Arial', sans-serif
 
+body
+  position: relative
+  height: auto
+  min-height: 100% !important
+  background: #eee !important
 
 .padding-1
   padding: 1em
 
-
+// General class for buttons
+// TODO: remove the !important ASAP
+// Due to Foundation highly forcing the styles, I'm using the !important flag
 .button
   background: #FD1A51 !important 
   color: white !important
@@ -34,59 +41,63 @@ body, html
 
 
 
-#labrio-header
-  display: none
-  background: #333 
-  padding: 0 .8em 0 .8em
-  color: white
-  .row:first-child
-    width: 100%
-    max-width: 100%
 
 
+// Header 
 #header .row:first-child
   width: 100%
   max-width: 100%
 
-
-.logo a
-  display: block
-  position: relative
-  top: .6em
-
-.logo img
-  display: block
-  padding: .2em .6em
-
 #header
   z-index: 9990
-  position: relative
   border-bottom: 1px solid #ccc
+  background: white
 
+.logo img 
+  position: relative
+  top: .7em
 
-.menu .button
-  box-shadow: none !important 
+// header's Navigation menu
+.navigation
+  list-style-position: inside !important
+  padding: 0
   margin: 0
-  margin-top: 0
-  padding: .8em 1em
-  position: relative
-  top: -.5em
 
-.nav-link
-  margin-left: 1em
+.menu .navigation-link
+  list-style-position: inside !important
+  margin: 0 !important
+  height: 60px
+  display: inline-block
+  padding: .2em 1em 
+  transition: all .2s
+  border-left: .5px solid #eee
+  border-right: .5px solid #eee
+
+  a
+    position: relative
+    top: 28%
+    color: #333
+    &:hover
+      text-decoration: underline
+
+  &.button-action a
+    background: #FF0032
+    color: white
+    padding: .8em .8em
+    border-radius: 4px
+    &:hover
+      text-decoration: none
+      background: #B80100
 
 
 
-.nav-link img
-  position: relative
-  top: -.2em
-  -webkit-filter: invert(1)
 
-
+// Index page. Containing the map
 .index #map, .index 
   width: 100% 
-  height: 100% !important
   min-height: 400px
+  height: 100%
+  min-height: 100% !important
 
 
 
@@ -96,14 +107,18 @@ body, html
   box-shadow: 0 1px 1px #333
 
 .view-container, .view-animate
-  height: 100%
-  background: #eee 
-  background-size: cover
+  position: relative
 
 .view-container
-  background: white
+  background: #eee !important
   position: relative
   z-index: 98
+  height: 91.5%
+  
+.view-animate
+  background: #eee 
+  height: 100% 
+  min-height: 100% !important
 
 .view-animate.ng-enter, .view-animate.ng-leave 
   -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .4s
@@ -308,12 +323,19 @@ body, html
 .signup-block
   .view-content
     padding: 0
+    background: none
+    box-shadow: none
 
   .button 
     background: none !important
     box-shadow: none !important
     color: #496CBB !important
     margin: 0 !important
+    padding: 0
+    border-radius: 0 !important
+    width: auto
+    &:hover
+      border-bottom: 1px solid #496CBB
 
 
 

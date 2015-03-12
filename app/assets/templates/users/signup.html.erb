@@ -1,9 +1,17 @@
+<div class="row signup-block">
+  <div class="medium-6 text-center medium-centered columns view-content">
+    <a href="#/login" class="signup-link button">Já se inscreveu? Clique aqui para entrar usando email e senha </a>
+  </div>
+</div>
+
 <div class="row signup-box">
   <div class="medium-6 medium-centered columns view-content">
     <div class="text-center logo-icon">
-      <%= image_tag('logo-icon.png', size: '60x60') %>
+      <%= image_tag('logo-icon.png', size: '50x50') %>
       <h4>Cadastro</h4>
     </div>
+
+
 
 
       <div class="row avatar-list" ng-show="showAvatarList" ng-hide="!showAvatarList">
@@ -48,9 +56,10 @@
       <div>
         <label>
           Bairro
-          <select name="user[district_id]" required>
-            <option>Selecione um bairro da lista</option>
-            <option ng-repeat="district in districts.districts" value="{{ district.id }}"> {{ district.name }}</option>
+          <select name="user[district_id]" ng-model="user.district_id" required>
+            <optgroup label="Selecione um bairro da lista">
+              <option ng-repeat="district in districts.districts" value="{{ district.id }}"> {{ district.name }}</option>
+            </optgroup>
           </select>
         </label>
 
@@ -93,8 +102,4 @@
 </div>
 
 
-<div class="row signup-block">
-  <div class="medium-6 text-center medium-centered columns view-content">
-    <a href="#/login" class="signup-link button">Já possui cadastro? Clique aqui </a>
-  </div>
-</div>
+<div></br>&nbsp;<br/></div>

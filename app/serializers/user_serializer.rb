@@ -2,6 +2,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :first_name, :last_name, :district, :avatar
 
   has_many :demands
+  has_one :district
 
 
   def name

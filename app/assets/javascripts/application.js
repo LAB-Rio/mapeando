@@ -16,7 +16,6 @@
 //= require angular-animate
 //= require angular-rails-templates
 //= require angular-devise/devise
-//= require angular-loading-bar
 //
 //= require demands
 //= require_tree ./angular/factories

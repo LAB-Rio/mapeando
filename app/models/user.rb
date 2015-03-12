@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
   belongs_to :district 
 
   validates :first_name, :last_name, :district_id, presence: true
+
 end

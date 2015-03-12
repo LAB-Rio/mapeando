@@ -28,6 +28,7 @@ gem 'omniauth-facebook'
 gem 'pg' # Use postgresql as the database for Active Record
 
 group :production, :staging do
+  gem 'rack-zippy'
   gem 'rails_12factor'
 end
 

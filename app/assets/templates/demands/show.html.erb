@@ -8,10 +8,10 @@
     <br/>
 
     <div class="row">
-      <div class="medium-2 columns small-2"><img src="{{ demand.user.avatar }}" alt="avatar"/></div>
+      <div class="medium-2 columns small-2"><img ng-src="{{ demand.user.avatar }}" alt="avatar"/></div>
       <div class="medium-10 columns small-10 end">
         <h4> {{ demand.user.first_name }} quer </h4> 
-        <p> <img src="{{ pin.icon }}" width="20" height="20"> {{ demand.category }} </p>
+        <p> <img ng-src="{{ pin.icon }}" width="20" height="20"> {{ demand.category }} </p>
         <blockquote> {{ demand.fullname }} </blockquote> 
       </div>
     </div>

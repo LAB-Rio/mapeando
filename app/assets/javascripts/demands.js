@@ -1,5 +1,6 @@
 demandsApp = angular.module('demandsApp', [
   'angular-loading-bar',
+  'angular.filter',
   'templates', 
   'controllers', 
   'ngAnimate', 

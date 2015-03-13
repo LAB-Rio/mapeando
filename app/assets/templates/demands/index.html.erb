@@ -1,8 +1,19 @@
 <div class="index">
   <div id="map"></div>
+
+
+  <div id="filters">
+    <div class="filter" ng-repeat="(key, value) in categories.categories | groupBy: 'travel_mode' | orderBy: '!travel_mode'">
+      <h5>{{ categoryName[key] }}</h5>
+      <ol>
+        <li ng-repeat="category in value">
+          <img ng-src="{{ category.icon_url }}" width="20" />
+          {{ category.name }} 
+        </li>
+      </ol>
+    </div>
+
+  </div>
 </div>
 
-<div class="footer">
 
-  <%= image_tag('legend.png', style:'width: 40%') %>
- </div>

@@ -17,6 +17,7 @@
 //= require angular-rails-templates
 //= require angular-devise/devise
 //= require angular-loading-bar
+//= require angular-filter
 //
 //= require demands
 //= require_tree ./angular/factories

@@ -1,6 +1,9 @@
-controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFactory', '$http', '$q', function($scope, mapFactory, demandFactory, $http, $q){
+controllers.controller('demandsController', [
+  '$scope', 'mapFactory', 'demandFactory', 'categoryFactory', '$http', '$q', 
+  function($scope, mapFactory, demandFactory, categoryFactory, $http, $q){
  
   $scope.map, $scope.result;
+  $scope.categories = categoryFactory.index(); 
 
   $scope.initialize = function(){
     $scope.map = mapFactory.buildMap('map');
@@ -42,24 +45,26 @@ controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFact
     var group = L.layerGroup(markers).addTo($scope.map);
   }
 
-
   $scope.subscribeMarkerEvents = function(marker, demand) {
-    marker.on('click', function(event){
-      marker.bindPopup('<p>Hello</p>').openPopup();
-    });
+
+    $scope.setPopupContent(marker, demand, 'click');
+    $scope.setPopupContent(marker, demand, 'mouseover');
+   }
 
 
-    marker.on('mouseover', function(event) {
+  $scope.setPopupContent = function(marker, demand, binding){
+
+    marker.on(binding, function(event) {
       var html = '<div class="marker-view">';
+      html += '<img src="' + demand.user.avatar + '" width="40" height="40"/>';
+      html += '<strong>' + demand.user.first_name + '</strong>';
       html += '<h6>'+ demand.category + '</h6>';
       html += '<blockquote>' + demand.fullname + '</blockquote>';
       html += '<p class="text-right"><a class="button" href="#/demands/show/'+ demand.id + '">Ver mais</a></p>';
       html += '</div>';
-      marker.bindPopup(html).openPopup();
+      marker.bindPopup(html).openPopup();   
     });
   }
-
-
 
 
   $scope.loadDemands = function() {
@@ -72,6 +77,15 @@ controllers.controller('demandsController', ['$scope', 'mapFactory', 'demandFact
   $scope.$on('$locationChangeStart', function(){
     $scope.map.remove();
   });
+
+  
+  $scope.categoryName = {
+    driving: "Transporte Individual Motorizado",
+    biking: "Transporte Individual não Motorizado",
+    walking: "Deslocamento a pé",
+    bus: "Transporte Coletivo",
+
+  }
 
 
   $scope.initialize();

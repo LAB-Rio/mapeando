@@ -13,13 +13,13 @@
  
 
 
-    <div id="header" style="width: 100%">
-      <div class="row" style="width: 100%;">
-        <div class="medium-3 text-left logo columns">
+    <div id="header">
+      <div class="row">
+        <div class="medium-3 hide-for-small-only text-left logo columns">
           <%= link_to image_tag('logo.png'), '#/' %>
         </div>
 
-        <div class="medium-3 columns">
+        <div class="medium-3 hide-for-small-only columns">
           &nbsp;
         </div>
 
@@ -45,10 +45,26 @@
               </a>
             </li>
 
-            <li class="navigation-link" ng-show="currentUser">
+            <li class="navigation-link hidden" ng-show="currentUser">
+              <a href="#/login" class="login" >
+                <span> Minhas demandas </span>
+              </a>
+            </li>
+
+
+            <li class="navigation-link hidden user-avatar" ng-show="currentUser">
               <a class="current-user">
                 <img ng-src="{{ currentUser.avatar }}" width="40" height="40" alt="avatar"/>
+                <span>&#x25BC;</span>
               </a>
+
+
+              <ul class="user-menu">
+                <li> <a> Meu perfil </a> </li>
+                <li> <a> Reportar um erro </a> </li>
+                <li> <a> Desconectar </a> </li>
+
+              </ul>
             </li>
 
 

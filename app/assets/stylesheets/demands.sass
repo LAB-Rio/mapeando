@@ -8,14 +8,22 @@ body
   min-height: 100% !important
   background: #eee !important
 
+.hidden
+  display: none !important
+  
 .padding-1
   padding: 1em
+
+
+.leaflet-control-attribution
+  display: none !important
+
 
 // General class for buttons
 // TODO: remove the !important ASAP
 // Due to Foundation highly forcing the styles, I'm using the !important flag
 .button
-  background: #FD1A51 !important 
+  background: #ED2654 !important 
   color: white !important
   margin-top: 1em !important
   border-radius: 4px !important
@@ -39,9 +47,34 @@ body
 
 
 
-
-
-
+// Filters block
+#filters
+  transition: all .3s
+  position: fixed
+  background: rgba(255,255,255,0.6)
+  width: 26%
+  min-width: 250px
+  top: 15%
+  height: 65%
+  right: .8em
+  overflow: auto
+  padding: 1em 0
+  &:hover
+    background: rgba(255,255,255,1)
+  ol
+    margin-left: 0
+  li
+    list-style-type: none
+    padding: 1em 1.5em
+    font-size: .8em
+    &:hover
+      background: #f9f9f9
+      cursor: pointer
+  h5
+    font-weight: 500
+    font-size: .9em !important
+    padding: .6em 1em .8em 1em
+    border-bottom: 1px solid #ddd
 
 // Header 
 #header .row:first-child
@@ -49,7 +82,8 @@ body
   max-width: 100%
 
 #header
-  z-index: 9990
+  z-index: 9999
+  position: relative
   border-bottom: 1px solid #ccc
   background: white
 
@@ -64,16 +98,73 @@ body
   margin: 0
 
 .user-logged .navigation-link a
-  top: 22% !important
+  top: 20% !important
+.user-logged .hidden
+  display: inline-block !important
 
+.user-logged .navigation-link 
+  height: 55px !important
+  max-height: 55px !important
+
+.user-logged .user-avatar
+  border-left: 1px solid #ddd !important
+  padding: 0 .8em !important
+  background: #f9f9f9
+  a
+    &:hover
+      text-decoration: none !important
+  img
+    position: relative
+    top: -3px
+    display: inline-block
+    padding-top: .5em
+  span
+    font-size: .8em
+
+  .user-menu 
+    transition: all .3s
+    display: none
+
+.user-avatar:hover .user-menu
+  box-shadow: 0 1px 1px #666
+  transition: all .3s
+  display: block
+  margin-left: 0
+  position: absolute
+  top: 55px
+  background: white
+  width: 35%
+  right: 0
+  height: auto
+  z-index: 999
+  a
+    color: #666
+    font-size: .9em
+    padding: .8em 2em
+    display: block
+
+  li
+    display: block
+    width: 100%
+    list-style-type: none
+    text-align: right 
+    margin-left: 0
+    border-bottom: 1px solid #eee
+    &:hover
+      background: #f9f9f9
+
+
+.menu
+  padding-right: 0 !important
+  margin-right: 0 !important
 
 .menu .navigation-link
-  list-style-position: inside !important
-  margin: 0 !important
+  list-style-position: inside
+  margin: 0
   height: 60px
   max-height: 60px
   display: inline-block
-  padding: .2em 1em 
+  padding: .3em 1em .4em 1em 
   transition: all .2s
   border-left: .5px solid #eee
   border-right: .5px solid #eee
@@ -102,6 +193,7 @@ body
     &:hover
       text-decoration: none
       background: #B80100
+
 
 
 

@@ -40,6 +40,7 @@ gem 'rails-assets-openlayers3' # Open Street Map support
 gem 'rails-assets-magnific-popup' # 
 gem 'rails-assets-angular-devise'
 gem 'rails-assets-angular-loading-bar'
+gem 'rails-assets-angular-filter'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'

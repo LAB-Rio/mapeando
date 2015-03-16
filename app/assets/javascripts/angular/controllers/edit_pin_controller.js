@@ -63,7 +63,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
         $scope.markers.clearLayers();
     }
 
-    var icon = L.icon({ iconUrl: 'http://i.imgur.com/S7CbL0Q.png', iconSize: [60, 106]});
+    var icon = L.icon({ iconUrl: 'http://i.imgur.com/S7CbL0Q.png', iconSize: [60, 106], iconAnchor: [60, 100] });
     var marker = L.marker([lat, lng], { icon: icon, draggable: true });
 
     $scope.markers = L.layerGroup([marker])
@@ -83,6 +83,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       var target = event.target
       $scope.userMarker = target.getLatLng();
       $scope.updateSearchOnDrag($scope.userMarker.lat, $scope.userMarker.lng);
+      $scope.updateDemandPins($scope.userMarker.lat, $scope.userMarker.lng);      
       $scope.$apply();
     });
 
@@ -98,6 +99,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       if ( status == google.maps.GeocoderStatus.OK ) {
         
         if (results[1]) {
+          console.log(results[1]);
           $scope.demand.pin_fullname = results[1].formatted_address;
           $scope.$apply();
 

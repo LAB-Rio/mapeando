@@ -23,5 +23,9 @@ controllers.controller('userSessionController', [
     $location.path(url);
   });
 
+  $scope.$on('devise:logout', function(event, oldUser){
+    $scope.currentUser = null;
+  });
+
 
 }]);

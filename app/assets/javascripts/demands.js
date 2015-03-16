@@ -21,7 +21,8 @@ demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', functi
     .when('/login', { templateUrl: 'users/login.html', controller: 'userLoginController' })
     .when('/user/confirmation', { templateUrl: 'users/confirmation.html' })
     .when('/user/confirmation/:token', { templateUrl: 'users/confirmation.html', controller: 'userConfirmationController' })
-    .when('/signup', { templateUrl: 'users/signup.html', controller: 'userSignupController' });
+    .when('/signup', { templateUrl: 'users/signup.html', controller: 'userSignupController' })
+    .when('/logout', { templateUrl: 'users/login.html', controller: 'userSessionLogoutController' });
 
   ezfbProvider.setLocale('pt_BR');
 

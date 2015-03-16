@@ -28,7 +28,7 @@ Category.create([
 
   # Motorizado individual
   { name: 'Restringir o tráfego de automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/TwAqclO.png' },
-  { name: 'Reduzir a velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/UsFUL8V.png' }
+  { name: 'Reduzir a velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/Ie4XIjz.png' }
 
 
 ])

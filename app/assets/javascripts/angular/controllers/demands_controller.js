@@ -27,7 +27,7 @@ controllers.controller('demandsController', [
         for (index = 0; index < pin_size; index++) {
 
           
-          var icon = L.icon({ iconUrl: pin[index].icon, iconSize: [26, 26]});
+          var icon = L.icon({ iconUrl: pin[index].icon, iconSize: [22, 22]});
 
           marker = L.marker([pin[index].lat, pin[index].long], { icon: icon, riseOnHover: true }); 
           markers.push(marker);
@@ -57,10 +57,10 @@ controllers.controller('demandsController', [
     marker.on(binding, function(event) {
       var html = '<div class="marker-view">';
       html += '<img src="' + demand.user.avatar + '" width="40" height="40"/>';
-      html += '<strong>' + demand.user.first_name + '</strong>';
-      html += '<h6>'+ demand.category + '</h6>';
-      html += '<blockquote>' + demand.fullname + '</blockquote>';
-      html += '<p class="text-right"><a class="button" href="#/demands/show/'+ demand.id + '">Ver mais</a></p>';
+      html += '<h6><strong>' + demand.user.first_name + ' quer</strong> em ' + demand.pins[0].fullname + ' </h6>';
+      html += '<div class="marker-content"><h5>'+ demand.category + '</h5>';
+      html += '<blockquote>' + demand.fullname + '</blockquote></div>';
+      html += '<p class="text-center"><a class="button" href="#/demands/show/'+ demand.id + '">Ver mais</a></p>';
       html += '</div>';
       marker.bindPopup(html).openPopup();   
     });

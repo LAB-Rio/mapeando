@@ -18,6 +18,7 @@
 //= require angular-devise/devise
 //= require angular-loading-bar
 //= require angular-filter
+//= require angular-easyfb
 //
 //= require demands
 //= require_tree ./angular/factories

@@ -1,10 +1,12 @@
-controllers.controller('showDemandController', ['$scope', '$route', 'demandFactory', 'mapFactory', function($scope, $route, demandFactory, mapFactory){
+controllers.controller('showDemandController', ['$scope', '$route', 'demandFactory', 'mapFactory', 'ezfb', '$location', function($scope, $route, demandFactory, mapFactory, ezfb, $location){
  
   $scope.map = mapFactory.buildMap('mini-map');
+  $scope.pageUrl = $location.absUrl();
   $scope.demand;
 
   $scope.initialize = function() {
     $scope.loadDemand();
+    ezfb.init();
    
 
   }

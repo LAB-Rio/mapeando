@@ -41,6 +41,7 @@ gem 'rails-assets-magnific-popup' #
 gem 'rails-assets-angular-devise'
 gem 'rails-assets-angular-loading-bar'
 gem 'rails-assets-angular-filter'
+gem 'rails-assets-angular-easyfb'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'

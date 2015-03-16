@@ -1,6 +1,7 @@
 demandsApp = angular.module('demandsApp', [
   'angular-loading-bar',
   'angular.filter',
+  'ezfb',
   'templates', 
   'controllers', 
   'ngAnimate', 
@@ -9,7 +10,7 @@ demandsApp = angular.module('demandsApp', [
   'Devise'
 ]);
 
-demandsApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', function($routeProvider, $locationProvider, ezfbProvider){
   $routeProvider
     .when('/', { templateUrl: 'demands/index.html', controller: 'demandsController' })
     .when('/demands/new',{ templateUrl: 'demands/new.html', controller: 'newDemandController' })
@@ -22,9 +23,12 @@ demandsApp.config(['$routeProvider', '$locationProvider', function($routeProvide
     .when('/user/confirmation/:token', { templateUrl: 'users/confirmation.html', controller: 'userConfirmationController' })
     .when('/signup', { templateUrl: 'users/signup.html', controller: 'userSignupController' });
 
+  ezfbProvider.setLocale('pt_BR');
 
   //$locationProvider.html5Mode(true); 
 }]);
+
+
 
 controllers = angular.module('controllers', []);
 

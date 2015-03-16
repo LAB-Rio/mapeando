@@ -12,6 +12,7 @@ gem 'rails', '4.2.0'
 
 # Controller
 gem 'responders'
+gem 'has_scope'
 gem 'active_model_serializers', '~> 0.9.0'
 
 # Template

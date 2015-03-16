@@ -2,17 +2,17 @@ controllers.controller('demandsController', [
   '$scope', 'mapFactory', 'demandFactory', 'categoryFactory', '$http', '$q', 
   function($scope, mapFactory, demandFactory, categoryFactory, $http, $q){
  
-  $scope.map, $scope.result;
+  $scope.map, $scope.result, $scope.markers, $scope.layerGroup;
   $scope.categories = categoryFactory.index(); 
 
   $scope.initialize = function(){
     $scope.map = mapFactory.buildMap('map');
-    $scope.loadDemands();
+    $scope.loadDemands({});
   }
 
 
   $scope.showDemandsOnMap = function(demands) {
-    var markers = [];
+    $scope.markers = [];
 
     var size = demands.length;
 
@@ -30,7 +30,7 @@ controllers.controller('demandsController', [
           var icon = L.icon({ iconUrl: pin[index].icon, iconSize: [22, 22]});
 
           marker = L.marker([pin[index].lat, pin[index].long], { icon: icon, riseOnHover: true }); 
-          markers.push(marker);
+          $scope.markers.push(marker);
 
 
           $scope.subscribeMarkerEvents(marker, demands[i]);
@@ -42,7 +42,7 @@ controllers.controller('demandsController', [
     }
 
 
-    var group = L.layerGroup(markers).addTo($scope.map);
+    $scope.layerGroup = L.layerGroup($scope.markers).addTo($scope.map);
   }
 
   $scope.subscribeMarkerEvents = function(marker, demand) {
@@ -67,8 +67,8 @@ controllers.controller('demandsController', [
   }
 
 
-  $scope.loadDemands = function() {
-    demandFactory.index({}, function(response){
+  $scope.loadDemands = function(params) {
+    demandFactory.index(params, function(response){
       $scope.showDemandsOnMap(response.demands);
     });
   }
@@ -85,6 +85,14 @@ controllers.controller('demandsController', [
     walking: "Deslocamento a pé",
     bus: "Transporte Coletivo",
 
+  }
+
+
+  $scope.loadMarkers = function(category_id) {
+    demandFactory.index({by_category_id: category_id }, function(response) {
+      $scope.map.removeLayer($scope.layerGroup);
+      $scope.showDemandsOnMap(response.demands);
+    });
   }
 
 

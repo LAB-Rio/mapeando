@@ -9,6 +9,9 @@ class Demand < ActiveRecord::Base
   belongs_to :category
  
   has_many :pins
+  
+  scope :by_category_id, ->(id) { where(category_id: id) }
+
 
   validates :user, :category, presence: true
 

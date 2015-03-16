@@ -1,6 +1,7 @@
 class DemandsController < ApplicationController
 
   respond_to :json, :html
+  has_scope :by_category_id
 
 
   before_filter only: [:create] do 
@@ -9,7 +10,7 @@ class DemandsController < ApplicationController
   end
 
   def index
-    @demands = Demand.all
+    @demands = apply_scopes(Demand.all).all
     respond_with @demands
   end
 

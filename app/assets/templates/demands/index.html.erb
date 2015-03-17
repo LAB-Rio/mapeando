@@ -7,7 +7,7 @@
     <div class="filter" ng-repeat="(key, value) in categories.categories | groupBy: 'travel_mode' | orderBy: '!travel_mode'">
       <h5>{{ categoryName[key] }}</h5>
       <ol>
-        <li ng-click="loadMarkers(category.id)" ng-repeat="category in value">
+        <li ng-click="loadMarkers(category.id)" ng-class="{ 'active': isOnActivePool(category.id) }" ng-repeat="category in value">
           <img ng-src="{{ category.icon_url }}" width="20" />
           {{ category.name }} 
         </li>
@@ -20,7 +20,8 @@
 
 <div id="logos">
 
-  <a href="http://labrio.cc" target="_blank"><%= image_tag('labrio.png', size: '50x50')  %></a>
+  <a href="http://labrio.cc" target="_blank"><%= image_tag('labrio.png', size: '50x50')  %></a> &nbsp;
+  <a href="http://prefeitura.rio" target="_blank"><%= image_tag('prefeitura.png', size: '60x60')  %></a>
 </div>
 
 

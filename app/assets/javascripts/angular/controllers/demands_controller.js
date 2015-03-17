@@ -2,8 +2,14 @@ controllers.controller('demandsController', [
   '$scope', 'mapFactory', 'demandFactory', 'categoryFactory', '$http', '$q', 
   function($scope, mapFactory, demandFactory, categoryFactory, $http, $q){
  
+  
+    
+  $scope.activeCategoriesPool = [];
+  $scope.activeCategory;
+
   $scope.map, $scope.result, $scope.markers, $scope.layerGroup;
   $scope.categories = categoryFactory.index(); 
+
 
   $scope.initialize = function(){
     $scope.map = mapFactory.buildMap('map');
@@ -48,7 +54,7 @@ controllers.controller('demandsController', [
   $scope.subscribeMarkerEvents = function(marker, demand) {
 
     $scope.setPopupContent(marker, demand, 'click');
-    $scope.setPopupContent(marker, demand, 'mouseover');
+    //$scope.setPopupContent(marker, demand, 'mouseover');
    }
 
 
@@ -89,12 +95,23 @@ controllers.controller('demandsController', [
 
 
   $scope.loadMarkers = function(category_id) {
+
     demandFactory.index({by_category_id: category_id }, function(response) {
       $scope.map.removeLayer($scope.layerGroup);
       $scope.showDemandsOnMap(response.demands);
+
+      $scope.activeCategory = category_id;
+      //$scope.activeCategoriesPool.push(category_id);
     });
   }
 
+  $scope.isOnActivePool = function(category_id) {
+    return $scope.contains($scope.activeCategoriesPool, category_id);
+  }
+
+  $scope.contains = function(arr, x) {
+    return arr.filter(function(elem) { return elem == x }).length > 0;
+  }
 
   $scope.initialize();
 

@@ -73,12 +73,27 @@ body
     list-style-type: none
     padding: .4em 1.5em
     font-size: .8em
+    transition: all .3s
+    -webkit-filter: grayscale(1)
+    -moz-filter: grayscale(1)
+    -ms-filter: grayscale(1)
+    filter: grayscale(1)
+    opacity: .8
     img 
       float: left
+      opacity: .4
       padding: .2em .4em .8em 0
     &:hover
       background: #f9f9f9
       cursor: pointer
+    &.active
+      opacity: 1
+      -webkit-filter: grayscale(0)
+      -moz-filter: grayscale(0)
+      -ms-filter: grayscale(0)
+      filter: grayscale(0)
+      img
+        opacity: 1
   h5
     font-weight: 500
     font-size: .9em !important

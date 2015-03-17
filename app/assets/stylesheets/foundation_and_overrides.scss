@@ -1440,4 +1440,11 @@ $include-html-global-classes: $include-html-classes;
 // $include-legacy-visibility-classes: true;
 // $include-accessibility-classes: true;
 
-@import 'foundation';
+@import 'foundation/components/global';
+@import 'foundation/components/grid';
+@import 'foundation/components/forms';
+@import 'foundation/components/buttons';
+@import 'foundation/components/type';
+@import "foundation/components/visibility";
+@import "foundation/components/block-grid";
+

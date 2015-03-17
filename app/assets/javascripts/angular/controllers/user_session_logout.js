@@ -2,7 +2,7 @@ controllers.controller('userSessionLogoutController', ['$scope','$location','Aut
   
 
   Auth.logout().then(function(oldUser){
-    currentUserFactory.user = {};
+    currentUserFactory.user = null;
   }, function(err) {
     console.log(err);
   });

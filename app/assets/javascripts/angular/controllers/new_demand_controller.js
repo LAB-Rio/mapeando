@@ -9,7 +9,6 @@ controllers.controller('newDemandController', [
 
   $scope.initialize = function(){
 
-    $scope.setDemandTypes();
 
     if (!$scope.session.user) {
       $scope.session.referrer = '/demands/new';
@@ -19,6 +18,7 @@ controllers.controller('newDemandController', [
     }
 
 
+    $scope.setDemandTypes();
 
     $scope.categories = categoryFactory.index();
   }

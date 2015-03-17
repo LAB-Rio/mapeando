@@ -3,7 +3,7 @@
 
 
   <div id="filters" class="hide-for-small-only">
-    <h3 class="text-center"> Filtre as demandas </h3>
+    <h3 class="text-center"> Ver demandas indicadas </h3>
     <div class="filter" ng-repeat="(key, value) in categories.categories | groupBy: 'travel_mode' | orderBy: '!travel_mode'">
       <h5>{{ categoryName[key] }}</h5>
       <ol>

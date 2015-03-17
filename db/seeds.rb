@@ -43,4 +43,4 @@ districts.each do |row|
   District.create(name: row[0].encode('utf-8'), lat: row[1], long: row[2])
 end
 
-reate(first_name: 'Luiz', email: 'eu@luiz.cc', district_id: District.first.id, last_name: 'Claudio', password: '123456')
+#create(first_name: 'Luiz', email: 'eu@luiz.cc', district_id: District.first.id, last_name: 'Claudio', password: '123456')

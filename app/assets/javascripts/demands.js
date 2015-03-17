@@ -7,7 +7,9 @@ demandsApp = angular.module('demandsApp', [
   'ngAnimate', 
   'ngRoute', 
   'ngResource',
-  'Devise'
+  'Devise',
+  'angulartics',
+  'angulartics.google.analytics'
 ]);
 
 demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', function($routeProvider, $locationProvider, ezfbProvider){

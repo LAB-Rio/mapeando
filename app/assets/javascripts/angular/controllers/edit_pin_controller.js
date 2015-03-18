@@ -112,6 +112,10 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
     
   }
 
+  $scope.reset = function() {
+    $scope.demand = null;
+  }
+
 
   $scope.nextStep = function() {
     $location.path('/demands/create'); 

@@ -133,40 +133,31 @@ body
   position: relative
   border-bottom: 1px solid #ccc
   background: white
+  padding: .6em 0
 
 .logo img 
   position: relative
-  top: .7em
 
 // header's Navigation menu
-.navigation
-  list-style-position: inside !important
+ol.navigation
+  position: relative
   padding: 0
   margin: 0
+  top: 4px
 
-.user-logged .navigation-link a
-  top: 20% !important
 .user-logged .hidden
   display: inline-block !important
 
-.user-logged .navigation-link 
-  height: 55px !important
-  max-height: 55px !important
 
 .user-logged .user-avatar
-  border-left: 1px solid #ddd !important
-  padding: 0 .8em !important
-  background: #f9f9f9
   a
     &:hover
       text-decoration: none !important
   img
     position: relative
-    top: -3px
     display: inline-block
-    padding-top: .5em
   span
-    font-size: .8em
+    font-size: .7em
 
   .user-menu 
     transition: all .3s
@@ -178,7 +169,7 @@ body
   display: block
   margin-left: 0
   position: absolute
-  top: 55px
+  top: 38px
   background: white
   width: 35%
   min-width: 200px
@@ -208,10 +199,8 @@ body
 
 .menu .navigation-link
   margin: 0
-  height: 60px
-  max-height: 60px
   display: inline-block
-  padding: .3em 1em .4em 1em 
+  padding: 0 1em .4em 0 
   transition: all .2s
 
 
@@ -545,3 +534,8 @@ body
   .navigation-link
     padding: .3em .4em !important
     font-size: .9em
+
+  .user-avatar
+    padding: 0 .4em !important
+  ol.navigation
+    top: 0px

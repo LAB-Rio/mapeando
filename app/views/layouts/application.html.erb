@@ -16,7 +16,7 @@
 
     <div id="header">
       <div class="row">
-        <div class="medium-3 small-3 text-left logo columns">
+        <div class="medium-3 small-2 text-left logo columns">
           <%= link_to image_tag('logo.png', size: '190x35'), '#/', class: 'hide-for-small-only' %>
           <%= link_to image_tag('logo-icon.png', size: '40x40'), '#/', class: 'show-for-small-only' %>
         </div>
@@ -26,7 +26,7 @@
           &nbsp;
         </div>
 
-        <div class="medium-6 small-9 columns menu text-right end" ng-controller="userSessionController">
+        <div class="medium-6 small-10 columns menu text-right end" ng-controller="userSessionController">
           <ol class="navigation" ng-class="{ 'user-logged': currentUser }">
             <li class="navigation-link button-action">
               <a href="#/demands/new"> 

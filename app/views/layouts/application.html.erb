@@ -16,15 +16,17 @@
 
     <div id="header">
       <div class="row">
-        <div class="medium-3 hide-for-small-only text-left logo columns">
-          <%= link_to image_tag('logo.png', size: '190x35'), '#/' %>
+        <div class="medium-3 small-3 text-left logo columns">
+          <%= link_to image_tag('logo.png', size: '190x35'), '#/', class: 'hide-for-small-only' %>
+          <%= link_to image_tag('logo-icon.png', size: '40x40'), '#/', class: 'show-for-small-only' %>
         </div>
+
 
         <div class="medium-3 hide-for-small-only columns">
           &nbsp;
         </div>
 
-        <div class="medium-6 columns menu text-right end" ng-controller="userSessionController">
+        <div class="medium-6 small-9 columns menu text-right end" ng-controller="userSessionController">
           <ol class="navigation" ng-class="{ 'user-logged': currentUser }">
             <li class="navigation-link button-action">
               <a href="#/demands/new"> 
@@ -34,7 +36,7 @@
             </li>
 
 
-            <li class="navigation-link" ng-show="!currentUser">
+            <li class="navigation-link hide-for-small-only" ng-show="!currentUser">
               <a href="#/signup" class="signup" >
                 <span> Registrar</span>
               </a>

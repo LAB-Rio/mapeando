@@ -1,3 +1,25 @@
+<div id="welcome-screen" ng-show="!$root.showWelcomeScreen">
+  <div class="row text-center">
+
+
+    <div class="medium-10 medium-centered welcome-text columns">
+      <p><br/><br/><%= image_tag "logo-icon.png", size: '96x96' %></p>
+      <h3>Olá, este é o Mapeando, a plataforma colaborativa para indicar soluções para a cidade do Rio de Janeiro!</h3>
+      <br/>
+      <h5>Ajude a Prefeitura do Rio a melhorar suas políticas públicas indicando no mapa suas demandas para a cidade.</h5>
+
+
+      <p><br/><a href="#/" ng-click="$root.showWelcomeScreen = true" class="button">Continuar</a></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 <div class="index" ng-init="$root.showNavBackLink = false">
   <div id="map"></div>
 
@@ -19,7 +41,6 @@
 
 
 <div id="logos">
-
   <a href="http://labrio.cc" target="_blank"><%= image_tag('labrio.png', size: '50x50')  %></a> &nbsp;
   <a href="http://prefeitura.rio" target="_blank"><%= image_tag('prefeitura.png', size: '60x60')  %></a>
 </div>

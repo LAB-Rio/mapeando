@@ -10,7 +10,7 @@ demandsApp.factory('mapFactory', ['$resource', function($resource){
 
       var map = L.map(map_id, { 
         fullScreen: true, 
-        scrollWheelZoom: true,
+        scrollWheelZoom: false,
         maxBounds: bounds
       }).setView([-22.9083, -43.2108], 13);
 

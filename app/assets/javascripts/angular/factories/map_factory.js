@@ -5,9 +5,13 @@ demandsApp.factory('mapFactory', ['$resource', function($resource){
       
       var map_id = (map_name == '') ? 'map' : map_name;
 
+      // set map view to the city boundaries
+      var bounds = L.latLngBounds(L.latLng(-23.0763561, -43.7959671), L.latLng(-22.7259989, -43.0799675));
+
       var map = L.map(map_id, { 
         fullScreen: true, 
-        scrollWheelZoom: false 
+        scrollWheelZoom: true,
+        maxBounds: bounds
       }).setView([-22.9083, -43.2108], 13);
 
       // 1 - Positron Dark: http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png 

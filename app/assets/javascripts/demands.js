@@ -20,6 +20,7 @@ demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', functi
     .when('/demands/create', { templateUrl: 'demands/create.html', controller: 'createDemandController' })
     .when('/demands/new/pins/edit', { templateUrl: 'pins/edit.html', controller: 'editPinController' })
     .when('/demands/show/:id',{ templateUrl: 'demands/show.html', controller: 'showDemandController' })
+    .when('/about',{ templateUrl: 'pages/about.html' })
     .when('/login', { templateUrl: 'users/login.html', controller: 'userLoginController' })
     .when('/user/confirmation', { templateUrl: 'users/confirmation.html' })
     .when('/user/confirmation/:token', { templateUrl: 'users/confirmation.html', controller: 'userConfirmationController' })

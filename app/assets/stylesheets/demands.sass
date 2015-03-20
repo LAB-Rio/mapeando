@@ -56,10 +56,10 @@ body
 
 // Welcome Screen
 #welcome-screen
-  background: rgba(0,0,0, 0.9)
+  background: rgba(0,0,0,0.9)
   width: 100%
   position: fixed
-  z-index: 9999
+  z-index: 990 
   top: 0
   bottom: 0
   h3
@@ -150,13 +150,15 @@ body
   max-width: 100%
 
 #header
-  z-index: 998
-  border-bottom: 1px solid #ccc
+  z-index: 10
+  box-shadow: 0 1px 1px #ddd
   background: white
+  position: relative
   padding: .6em 0
 
 .logo img 
   position: relative
+  
 
 // header's Navigation menu
 ol.navigation
@@ -164,6 +166,7 @@ ol.navigation
   padding: 0
   margin: 0
   top: 4px
+  font-size: .9em
 
 .user-logged .hidden
   display: inline-block !important
@@ -195,7 +198,7 @@ ol.navigation
   min-width: 200px
   right: 0
   height: auto
-  z-index: 999
+  z-index: 9999 !important
   a
     color: #666
     font-size: .9em
@@ -259,6 +262,7 @@ ol.navigation
   min-height: 400px
   height: 100%
   min-height: 100% !important
+  z-index: 9
 
 
 
@@ -273,7 +277,7 @@ ol.navigation
 .view-container
   background: #eee !important
   position: relative
-  z-index: 98
+  z-index: 8
   height: 90.8%
   
 .view-animate
@@ -365,53 +369,69 @@ ol.navigation
 // Edit Pins / Add new Marker
 .edit-pin-form
   width: 100%
+  position: absolute
+  z-index: 9 
   margin: 0 auto
-  top: 7%
   padding: 0
-  z-index: 9999
   background: #f9f9f9 
 
 
 .edit-pin-form label
-  width: 100%
+  width: 90%
+  color: #444
+  display: inline-block
   padding: .6em .8em
+  margin: .6em 0
 
 .edit-pin-form .info
-  color: #009517
+  color: #333 
   font-size: .9em
+  margin-top: -.6em
   opacity: .7
 
 #searchTextField 
-  top: 6px
-  display: inline-block
+  display: block
   width: 100% 
-  position: relative
   box-shadow: none
   border-bottom: 1px solid #aaa
   font-size: 1.2em
   color: #333
   padding: 1.2em .4em !important
   height: 40px
+  margin: 0
 #searchTextField:focus
   background: white
 
+.edit-pin-action
+  background: #333
+  display: inline-block
+  webkit-filter: invert(100%)
+  padding: .4em .6em
+  &:hover
+    background: #ed2654
+
+
+
 .leaflet-control-zoom
   position: relative
-  top: 4em
+  top: 10em
 
 .map-data 
-  height: 85% 
-.map-data #user-map
-  height: 85%
+  height: 100% 
+  &:hover
+    cursor: crosshair
 
+.map-data #user-map
+  height: 100%
+  
 
 .form-options
   position: fixed
   z-index: 9999
-  height: 15% 
+  height: 80px
   width: 100%
   background: white
-  bottom: 0
+  bottom: 0 !important
 
 
 
@@ -425,15 +445,6 @@ ol.navigation
   border-bottom: 1px solid #666
   color: #666
 
-
-.footer
-  position: fixed
-  height: 70px
-  padding: .4em 0
-  color: white
-  font-size: .8em
-  width: 100%
-  bottom: 0
 
 
 .marker-view
@@ -566,3 +577,32 @@ ol.navigation
     h5
       font-size: .9em
 
+
+
+
+
+
+// Pages style
+.about
+  padding: 2em 3em !important
+  h2
+    font-weight: bold 
+    font-size: 1.8em
+    margin-bottom: 1em
+  h4
+    margin-top: .8em
+    font-weight: 500
+
+  h4 span
+    background: #ed2654
+    display: inline-block
+    padding: .2em .6em 
+    position: relative
+    top: -2px
+    margin-right: .4em
+    font-size: .8em !important
+    border-radius: 6px
+    color: white
+  p
+    margin-bottom: 3em
+    color: #444

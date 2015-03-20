@@ -16,7 +16,7 @@
 
     <div id="header">
       <div class="row">
-        <div class="medium-3 small-3 text-left logo columns">
+        <div class="medium-2 small-3 text-left logo columns">
           <%= link_to image_tag('logo.png', size: '190x35'), '#/', class: 'hide-for-small-only large-logo' %>
           <div class="show-for-small-only">
             <a href="#/" ng-show="$root.showNavBackLink"><%= image_tag('nav-back.png', size: '8x8') %></a>
@@ -25,7 +25,7 @@
         </div>
 
 
-        <div class="medium-3 hide-for-small-only columns">
+        <div class="medium-4 hide-for-small-only columns">
           &nbsp;
         </div>
 
@@ -38,12 +38,17 @@
               </a>
             </li>
 
+            <li class="navigation-link hide-on-mobile">
+              <a href="#/about">
+                <span> Sobre o mapeando </span>
+              </a>
+            </li>
 
-            <li class="navigation-link hide-on-mobile" ng-show="!currentUser">
+           <!-- <li class="navigation-link hide-on-mobile" ng-show="!currentUser">
               <a href="#/signup" class="signup" >
                 <span> Registrar</span>
               </a>
-            </li>
+            </li>-->
 
             <li class="navigation-link" ng-show="!currentUser">
               <a href="#/login" class="login" >
@@ -81,6 +86,29 @@
       </div>
 
     </div>
+
+
+
+    <div id="welcome-screen" ng-click="$root.showWelcomeScreen = true" ng-hide="$root.showWelcomeScreen">
+      <div class="row text-center">
+
+
+        <div class="medium-5 medium-centered welcome-text columns">
+          <p><%= image_tag "logo-icon.png", size: '96x96' %></p>
+          <h3>Olá, este é o Mapeando, a plataforma colaborativa para indicar soluções para a cidade do Rio de Janeiro!</h3>
+          <br/>
+          <h5>Ajude a Prefeitura do Rio a melhorar suas políticas públicas indicando no mapa suas demandas para a cidade.</h5>
+
+
+          <p><a href="#/" ng-click="$root.showWelcomeScreen = true" class="button">Continuar</a></p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
 
     
 

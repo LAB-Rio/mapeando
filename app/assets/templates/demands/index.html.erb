@@ -1,8 +1,8 @@
-<div id="welcome-screen" ng-show="!$root.showWelcomeScreen">
+<div id="welcome-screen" ng-click="$root.showWelcomeScreen = true" ng-show="!$root.showWelcomeScreen">
   <div class="row text-center">
 
 
-    <div class="medium-10 medium-centered welcome-text columns">
+    <div class="medium-6 medium-centered welcome-text columns">
       <p><%= image_tag "logo-icon.png", size: '96x96' %></p>
       <h3>Olá, este é o Mapeando, a plataforma colaborativa para indicar soluções para a cidade do Rio de Janeiro!</h3>
       <br/>

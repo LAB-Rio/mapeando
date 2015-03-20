@@ -364,23 +364,21 @@ ol.navigation
 
 // Edit Pins / Add new Marker
 .edit-pin-form
-  padding: .8em 3em
   width: 100%
   margin: 0 auto
-  position: absolute
   top: 7%
+  padding: 0
   z-index: 9999
+  background: #f9f9f9 
+
 
 .edit-pin-form label
-  background: white
+  width: 100%
   padding: .6em .8em
-  text-indent: .5em
-  font-size: 1.1em
-  box-shadow: 0 1px 1px #666
 
 .edit-pin-form .info
   color: #009517
-  font-size: .8em
+  font-size: .9em
   opacity: .7
 
 #searchTextField 
@@ -388,14 +386,14 @@ ol.navigation
   display: inline-block
   width: 100% 
   position: relative
-  border: none 
   box-shadow: none
   border-bottom: 1px solid #aaa
   font-size: 1.2em
   color: #333
   padding: 1.2em .4em !important
   height: 40px
-
+#searchTextField:focus
+  background: white
 
 .leaflet-control-zoom
   position: relative

@@ -79,9 +79,9 @@ body
     padding: .4em 0 .4em 0
     margin-bottom: .8em
     border-bottom: 1px solid #e9e9e9
-
+  transition: all .3s
   position: fixed
-  background: rgba(255,255,255,1)
+  background: rgba(255,255,255,.7)
   width: 26%
   min-width: 350px !important
   top: 15%
@@ -378,7 +378,7 @@ ol.navigation
 
 
 .edit-pin-form label
-  width: 90%
+  width: 70%
   color: #444
   display: inline-block
   padding: .6em .8em
@@ -408,6 +408,11 @@ ol.navigation
   display: inline-block
   webkit-filter: invert(100%)
   padding: .4em .6em
+  margin: .6em 0
+  a
+    color: white
+    &:hover
+      color: white
   &:hover
     background: #ed2654
 

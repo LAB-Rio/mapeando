@@ -1,6 +1,6 @@
 controllers.controller('demandsController', [
-  '$scope', 'mapFactory', 'demandFactory', 'categoryFactory', '$http', '$q', 
-  function($scope, mapFactory, demandFactory, categoryFactory, $http, $q){
+  '$scope', 'mapFactory', 'demandFactory', 'categoryFactory', '$http', '$q', '$filter', 
+  function($scope, mapFactory, demandFactory, categoryFactory, $http, $q, $filter){
  
   
    
@@ -59,13 +59,14 @@ controllers.controller('demandsController', [
 
 
   $scope.setPopupContent = function(marker, demand, binding){
+    var truncate = $filter('truncate');
 
     marker.on(binding, function(event) {
       var html = '<div class="marker-view">';
       html += '<img src="' + demand.user.avatar + '" width="40" height="40"/>';
       html += '<h6><strong>' + demand.user.first_name + ' quer</strong> em ' + demand.pins[0].fullname + ' </h6>';
       html += '<div class="marker-content"><h5>'+ demand.category + '</h5>';
-      html += '<blockquote>' + demand.fullname + '</blockquote></div>';
+      html += '<blockquote>' + truncate(demand.fullname, 140) + '</blockquote></div>';
       html += '<p class="text-center"><a class="button" href="#/demands/show/'+ demand.id + '">Ver mais</a></p>';
       html += '</div>';
       marker.bindPopup(html).openPopup();   

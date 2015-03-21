@@ -10,6 +10,9 @@ ruby '2.2.0'
 gem 'rails', '4.2.0'
 gem 'puma'
 
+# Prerender partials so scrappers can get them
+gem 'prerender_rails'
+
 
 # Controller
 gem 'responders'

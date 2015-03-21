@@ -16,14 +16,13 @@
     <meta property="og:description" content="Plataforma colaborativa para indicar soluções para a cidade do Rio de Janeiro! Ajude a Prefeitura do Rio a melhorar suas políticas públicas indicando suas demandas para a cidade."/>
     <meta property="og:image" content="http://i.imgur.com/jIfgfRV.png"/>
     <meta property="og:site_name" content="Mapeando"/>
-    <meta property="og:url" content="http://mapeando.rio.gov.br"/>
+    <meta property="og:url" content="http://mapeando.rio.gov.br/"/>
     <meta property="og:locale" content="pt_BR"/>
 
 
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&region=BR&language=pt_BR&output=json" %>
     <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
     <%= stylesheet_link_tag  "application" %>
-
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&region=BR&language=pt_BR&output=json" %>
     <%= javascript_include_tag "application" %>
 
     <script>
@@ -132,7 +131,7 @@
       <div class="row text-center">
 
 
-        <div class="medium-7 small-8 small-centered medium-centered welcome-text columns">
+        <div class="medium-7 small-12 medium-centered welcome-text columns">
           <p><%= image_tag "logo-icon.png", size: '96x96' %></p>
           <h3>Olá, este é o Mapeando, a plataforma colaborativa para indicar soluções para a cidade do Rio de Janeiro!</h3>
           <br/>

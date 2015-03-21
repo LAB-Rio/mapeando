@@ -150,6 +150,9 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
+    prerender_rails (1.1.2)
+      activesupport
+      rack
     puma (2.11.1)
       rack (>= 1.1, < 2.0)
     rack (1.6.0)
@@ -295,6 +298,7 @@ DEPENDENCIES
   omniauth-facebook
   pg
   poltergeist
+  prerender_rails
   puma
   rack-zippy
   rails (= 4.2.0)

@@ -2,8 +2,8 @@ controllers.controller('newDemandController', [
   '$scope', '$location', '$resource', '$route', 'categoryFactory', 'demandFormFactory', 'currentUserFactory', 
   function($scope, $location, $resource, $route, categoryFactory, demandFormFactory, currentUserFactory){
 
-  $scope.demand = demandFormFactory;
   $scope.isIssue, $scope.isDemand = false;
+  $scope.demand = demandFormFactory;
   $scope.session = currentUserFactory;
 
 
@@ -17,9 +17,7 @@ controllers.controller('newDemandController', [
       $scope.demand.user = $scope.session.user;
     }
 
-
     $scope.setDemandTypes();
-
     $scope.categories = categoryFactory.index();
   }
 
@@ -43,18 +41,6 @@ controllers.controller('newDemandController', [
   }
 
 
-
-  $scope.demandTypes = {
-    issue: {
-      header: 'Novo problema',
-      category_header: 'O seu problema é sobre o quê?'
-    },
-    demand: { 
-      header: 'Nova demanda',
-      category_header: 'A sua ideia é sobre o quê?'
-
-    }
-  }
 
 
   $scope.initialize();

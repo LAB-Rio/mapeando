@@ -3,7 +3,7 @@ controllers.controller('demandsController', [
   function($scope, mapFactory, demandFactory, categoryFactory, $http, $q){
  
   
-    
+   
   $scope.activeCategoriesPool = [];
   $scope.activeCategory;
 

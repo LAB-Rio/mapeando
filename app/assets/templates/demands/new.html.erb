@@ -1,7 +1,5 @@
 <div class="row new-demand">
-
   <div class="medium-7 medium-centered view-content columns">
-    
     <form name="form" novalidate class="new-demand-form" ng-submit="nextStep()">
       <br/>
 
@@ -26,7 +24,8 @@
         <span class="info">Obs.: Este campo é opcional</span>
 
         <label>
-          <textarea ng-model="demand.fullname" ng-maxlength="500" name="demand[fullname]"></textarea>
+          <textarea ng-model="demand.fullname" ng-maxlength="300" name="demand[fullname]"></textarea>
+          <span ng-show="demand.fullname"> {{ demand.fullname.length }} caracteres de 300 </span>
         </label>
 
 

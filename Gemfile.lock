@@ -123,6 +123,7 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    newrelic_rpm (3.11.0.283)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
@@ -149,6 +150,8 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
+    puma (2.11.1)
+      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -288,9 +291,11 @@ DEPENDENCIES
   has_scope
   jasmine!
   jquery-rails
+  newrelic_rpm
   omniauth-facebook
   pg
   poltergeist
+  puma
   rack-zippy
   rails (= 4.2.0)
   rails-assets-angular-devise

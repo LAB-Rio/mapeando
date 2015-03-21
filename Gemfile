@@ -8,6 +8,7 @@ ruby '2.2.0'
 
 
 gem 'rails', '4.2.0'
+gem 'puma'
 
 
 # Controller
@@ -31,6 +32,7 @@ gem 'pg' # Use postgresql as the database for Active Record
 group :production, :staging do
   gem 'rack-zippy'
   gem 'rails_12factor'
+  gem 'newrelic_rpm'
 end
 
 

@@ -30,6 +30,7 @@ controllers.controller('createDemandController', ['$scope', '$location', 'demand
       }
     ).
       success(function(data, status, headers, config){
+        $scope.demand = {};
         $location.path('/');
     }).
       error(function(data, status, headers, config){

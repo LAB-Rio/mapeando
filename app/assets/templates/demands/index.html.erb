@@ -1,8 +1,9 @@
 <div class="index" ng-init="$root.showNavBackLink = false">
+  
   <div id="map"></div>
 
 
-  <div id="filters" class="hide-for-small-only">
+  <div id="filters" class="show-for-medium-up">
     <h3 class="text-center"> Ver demandas indicadas </h3>
     <div class="filter" ng-repeat="(key, value) in categories.categories | groupBy: 'travel_mode' | orderBy: '!travel_mode'">
       <h5>{{ categoryName[key] }}</h5>
@@ -15,12 +16,16 @@
     </div>
     <div class="show-all text-center" ng-clock><a ng-click="loadMarkers('')">Ver todas</a></div>
   </div>
+
+
+
+
 </div>
 
 
-<div id="logos">
+<!--<div id="logos">
   <a href="http://labrio.cc" target="_blank"><%= image_tag('labrio.png', size: '50x50')  %></a> &nbsp;
   <a href="http://prefeitura.rio" target="_blank"><%= image_tag('prefeitura.png', size: '60x60')  %></a>
-</div>
+</div>-->
 
 

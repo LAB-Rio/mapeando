@@ -14,7 +14,6 @@
 //= require angular-resource
 //= require angular-route
 //= require angular-animate
-//= require angular-rails-templates
 //= require angular-devise/devise
 //= require angular-loading-bar
 //= require angular-filter
@@ -27,5 +26,4 @@
 //= require_tree ./angular/controllers
 //
 //= require leaflet
-//= require_tree ../templates
 //= require_tree .

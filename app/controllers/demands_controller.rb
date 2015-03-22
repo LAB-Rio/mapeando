@@ -14,10 +14,6 @@ class DemandsController < ApplicationController
     respond_with @demands
   end
 
-  def new
-  end
-
-
 
   def create
     @demand = Demand.create(demand_params)

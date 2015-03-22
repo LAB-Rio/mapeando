@@ -17,10 +17,9 @@ gem 'prerender_rails'
 # Controller
 gem 'responders'
 gem 'has_scope'
-gem 'active_model_serializers', '~> 0.9.0'
+gem 'active_model_serializers', '~> 0.8.3'
 
 # Template
-gem 'slim-rails'
 gem 'foundation-rails'
 
 
@@ -31,6 +30,9 @@ gem 'omniauth-facebook'
 
 # Database
 gem 'pg' # Use postgresql as the database for Active Record
+gem 'postgres_ext-serializers', github: 'crossroads/postgres_ext-serializers'
+
+
 
 group :production, :staging do
   gem 'rack-zippy'
@@ -49,7 +51,6 @@ gem 'rails-assets-angular-easyfb'
 gem 'rails-assets-angulartics'
 gem 'rails-assets-angular'
 gem 'angularjs-rails'
-gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
 gem 'font-awesome-rails'
 
@@ -60,8 +61,6 @@ gem 'rails-assets-leaflet'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 #gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -69,9 +68,6 @@ gem 'jquery-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -93,7 +89,6 @@ group :development, :test do
   #gem 'spring'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-
 
   gem 'jasmine', github: "pivotal/jasmine-gem"
 end

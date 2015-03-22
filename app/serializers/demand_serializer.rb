@@ -1,22 +1,44 @@
 class DemandSerializer < ActiveModel::Serializer
-  attributes :id, :fullname, :user, :category, :category_id
+  attributes :id, :fullname, :user_id, :category_id, :category, :pins, :user
  
-  has_one :user
-  has_one :category
-  has_many :pins
 
-
-  
-  def user 
-    { 
-      user_id: object.user.id,
-      first_name: object.user.first_name,
-      avatar: object.user.avatar,
-      district: object.user.district.name
-    }
+  def category__sql
+    '(  
+        SELECT row_to_json(cat) 
+        FROM ( 
+          SELECT name, travel_mode, icon_url 
+          FROM categories 
+          WHERE categories.id = demands.category_id 
+        ) cat
+      )'
   end
 
-  def category
-    object.category.name
+
+  def pins__sql
+    '(  
+        SELECT json_agg(row_to_json(p)) 
+        FROM (
+          SELECT lat, long, fullname FROM pins 
+          WHERE pins.demand_id = demands.id
+        ) p
+      )'
   end
+
+
+  def user__sql
+     '(  
+        SELECT row_to_json(usr) 
+        FROM ( 
+          SELECT 
+            first_name, 
+            last_name, 
+            avatar,
+            (SELECT name FROM districts dt WHERE dt.id = u1.district_id) as district
+          FROM users u1 
+          WHERE u1.id = demands.user_id 
+        ) usr
+      )'     
+  end
+
+
 end

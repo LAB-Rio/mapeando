@@ -2,7 +2,6 @@ demandsApp = angular.module('demandsApp', [
   'angular-loading-bar',
   'angular.filter',
   'ezfb',
-  'templates', 
   'controllers', 
   'ngAnimate', 
   'ngRoute', 
@@ -14,18 +13,18 @@ demandsApp = angular.module('demandsApp', [
 
 demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', function($routeProvider, $locationProvider, ezfbProvider){
   $routeProvider
-    .when('/', { templateUrl: 'demands/index.html', controller: 'demandsController' })
-    .when('/demands/new',{ templateUrl: 'demands/new.html', controller: 'newDemandController' })
-    .when('/demands/new/pins', { templateUrl: 'pins/new.html', controller: 'newPinController' })
-    .when('/demands/create', { templateUrl: 'demands/create.html', controller: 'createDemandController' })
-    .when('/demands/new/pins/edit', { templateUrl: 'pins/edit.html', controller: 'editPinController' })
-    .when('/demands/show/:id',{ templateUrl: 'demands/show.html', controller: 'showDemandController' })
-    .when('/about',{ templateUrl: 'pages/about.html' })
-    .when('/login', { templateUrl: 'users/login.html', controller: 'userLoginController' })
-    .when('/user/confirmation', { templateUrl: 'users/confirmation.html' })
-    .when('/user/confirmation/:token', { templateUrl: 'users/confirmation.html', controller: 'userConfirmationController' })
-    .when('/signup', { templateUrl: 'users/signup.html', controller: 'userSignupController' })
-    .when('/logout', { templateUrl: 'users/logout.html', controller: 'userSessionLogoutController' });
+    .when('/',                  { templateUrl: 'assets/demands/index.html', controller: 'demandsController' })
+    .when('/demands/new',       { templateUrl: 'assets/demands/new.html', controller: 'newDemandController' })
+    .when('/demands/new/pins',  { templateUrl: 'assets/pins/new.html', controller: 'newPinController' })
+    .when('/demands/create',    { templateUrl: 'assets/demands/create.html', controller: 'createDemandController' })
+    .when('/demands/new/pins/edit', { templateUrl: 'assets/pins/edit.html', controller: 'editPinController' })
+    .when('/demands/show/:id',      { templateUrl: 'assets/demands/show.html', controller: 'showDemandController' })
+    .when('/about',                 { templateUrl: 'assets/pages/about.html' })
+    .when('/login',                 { templateUrl: 'assets/users/login.html', controller: 'userLoginController' })
+    .when('/user/confirmation',     { templateUrl: 'assets/users/confirmation.html' })
+    .when('/user/confirmation/:token',  { templateUrl: 'assets/users/confirmation.html', controller: 'userConfirmationController' })
+    .when('/signup',                    { templateUrl: 'assets/users/signup.html', controller: 'userSignupController' })
+    .when('/logout',                    { templateUrl: 'assets/users/logout.html', controller: 'userSessionLogoutController' });
 
   ezfbProvider.setLocale('pt_BR');
 

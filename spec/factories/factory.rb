@@ -25,7 +25,7 @@ FactoryGirl.define do
     first_name { 'Test' }
     last_name { 'Data' }
     password { '123456' }
-    address_district { 'Botafogo' }
+    district 
     avatar { 'http://placehold.it/60x60' }
   end
 

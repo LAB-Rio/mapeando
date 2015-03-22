@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/crossroads/postgres_ext-serializers.git
+  revision: 84dad0e4b21717bab4c5a8de56e44ca028bcfedb
+  specs:
+    postgres_ext-serializers (0.0.3)
+      active_model_serializers (~> 0.8.0)
+      postgres_ext (~> 2.1)
+
+GIT
   remote: git://github.com/pivotal/jasmine-gem.git
   revision: 4ddc2b5b4aab6f482f76e7949294eff8878c1c46
   specs:
@@ -31,8 +39,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    active_model_serializers (0.9.3)
-      activemodel (>= 3.2)
+    active_model_serializers (0.8.3)
+      activemodel (>= 3.0)
     activejob (4.2.0)
       activesupport (= 4.2.0)
       globalid (>= 0.3.0)
@@ -49,10 +57,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    angular-rails-templates (0.1.3)
-      railties (>= 3.1)
-      sprockets
-      tilt
     angular_rails_csrf (1.0.3)
       rails (>= 3, < 5)
     angularjs-rails (1.3.14)
@@ -107,11 +111,7 @@ GEM
     hike (1.2.3)
     i18n (0.7.0)
     jasmine-core (2.2.0)
-    jquery-rails (4.0.3)
-      rails-dom-testing (~> 1.0)
-      railties (>= 4.2.0)
-      thor (>= 0.14, < 2.0)
-    json (1.8.1)
+    json (1.8.2)
     jwt (1.2.1)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
@@ -119,7 +119,7 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
     mini_portile (0.6.2)
-    minitest (5.5.0)
+    minitest (5.5.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -144,12 +144,17 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    pg_array_parser (0.0.9)
     phantomjs (1.9.8.0)
     poltergeist (1.6.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
+    postgres_ext (2.4.1)
+      activerecord (>= 4.0.0)
+      arel (>= 4.0.1)
+      pg_array_parser (~> 0.0.9)
     prerender_rails (1.1.2)
       activesupport
       rack
@@ -233,15 +238,6 @@ GEM
       tilt (~> 1.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
-    slim (3.0.1)
-      temple (~> 0.7.3)
-      tilt (>= 1.3.3, < 2.1)
-    slim-rails (3.0.1)
-      actionmailer (>= 3.1, < 5.0)
-      actionpack (>= 3.1, < 5.0)
-      activesupport (>= 3.1, < 5.0)
-      railties (>= 3.1, < 5.0)
-      slim (~> 3.0)
     slop (3.6.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -252,9 +248,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    temple (0.7.4)
     thor (0.19.1)
-    thread_safe (0.3.4)
+    thread_safe (0.3.5)
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -278,8 +273,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.9.0)
-  angular-rails-templates
+  active_model_serializers (~> 0.8.3)
   angular_rails_csrf
   angularjs-rails
   byebug
@@ -290,11 +284,11 @@ DEPENDENCIES
   foundation-rails
   has_scope
   jasmine!
-  jquery-rails
   newrelic_rpm
   omniauth-facebook
   pg
   poltergeist
+  postgres_ext-serializers!
   prerender_rails
   puma
   rack-zippy
@@ -311,6 +305,5 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
-  slim-rails
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

@@ -8,11 +8,12 @@ controllers.controller('demandsController', [
   $scope.activeCategory;
 
   $scope.map, $scope.result, $scope.markers, $scope.layerGroup;
-  $scope.categories = categoryFactory.index(); 
 
 
   $scope.initialize = function(){
-    $scope.map = mapFactory.buildMap('map');
+    $scope.map        = mapFactory.buildMap('map');
+    $scope.categories = categoryFactory.index(); 
+
     $scope.loadDemands({});
   }
 
@@ -27,13 +28,16 @@ controllers.controller('demandsController', [
 
       if (demands[i].pins.length > 0) {
 
-        var pin = demands[i].pins;
+        var pin   = demands[i].pins;
+        var icon_url  = demands[i].category.icon_url;
+
+
         var pin_size = demands[i].pins.length;
 
         for (index = 0; index < pin_size; index++) {
 
           
-          var icon = L.icon({ iconUrl: pin[index].icon, iconSize: [22, 22]});
+          var icon = L.icon({ iconUrl: icon_url, iconSize: [22, 22]});
 
           marker = L.marker([pin[index].lat, pin[index].long], { icon: icon, riseOnHover: true }); 
           $scope.markers.push(marker);
@@ -49,6 +53,7 @@ controllers.controller('demandsController', [
 
 
     $scope.layerGroup = L.layerGroup($scope.markers).addTo($scope.map);
+    $scope.markers = [];
   }
 
   $scope.subscribeMarkerEvents = function(marker, demand) {
@@ -65,7 +70,7 @@ controllers.controller('demandsController', [
       var html = '<div class="marker-view">';
       html += '<img src="' + demand.user.avatar + '" width="40" height="40"/>';
       html += '<h6><strong>' + demand.user.first_name + ' quer</strong> em ' + demand.pins[0].fullname + ' </h6>';
-      html += '<div class="marker-content"><h5>'+ demand.category + '</h5>';
+      html += '<div class="marker-content"><h5>'+ demand.category.name + '</h5>';
       html += '<blockquote>' + truncate(demand.fullname, 140) + '</blockquote></div>';
       html += '<p class="text-center"><a class="button" href="#/demands/show/'+ demand.id + '">Ver mais</a></p>';
       html += '</div>';

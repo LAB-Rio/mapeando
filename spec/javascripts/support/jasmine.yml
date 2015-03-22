@@ -11,7 +11,10 @@
 #   - dist/**/*.js
 #
 src_files:
+  - assets/angular.js
+  - assets/angular-mocks.js
   - assets/application.js
+  - assets/demands.js
 
 # stylesheets
 #
@@ -24,8 +27,8 @@ src_files:
 #   - css/style.css
 #   - stylesheets/*.css
 #
-stylesheets:
-  - assets/application.css
+#stylesheets:
+#  - assets/application.css
 
 # helpers
 #

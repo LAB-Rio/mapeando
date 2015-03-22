@@ -126,7 +126,6 @@ GEM
     newrelic_rpm (3.11.0.283)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
-    non-stupid-digest-assets (1.0.4)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -286,7 +285,6 @@ DEPENDENCIES
   has_scope
   jasmine!
   newrelic_rpm
-  non-stupid-digest-assets
   omniauth-facebook
   pg
   poltergeist

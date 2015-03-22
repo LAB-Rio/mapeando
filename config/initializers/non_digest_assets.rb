@@ -1,0 +1,2 @@
+NonStupidDigestAssets.whitelist += [/*.html./]
+

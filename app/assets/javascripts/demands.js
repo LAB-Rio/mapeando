@@ -9,7 +9,7 @@ demandsApp = angular.module('demandsApp', [
   'ngResource',
   'Devise',
   'angulartics',
-  'angulartics.google.analytics'
+  'angulartics.google.analytics',
 ]);
 
 demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', function($routeProvider, $locationProvider, ezfbProvider){
@@ -35,5 +35,3 @@ demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', functi
 
 
 controllers = angular.module('controllers', []);
-
-

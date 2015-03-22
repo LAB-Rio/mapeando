@@ -42,13 +42,12 @@ end
 # Asset Pipeline
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'rails-assets-openlayers3' # Open Street Map support
-gem 'rails-assets-magnific-popup' # 
 gem 'rails-assets-angular-devise'
 gem 'rails-assets-angular-loading-bar'
 gem 'rails-assets-angular-filter'
 gem 'rails-assets-angular-easyfb'
 gem 'rails-assets-angulartics'
+gem 'rails-assets-angular'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'

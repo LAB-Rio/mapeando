@@ -17,9 +17,10 @@ controllers.controller('showDemandController', ['$scope', '$route', 'demandFacto
 
 
   $scope.setPins = function(pin) {
-    $scope.pin  = pin; 
-    var icon    = L.icon({iconUrl: $scope.pin.icon, iconSize: [26,26]});
-    var marker  = L.marker([$scope.pin.lat, $scope.pin.long], { icon: icon, riseOnHover: true })
+    $scope.pin    = pin; 
+    var icon_url  = $scope.demand.category.icon_url;
+    var icon      = L.icon({iconUrl: icon_url, iconSize: [26,26]});
+    var marker    = L.marker([$scope.pin.lat, $scope.pin.long], { icon: icon, riseOnHover: true })
 
     $scope.map.setView([$scope.pin.lat, $scope.pin.long], 15);
     marker.addTo($scope.map);

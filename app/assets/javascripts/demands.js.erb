@@ -13,18 +13,18 @@ demandsApp = angular.module('demandsApp', [
 
 demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', function($routeProvider, $locationProvider, ezfbProvider){
   $routeProvider
-  .when('/',                  { templateUrl: '<%= asset_path "assets/demands/index.html" %>', controller: 'demandsController' })
-  .when('/demands/new',       { templateUrl: '<%= asset_path "assets/demands/new.html" %>', controller: 'newDemandController' })
-  .when('/demands/new/pins',  { templateUrl: '<%= asset_path "assets/pins/new.html" %>', controller: 'newPinController' })
-  .when('/demands/create',    { templateUrl: '<%= asset_path "assets/demands/create.html" %>', controller: 'createDemandController' })
-    .when('/demands/new/pins/edit', { templateUrl: '<%= asset_path "assets/pins/edit.html" %>', controller: 'editPinController' })
-    .when('/demands/show/:id',      { templateUrl: '<%= asset_path "assets/demands/show.html" %>', controller: 'showDemandController' })
-    .when('/about',                 { templateUrl: '<%= asset_path "assets/pages/about.html" %>' })
-    .when('/login',                 { templateUrl: '<%= asset_path "assets/users/login.html" %>', controller: 'userLoginController' })
-    .when('/user/confirmation',     { templateUrl: '<%= asset_path "assets/users/confirmation.html" %>' })
-    .when('/user/confirmation/:token',  { templateUrl: '<%= asset_path "assets/users/confirmation.html" %>', controller: 'userConfirmationController' })
-    .when('/signup',                    { templateUrl: '<%= asset_path "assets/users/signup.html" %>', controller: 'userSignupController' })
-    .when('/logout',                    { templateUrl: '<%= asset_path "assets/users/logout.html" %>', controller: 'userSessionLogoutController' });
+  .when('/',                  { templateUrl: '<%= asset_path "demands/index.html" %>', controller: 'demandsController' })
+  .when('/demands/new',       { templateUrl: '<%= asset_path "demands/new.html" %>', controller: 'newDemandController' })
+  .when('/demands/new/pins',  { templateUrl: '<%= asset_path "pins/new.html" %>', controller: 'newPinController' })
+  .when('/demands/create',    { templateUrl: '<%= asset_path "demands/create.html" %>', controller: 'createDemandController' })
+    .when('/demands/new/pins/edit', { templateUrl: '<%= asset_path "pins/edit.html" %>', controller: 'editPinController' })
+    .when('/demands/show/:id',      { templateUrl: '<%= asset_path "demands/show.html" %>', controller: 'showDemandController' })
+    .when('/about',                 { templateUrl: '<%= asset_path "pages/about.html" %>' })
+    .when('/login',                 { templateUrl: '<%= asset_path "users/login.html" %>', controller: 'userLoginController' })
+    .when('/user/confirmation',     { templateUrl: '<%= asset_path "users/confirmation.html" %>' })
+    .when('/user/confirmation/:token',  { templateUrl: '<%= asset_path "users/confirmation.html" %>', controller: 'userConfirmationController' })
+    .when('/signup',                    { templateUrl: '<%= asset_path "users/signup.html" %>', controller: 'userSignupController' })
+    .when('/logout',                    { templateUrl: '<%= asset_path "users/logout.html" %>', controller: 'userSessionLogoutController' });
 
   ezfbProvider.setLocale('pt_BR');
 

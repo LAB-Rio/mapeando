@@ -11,7 +11,7 @@ class DemandsController < ApplicationController
 
   def index
     @demands = apply_scopes(Demand.all).all
-    respond_with @demands
+    render json: @demands
   end
 
 

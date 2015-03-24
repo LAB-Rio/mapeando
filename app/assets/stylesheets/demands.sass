@@ -14,6 +14,8 @@ body
 .padding-1
   padding: 1em
 
+.row-full
+  width: 100% !important
 
 [ng\:cloak], [ng-cloak], .ng-cloak 
   display: none
@@ -192,25 +194,27 @@ ol.navigation
 
 
 
+.index
+  height: 100% 
+  min-height: 100%
 
-
-// Index page. Containing the map
-.index #map, .index 
-  width: 100% 
-  height: 100%
+.index .row:first-child
+  width: 100% !important
+  min-width: 100% !important
   min-height: 100% !important
-  z-index: 9
+  height: 100% !important
 
-.index #map
-  width: 70%
-  display: inline-block !important
+.index .columns
+  height: 100% !important
+  padding: 0
+#map
+  width: 100% !important
+  height: 100% !important 
+
 
 // Filters block
 #filters
   background: white
-  width: 30%
-  display: inline-block
-  float: right 
   height: 100%
   padding: .2em .6em .6em 1em
   h3

@@ -113,6 +113,8 @@ GEM
     jasmine-core (2.2.0)
     json (1.8.2)
     jwt (1.2.1)
+    leaflet-markercluster-rails (0.7.0)
+      railties (>= 3.1)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -284,6 +286,7 @@ DEPENDENCIES
   foundation-rails
   has_scope
   jasmine!
+  leaflet-markercluster-rails
   newrelic_rpm
   omniauth-facebook
   pg

@@ -19,7 +19,7 @@ controllers.controller('demandsController', [
 
 
   $scope.showDemandsOnMap = function(demands) {
-    $scope.markers = [];
+    $scope.layerGroup = new L.MarkerClusterGroup();
 
     var size = demands.length;
 
@@ -40,7 +40,7 @@ controllers.controller('demandsController', [
           var icon = L.icon({ iconUrl: icon_url, iconSize: [22, 22]});
 
           marker = L.marker([pin[index].lat, pin[index].long], { icon: icon, riseOnHover: true }); 
-          $scope.markers.push(marker);
+          $scope.layerGroup.addLayer(marker);
 
 
           $scope.subscribeMarkerEvents(marker, demands[i]);
@@ -52,8 +52,7 @@ controllers.controller('demandsController', [
     }
 
 
-    $scope.layerGroup = L.layerGroup($scope.markers).addTo($scope.map);
-    $scope.markers = [];
+    $scope.layerGroup.addTo($scope.map);
   }
 
   $scope.subscribeMarkerEvents = function(marker, demand) {

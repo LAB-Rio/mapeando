@@ -19,7 +19,7 @@ controllers.controller('demandsController', [
 
 
   $scope.showDemandsOnMap = function(demands) {
-    $scope.layerGroup = new L.MarkerClusterGroup();
+    $scope.layerGroup = new L.MarkerClusterGroup({ disableClusteringAtZoom: 14 });
 
     var size = demands.length;
 

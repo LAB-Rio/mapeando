@@ -14,21 +14,21 @@ require 'csv'
 Category.create([
 
   # A pe
-  { name: 'Novas travessias de pedestres', travel_mode: 'walking', icon_url: 'http://i.imgur.com/ISQeE1f.png' },
-  { name: 'Reajustar o tempo do semáforo', travel_mode: 'walking', icon_url: 'http://i.imgur.com/ObLDwfp.png' },
+  { name: 'Nova travessia de pedestre', travel_mode: 'walking', icon_url: 'http://i.imgur.com/ISQeE1f.png' },
+  { name: 'Reajuste do tempo do semáforo', travel_mode: 'walking', icon_url: 'http://i.imgur.com/ObLDwfp.png' },
 
   # Coletivo
   { name: 'Novo ponto de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/jvhVwVy.png' },
   { name: 'Novo terminal de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/zry52P2.png' },
 
   # Bicicleta
-  { name: 'Novos postos de BikeRio', travel_mode: 'biking', icon_url: 'http://i.imgur.com/Nx6uN7a.png' },
+  { name: 'Novo posto de BikeRio', travel_mode: 'biking', icon_url: 'http://i.imgur.com/Nx6uN7a.png' },
   { name: 'Quero uma ciclovia passando aqui', travel_mode: 'biking', icon_url: 'http://i.imgur.com/PGkr5aX.png' },
 
 
   # Motorizado individual
-  { name: 'Restringir o tráfego de automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/TwAqclO.png' },
-  { name: 'Reduzir a velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/Ie4XIjz.png' }
+  { name: 'Restrição do tráfego de automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/TwAqclO.png' },
+  { name: 'Redução da velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/Ie4XIjz.png' }
 
 
 ])

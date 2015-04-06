@@ -19,7 +19,35 @@ controllers.controller('demandsController', [
 
 
   $scope.showDemandsOnMap = function(demands) {
-    $scope.layerGroup = new L.MarkerClusterGroup({ disableClusteringAtZoom: 14 });
+    $scope.layerGroup = new L.MarkerClusterGroup({ 
+      disableClusteringAtZoom: 14,
+      iconCreateFunction: function(cluster) {
+        
+        var c = ' marker-cluster-';
+        var count = cluster.getChildCount();
+
+        switch(count) {
+          case count > 50 || count <= 100:
+            c += 'small';
+            break;
+          case count > 100 || count <= 200:
+            c += 'medium';
+            break;
+          case count > 200:
+            c += 'large';
+            break;
+          default:
+            c += 'large';
+            break;
+        }
+
+		    return new L.DivIcon({ 
+          html: '<div><span>' + count + '</span></div>', 
+          className: 'marker-cluster' + c, 
+          iconSize: new L.Point(40,40) 
+        });
+      }
+    });
 
     var size = demands.length;
 

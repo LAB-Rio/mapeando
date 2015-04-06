@@ -16,6 +16,7 @@
  *= require leaflet 
  *= require leaflet.markercluster
  *= require leaflet.markercluster.default
+ *= require leaflet-routing-machine
 
 
  */

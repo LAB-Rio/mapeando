@@ -27,4 +27,5 @@
 //
 //= require leaflet
 //= require leaflet.markercluster
+//= require leaflet-routing-machine
 //= require_tree .

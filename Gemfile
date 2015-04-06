@@ -57,6 +57,7 @@ gem 'font-awesome-rails'
 # Gem to work with maps: http://leafletjs.com/
 gem 'rails-assets-leaflet'
 gem 'leaflet-markercluster-rails'
+gem 'rails-assets-leaflet-routing-machine'
 
 
 

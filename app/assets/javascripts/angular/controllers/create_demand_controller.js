@@ -21,11 +21,7 @@ controllers.controller('createDemandController', ['$scope', '$location', 'demand
           fullname: demand.fullname,
           category_id: demand.category_id,
           user_id: demand.user.id,
-          pins_attributes: [{
-            lat: demand.latitude,
-            long: demand.longitude,
-            fullname: demand.pin_fullname
-          }]
+          pins_attributes: demand.pins 
         }
       }
     ).
@@ -34,8 +30,7 @@ controllers.controller('createDemandController', ['$scope', '$location', 'demand
         $location.path('/');
     }).
       error(function(data, status, headers, config){
-        alert();
-    
+        console.log('error');
     });
   }
 

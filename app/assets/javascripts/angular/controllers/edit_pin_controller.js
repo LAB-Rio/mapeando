@@ -1,9 +1,10 @@
 controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'mapFactory' ,'$location', function($scope, demandFormFactory, mapFactory, $location){
 
-  $scope.markers = null;
-  $scope.map = mapFactory.buildMap('user-map');
-  $scope.demand = demandFormFactory;
-  $scope.userMarker;
+  $scope.userMarker, $scope.routingControl, $scope.initialMarker;
+  $scope.map      = mapFactory.buildMap('user-map');
+  $scope.demand   = demandFormFactory;
+  $scope.markers  = null;
+  $scope.demand.pins = [];
 
 
 
@@ -11,7 +12,6 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
     if (!$scope.demand.user) {
       $location.path('/demands/new');
     }
-
     $scope.setupAutoComplete();
   }
 
@@ -34,13 +34,19 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       var place = autocomplete.getPlace();
       var lat = place.geometry.location.k;
       var lng = place.geometry.location.D;
-      
-
+     
+      // Text field update
       $scope.demand.pin_fullname = place.formatted_address;
+
+
+      // Setting the initial marker for routing
+      $scope.initialMarker = L.latLng(lat, lng);
 
       // latitude, longitude
       $scope.showMarkerOnAutocomplete(lat, lng);
-  
+
+
+
       $scope.updateDemandPins(lat, lng);
 
       $scope.$apply();
@@ -51,10 +57,12 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
 
   $scope.updateDemandPins = function(lat, lng) {
-      $scope.demand.latitude = lat;
-      $scope.demand.longitude = lng;
+      $scope.demand.pins[0]['latitude'] = lat;
+      $scope.demand.pins[0]['longitude'] = lng;
       $scope.$apply();
   }
+
+
 
 
   $scope.showMarkerOnAutocomplete = function(lat, lng){
@@ -67,16 +75,44 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
     var marker = L.marker([lat, lng], { icon: icon, draggable: true });
 
     $scope.markers = L.layerGroup([marker])
+
     $scope.markers.addTo( $scope.map );
 
     $scope.map.setView(new L.LatLng(lat, lng), 17)
-  
-    $scope.watchMarkerDragEnd(marker); 
+
+
+    // Checking if creating routes is allowed ( based on category/param )
+
+    if (true) {
+      $scope.onMapClick(); 
+    } else {
+      $scope.watchMarkerDragEnd(marker); 
+    }
+
 
 
   }
 
+  // If route creation is enabled, allow map click event
+  $scope.onMapClick = function() {
+    $scope.map.on('click', function(event, layerPoint){
+      $scope.map.removeLayer($scope.markers);
 
+
+      if ( !$scope.routingControl ) {
+        $scope.routingControl = L.Routing.control({ 
+          waypoints: [
+            $scope.initialMarker, 
+            event.latlng
+          ], 
+          routeWhileDragging: true 
+        }).addTo($scope.map); 
+      }
+    });
+
+  }
+
+  // If route creation is not enabled, just trigger a normal drag/drop event on the map
   $scope.watchMarkerDragEnd = function(marker) { 
 
     marker.on('dragend', function(event){
@@ -89,7 +125,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
   }
 
-
+  // We get the full street/address name using the Google Apps Geocoder
   $scope.updateSearchOnDrag = function(lat, lng) {
 
     var geocoder = new google.maps.Geocoder();
@@ -118,6 +154,17 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
 
   $scope.nextStep = function() {
+
+    if ($scope.routingControl) {
+      var waypoints = $scope.routingControl.getWaypoints();
+      
+      waypoints.forEach(function(item){
+        $scope.demand.pins.push({ lat: item.latLng.lat, long: item.latLng.lng, fullname: item.name })
+      });
+      
+    }
+
+
     $location.path('/demands/create'); 
   }
 

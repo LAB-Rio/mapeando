@@ -37,7 +37,7 @@ controllers.controller('demandsController', [
             c += 'large';
             break;
           default:
-            c += 'large';
+            c += 'tiny';
             break;
         }
 

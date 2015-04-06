@@ -83,11 +83,8 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
     // Checking if creating routes is allowed ( based on category/param )
 
-    if (true) {
       $scope.onMapClick(); 
-    } else {
       $scope.watchMarkerDragEnd(marker); 
-    }
 
 
 
@@ -136,7 +133,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
         
         if (results[1]) {
           console.log(results[1]);
-          $scope.demand.pin_fullname = results[1].formatted_address;
+          $scope.demand.pins[0]['fullname'] = results[1].formatted_address;
           $scope.$apply();
 
         }
@@ -156,6 +153,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
   $scope.nextStep = function() {
 
     if ($scope.routingControl) {
+      $scope.demand.pins = [];
       var waypoints = $scope.routingControl.getWaypoints();
       
       waypoints.forEach(function(item){

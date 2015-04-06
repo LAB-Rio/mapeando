@@ -26,17 +26,17 @@ controllers.controller('demandsController', [
         var c = ' marker-cluster-';
         var count = cluster.getChildCount();
 
-        switch(count) {
-          case count > 50 || count <= 100:
+        switch(true) {
+          case(count <= 50):
+            c += 'tiny';
+            break;
+          case(count > 50 || count <= 100):
             c += 'small';
             break;
-          case count > 100 || count <= 200:
+          case(count > 100 || count <= 200):
             c += 'medium';
             break;
-          case count > 200:
-            c += 'large';
-            break;
-          default:
+          case(count > 200):
             c += 'large';
             break;
         }

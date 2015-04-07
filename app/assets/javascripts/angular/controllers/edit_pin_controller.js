@@ -102,7 +102,9 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
             $scope.initialMarker, 
             event.latlng
           ], 
-          routeWhileDragging: true 
+          router: new L.Routing.GraphHopper('073f0aa6-81cc-4e64-875c-aec614615a51', { 
+            vehicle: 'foot', locale: 'pt_BR' 
+          }),
         }).addTo($scope.map); 
       }
     });

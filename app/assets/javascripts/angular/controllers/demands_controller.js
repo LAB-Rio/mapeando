@@ -25,26 +25,27 @@ controllers.controller('demandsController', [
         
         var c = ' marker-cluster-';
         var count = cluster.getChildCount();
+        var size = 40;
 
         switch(true) {
-          case(count <= 50):
-            c += 'tiny';
-            break;
-          case(count > 50 || count <= 100):
+          case(count <= 25):
             c += 'small';
+            size = 40;
             break;
-          case(count > 100 || count <= 200):
+          case(count > 25 || count <= 100):
             c += 'medium';
+            size = 50;
             break;
-          case(count > 200):
+          case(count > 100):
             c += 'large';
+            size = 60;
             break;
         }
 
 		    return new L.DivIcon({ 
           html: '<div><span>' + count + '</span></div>', 
           className: 'marker-cluster' + c, 
-          iconSize: new L.Point(40,40) 
+          iconSize: new L.Point(size, size) 
         });
       }
     });

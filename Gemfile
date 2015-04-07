@@ -58,6 +58,7 @@ gem 'font-awesome-rails'
 gem 'rails-assets-leaflet'
 gem 'leaflet-markercluster-rails'
 gem 'rails-assets-leaflet-routing-machine'
+gem 'rails-assets-leaflet-routing-graphhopper', '1.0.7'
 
 
 

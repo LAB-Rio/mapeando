@@ -18,7 +18,8 @@ controllers.controller('demandsController', [
   }
 
 
-  $scope.showDemandsOnMap = function(demands) {
+  $scope.showDemandsOnMap = function(demands, color) {
+
     $scope.layerGroup = new L.MarkerClusterGroup({ 
       disableClusteringAtZoom: 14,
       iconCreateFunction: function(cluster) {
@@ -109,7 +110,7 @@ controllers.controller('demandsController', [
 
   $scope.loadDemands = function(params) {
     demandFactory.index(params, function(response){
-      $scope.showDemandsOnMap(response.demands);
+      $scope.showDemandsOnMap(response.demands, '');
     });
   }
 
@@ -132,7 +133,7 @@ controllers.controller('demandsController', [
 
     demandFactory.index({by_category_id: category_id }, function(response) {
       $scope.map.removeLayer($scope.layerGroup);
-      $scope.showDemandsOnMap(response.demands);
+      $scope.showDemandsOnMap(response.demands, '');
 
       $scope.activeCategory = category_id;
       //$scope.activeCategoriesPool.push(category_id);

@@ -16,6 +16,7 @@
           <li ng-click="loadMarkers(category.id)" ng-class="{ 'active': activeCategory == category.id }" ng-repeat="category in value">
             <img ng-src="{{ category.icon_url }}" width="20" />
             {{ category.name }} 
+            <span> ( {{ category.demands.count }} ) </span>
           </li>
         </ol>
       </div>

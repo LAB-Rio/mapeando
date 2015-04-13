@@ -14,21 +14,21 @@ require 'csv'
 Category.create([
 
   # A pe
-  { name: 'Nova travessia de pedestre', travel_mode: 'walking', icon_url: 'http://i.imgur.com/ISQeE1f.png' },
-  { name: 'Reajuste do tempo do semáforo', travel_mode: 'walking', icon_url: 'http://i.imgur.com/ObLDwfp.png' },
+  { name: 'Nova travessia de pedestre', travel_mode: 'walking', icon_url: 'http://i.imgur.com/ASDCc9X.png' },
+  { name: 'Reajuste do tempo do semáforo', travel_mode: 'walking', icon_url: 'http://i.imgur.com/fdthG3S.png' },
 
   # Coletivo
-  { name: 'Novo ponto de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/jvhVwVy.png' },
-  { name: 'Novo terminal de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/zry52P2.png' },
+  { name: 'Novo ponto de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/uwfzE3Y.png' },
+  { name: 'Novo terminal de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/zQ0p6pU.png' },
 
   # Bicicleta
-  { name: 'Novo posto de BikeRio', travel_mode: 'biking', icon_url: 'http://i.imgur.com/Nx6uN7a.png' },
-  { name: 'Quero uma ciclovia passando aqui', travel_mode: 'biking', icon_url: 'http://i.imgur.com/PGkr5aX.png' },
+  { name: 'Novo posto de BikeRio', travel_mode: 'biking', icon_url: 'http://i.imgur.com/rWyzqUL.png' },
+  { name: 'Quero uma ciclovia passando aqui', travel_mode: 'biking', icon_url: 'http://i.imgur.com/hVY6WqQ.png' },
 
 
   # Motorizado individual
-  { name: 'Restrição do tráfego de automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/TwAqclO.png' },
-  { name: 'Redução da velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/Ie4XIjz.png' }
+  { name: 'Restrição do tráfego de automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/ukGgfHS.png' },
+  { name: 'Redução da velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/aNDLZnZ.png' }
 
 
 ])

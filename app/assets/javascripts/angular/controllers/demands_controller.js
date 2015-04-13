@@ -88,7 +88,7 @@ controllers.controller('demandsController', [
   $scope.subscribeMarkerEvents = function(marker, demand) {
 
     $scope.setPopupContent(marker, demand, 'click');
-    //$scope.setPopupContent(marker, demand, 'mouseover');
+    $scope.setPopupContent(marker, demand, 'mouseover');
    }
 
 
@@ -110,7 +110,7 @@ controllers.controller('demandsController', [
 
   $scope.loadDemands = function(params) {
     demandFactory.index(params, function(response){
-      $scope.showDemandsOnMap(response.demands, '');
+      $scope.showDemandsOnMap(response.demands);
     });
   }
 
@@ -133,7 +133,7 @@ controllers.controller('demandsController', [
 
     demandFactory.index({by_category_id: category_id }, function(response) {
       $scope.map.removeLayer($scope.layerGroup);
-      $scope.showDemandsOnMap(response.demands, '');
+      $scope.showDemandsOnMap(response.demands);
 
       $scope.activeCategory = category_id;
       //$scope.activeCategoriesPool.push(category_id);

@@ -1,0 +1,7 @@
+{
+  "name": "Mapeando",
+  "description": "Mapa colaborativo de demandas",
+  "repository": "https://github.com/LAB-Rio/mapeando",
+  "logo": "http://i.imgur.com/u20gJJ0.png",
+  "keywords": ["ruby", "rails", "angular"]
+}

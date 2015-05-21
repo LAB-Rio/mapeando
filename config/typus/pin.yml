@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Pin:
+  fields:
+    default: lat, long, fullname, demand_id
+    form: lat, long, fullname, demand_id
+  relationships: 
+  application: Tabelas 

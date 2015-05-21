@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Demand:
+  fields:
+    default: fullname, user_id, category_id
+    form: fullname, user_id, category_id
+  relationships: pins
+  application: Tabelas 

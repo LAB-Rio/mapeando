@@ -7,8 +7,9 @@ source 'https://rails-assets.org'
 ruby '2.2.0'
 
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 gem 'puma'
+gem 'typus', github: 'typus/typus'
 
 # Prerender partials so scrappers can get them
 gem 'prerender_rails'
@@ -42,8 +43,9 @@ end
 
 
 # Asset Pipeline
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails'
+gem 'jquery-rails'
+gem 'uglifier'
 gem 'rails-assets-angular-devise'
 gem 'rails-assets-angular-loading-bar'
 gem 'rails-assets-angular-filter'

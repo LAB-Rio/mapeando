@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+User:
+  fields:
+    default: first_name, last_name, email, 
+    form: first_name, last_name, email
+  relationships: demands
+  application: Tabelas 

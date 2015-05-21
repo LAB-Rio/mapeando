@@ -1,0 +1,125 @@
+pt-BR:
+  admin:
+    account:
+      new:
+        title: 'Initial registration'
+      forgot_password:
+        title: 'Forgot password?'
+        remember_password: "I remember my password"
+      form:
+        submit: 'Submit'
+    session:
+      new:
+        title: 'Please sign in'
+        recover_password: "Recover password"
+
+  typus:
+    dashboard: 'Dashboard'
+
+    # this is a catch-all for stuff I didn't know where else to put.
+    shared:
+      no_entries_found: "No entries found."
+      help: "Help"
+      settings: "Settings"
+      confirm_question: "Are you sure?"
+      restore_question: 'Restore?'
+
+    buttons:
+      add: "Adicionar"
+      save: 'Salvar'
+      save_addanother: 'Salvar e adicionar mais um'
+      save_continue: 'Salvar e continuar editando'
+      filter: "Filtro"
+      list: "Lista"
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      sign_out: "Sign out"
+      show: "Ver"
+      edit: "Editar"
+      remove: "Excluir"
+      preview: "Preview"
+      apply: "Aplicar"
+      restore: "Restaurar"
+      destroy: "Excluir"
+      destroy_permanently: "Excluir permanentemente"
+      position: "Position"
+      move_to_trash: "Move to Trash"
+      mark_published: "Mark as published"
+      mark_unpublished: "Mark as unpublished"
+
+    flash:
+      update_success: "%{model} successfully updated."
+      create_success: "%{model} successfully created."
+      delete_success: "%{model} successfully deleted."
+      wipe_success: "%{resource} has been successfully removed from trash."
+      bulk_delete_success:
+        one: "Successfully deleted entry."
+        other: "Successfully deleted %{count} entries."
+      settings_update_success: "Settings successfully updated." # this can probably be removed later
+      image_removed: "Featured image removed."
+      image_set: "Featured image set."
+      set_new_password: "Please set a new password."
+      password_reset_email_success: "Password recovery link sent to your email."
+      bulk_no_action: "No bulk action selected."
+      bulk_no_items: "Items must be selected in order to perform actions on them. No items have been changed."
+      trash_recover_success: "%{resource} recovered from trash."
+      trash_recover_failed: "%{resource} cannot be recovered from trash."
+
+    errors:
+      intro:
+        one: "An error prohibited this page from being saved:"
+        other: "%{count} errors prohibited this page from being saved:"
+
+    dashboard:
+      title: "Dashboard"
+      model: "Modelo"
+      model_name: "Nome do Modelo"
+      items: "Itens"
+      actions: "Ações"
+      no_applications: "No applications detected."
+      user: "Usuário"
+      user: "Usuários"
+      status: "Status"
+      last_logged_in: "Last logged in"
+      resources: "Recursos"
+      name: "Nome"
+
+    resources:
+      add:
+        title: "Adicionar %{resource}"
+      edit:
+        title: "Editar '%{label}'"
+      show:
+        title: "Ver detalhes de '%{label}'"
+      edited_recently:
+        title: "Modificados recentemente"
+      destroy:
+        title: "Excluir %{label}"
+
+    sessions:
+      new:
+        title: "Sign in"
+
+    pagination:
+      previous: "&larr; Anterior"
+      next: "Próximo &rarr;"
+
+    sidebar:
+      filters: "Filters"
+      scopes: "Scopes"
+      export: "Export"
+      entry: "Entry"
+      actions: "Actions"
+      view_site: "View site"
+      search: "Search"
+
+    labels:
+      read_only: "Read only"
+
+    emails:
+      password_reset:
+        title: "[%{admin_title}] Reset password"
+
+    filters:
+      trash: "Trash"
+      view_all: "View all %{attribute}"

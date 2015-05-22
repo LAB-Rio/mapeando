@@ -62,8 +62,10 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
 
   $scope.updateDemandPins = function(lat, lng) {
+      $scope.demand.pins = [];
       $scope.demand.pins[0]['lat'] = lat;
-      $scope.demand.pins[0]['lng'] = lng;
+      $scope.demand.pins[0]['long'] = lng;
+
       $scope.$apply();
   }
 
@@ -123,8 +125,8 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       var target = event.target
       $scope.userMarker = target.getLatLng();
       //console.log($scope.userMarker);
-      $scope.updateSearchOnDrag($scope.userMarker.lat, $scope.userMarker.lng);
       $scope.updateDemandPins($scope.userMarker.lat, $scope.userMarker.lng);      
+      $scope.updateSearchOnDrag($scope.userMarker.lat, $scope.userMarker.lng);
       $scope.$apply();
     });
 

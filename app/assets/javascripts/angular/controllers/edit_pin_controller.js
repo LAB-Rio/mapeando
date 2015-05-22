@@ -4,7 +4,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
   $scope.map      = mapFactory.buildMap('user-map');
   $scope.demand   = demandFormFactory;
   $scope.markers  = null;
-  $scope.demand.pins = [];
+  $scope.demand.pins = [{}];
 
 
 
@@ -32,9 +32,14 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
     google.maps.event.addListener(autocomplete, 'place_changed', function(){
 
       var place = autocomplete.getPlace();
-      var lat = place.geometry.location.k;
-      var lng = place.geometry.location.D;
-     
+      var lat = place.geometry.location.A;
+      var lng = place.geometry.location.F;
+    
+
+      console.log(lat);
+      console.log(lng);
+
+
       // Text field update
       $scope.demand.pin_fullname = place.formatted_address;
 
@@ -57,8 +62,8 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
 
   $scope.updateDemandPins = function(lat, lng) {
-      $scope.demand.pins[0]['latitude'] = lat;
-      $scope.demand.pins[0]['longitude'] = lng;
+      $scope.demand.pins[0]['lat'] = lat;
+      $scope.demand.pins[0]['lng'] = lng;
       $scope.$apply();
   }
 
@@ -117,6 +122,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
     marker.on('dragend', function(event){
       var target = event.target
       $scope.userMarker = target.getLatLng();
+      //console.log($scope.userMarker);
       $scope.updateSearchOnDrag($scope.userMarker.lat, $scope.userMarker.lng);
       $scope.updateDemandPins($scope.userMarker.lat, $scope.userMarker.lng);      
       $scope.$apply();
@@ -134,7 +140,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       if ( status == google.maps.GeocoderStatus.OK ) {
         
         if (results[1]) {
-          console.log(results[1]);
+          //console.log(results[1]);
           $scope.demand.pins[0]['fullname'] = results[1].formatted_address;
           $scope.$apply();
 

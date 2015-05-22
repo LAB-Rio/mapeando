@@ -55,7 +55,7 @@ controllers.controller('demandsController', [
 
     for (i = 0; i < size; i++) {
 
-      console.log(demands[i]);
+      //console.log(demands[i]);
 
       if (demands[i].pins && demands[i].pins.length > 0) {
 

@@ -41,7 +41,8 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
 
       // Text field update
-      $scope.demand.pin_fullname = place.formatted_address;
+      //console.log(place);
+      $scope.demand.pins[0]['fullname'] = place.formatted_address;
 
 
       // Setting the initial marker for routing

@@ -55,8 +55,9 @@ controllers.controller('demandsController', [
 
     for (i = 0; i < size; i++) {
 
+      console.log(demands[i]);
 
-      if (demands[i].pins.length > 0) {
+      if (demands[i].pins && demands[i].pins.length > 0) {
 
         var pin   = demands[i].pins;
         var icon_url  = demands[i].category.icon_url;

@@ -62,7 +62,6 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
 
   $scope.updateDemandPins = function(lat, lng) {
-      $scope.demand.pins = [];
       $scope.demand.pins[0]['lat'] = lat;
       $scope.demand.pins[0]['long'] = lng;
 

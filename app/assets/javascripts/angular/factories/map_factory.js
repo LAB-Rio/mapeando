@@ -2,7 +2,8 @@ demandsApp.factory('mapFactory', ['$resource', function($resource){
   
   return { 
     buildMap: function(map_name) {
-      
+      L.Icon.Default.imagePath = 'http://api.tiles.mapbox.com/mapbox.js/v1.0.0beta0.0/images'; 
+
       var map_id = (map_name == '') ? 'map' : map_name;
 
       // set map view to the city boundaries

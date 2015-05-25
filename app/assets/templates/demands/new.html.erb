@@ -13,7 +13,7 @@
           <select name="demand[category_id]" ng-required="true" ng-model="demand.category_id">
 
           <optgroup label="Escolha uma opção da lista">
-            <option ng-repeat="category in categories.categories" value="{{ category.id }}" class="ng-hide" ng-hide="{{ category.issue ? isDemand : isIssue}}" ng-show="{{ category.issue ? isIssue : isDemand }}">{{ category.name }}</option>
+            <option ng-repeat="category in categories.categories" value="{{ category.id }}">{{ category.name }}</option>
           <optgroup>
           </select>
         </label>

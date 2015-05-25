@@ -98,11 +98,15 @@ controllers.controller('demandsController', [
 
     marker.on(binding, function(event) {
       var html = '<div class="marker-view">';
+      var text = (demand.pins.length > 1) ? 'Ver esta rota' : 'Ver mais detalhes';
+
       html += '<img src="' + demand.user.avatar + '" width="40" height="40"/>';
       html += '<h6><strong>' + demand.user.first_name + ' quer</strong> em ' + demand.pins[0].fullname + ' </h6>';
       html += '<div class="marker-content"><h5>'+ demand.category.name + '</h5>';
       html += '<blockquote>' + truncate(demand.fullname, 140) + '</blockquote></div>';
-      html += '<p class="text-center"><a class="button" href="#/demands/show/'+ demand.id + '">Ver mais</a></p>';
+
+
+      html += '<p class="text-center"><a class="button" href="#/demands/show/'+ demand.id + '">'+ text +'</a></p>';
       html += '</div>';
       marker.bindPopup(html).openPopup();   
     });

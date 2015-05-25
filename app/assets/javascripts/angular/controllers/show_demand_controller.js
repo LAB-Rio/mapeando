@@ -20,11 +20,37 @@ controllers.controller('showDemandController', ['$scope', '$route', 'demandFacto
     $scope.pin    = pin; 
     var icon_url  = $scope.demand.category.icon_url;
     var icon      = L.icon({iconUrl: icon_url, iconSize: [26,26]});
-    var marker    = L.marker([$scope.pin.lat, $scope.pin.long], { icon: icon, riseOnHover: true })
 
-    $scope.map.setView([$scope.pin.lat, $scope.pin.long], 15);
-    marker.addTo($scope.map);
-    marker.bindPopup(pin.fullname).openPopup();
+
+
+    if ($scope.pin.length == 1) {
+
+      var marker    = L.marker([$scope.pin.lat, $scope.pin.long], { icon: icon, riseOnHover: true })
+
+      $scope.map.setView([$scope.pin.lat, $scope.pin.long], 15);
+      marker.addTo($scope.map);
+      marker.bindPopup(pin.fullname).openPopup();
+    
+
+    } else {
+
+      var points = [];
+      console.log($scope.pin);
+      for (var i = 0; i < $scope.pin.length; i++) {
+        points.push(L.latLng($scope.pin[i].lat, $scope.pin[i].long));
+  
+      }
+
+      $scope.routingControl = L.Routing.control({ 
+        waypoints: points, 
+        router: new L.Routing.GraphHopper('073f0aa6-81cc-4e64-875c-aec614615a51', { 
+          vehicle: 'foot', locale: 'pt_BR' 
+        }),
+      }).addTo($scope.map); 
+
+      $scope.map.setView([$scope.pin[0].lat, $scope.pin[0].long], 13);
+    }
+
     
   }
 
@@ -32,7 +58,7 @@ controllers.controller('showDemandController', ['$scope', '$route', 'demandFacto
   $scope.loadDemand = function() {
    demandFactory.show({id: $route.current.params.id }, function(response){
     $scope.setDemand(response.demand);
-    $scope.setPins(response.demand.pins[0]);
+    $scope.setPins(response.demand.pins);
    });
   }
 

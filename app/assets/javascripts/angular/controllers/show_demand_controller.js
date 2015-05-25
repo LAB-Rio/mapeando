@@ -24,10 +24,10 @@ controllers.controller('showDemandController', ['$scope', '$route', 'demandFacto
 
 
     if ($scope.pin.length == 1) {
+      var pin = $scope.pin[0];
+      var marker    = L.marker([pin.lat, pin.long], { icon: icon, riseOnHover: true })
 
-      var marker    = L.marker([$scope.pin.lat, $scope.pin.long], { icon: icon, riseOnHover: true })
-
-      $scope.map.setView([$scope.pin.lat, $scope.pin.long], 15);
+      $scope.map.setView([pin.lat, pin.long], 15);
       marker.addTo($scope.map);
       marker.bindPopup(pin.fullname).openPopup();
     

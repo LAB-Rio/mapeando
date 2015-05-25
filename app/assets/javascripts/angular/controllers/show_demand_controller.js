@@ -43,12 +43,14 @@ controllers.controller('showDemandController', ['$scope', '$route', 'demandFacto
 
       $scope.routingControl = L.Routing.control({ 
         waypoints: points, 
+        show: false,
+        containerClassName: 'show-demand-page',
         router: new L.Routing.GraphHopper('073f0aa6-81cc-4e64-875c-aec614615a51', { 
           vehicle: 'foot', locale: 'pt_BR' 
         }),
       }).addTo($scope.map); 
 
-      $scope.map.setView([$scope.pin[0].lat, $scope.pin[0].long], 13);
+      $scope.map.setView([$scope.pin[0].lat, $scope.pin[0].long], 16);
     }
 
     

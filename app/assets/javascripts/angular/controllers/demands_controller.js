@@ -87,7 +87,14 @@ controllers.controller('demandsController', [
 
     $scope.layerGroup.addTo($scope.map);
     $scope.changeMarkerClusterColor(color); 
+    $scope.watchColorChange(color);
+  }
 
+  $scope.watchColorChange = function(colorHex) {
+    var scope = $scope;
+    $scope.map.on('layeradd', function(event){
+      scope.changeMarkerClusterColor(colorHex);
+    });
   }
 
   $scope.changeMarkerClusterColor = function(colorHex) {

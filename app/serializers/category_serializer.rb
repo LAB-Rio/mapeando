@@ -1,5 +1,5 @@
 class CategorySerializer < ActiveModel::Serializer
-  attributes :id, :name, :travel_mode, :issue, :icon_url, :demands
+  attributes :id, :name, :travel_mode, :issue, :icon_url, :marker_color, :demands
 
   has_many :demands
   

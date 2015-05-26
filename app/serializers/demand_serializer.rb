@@ -6,7 +6,7 @@ class DemandSerializer < ActiveModel::Serializer
     '(  
         SELECT row_to_json(cat) 
         FROM ( 
-          SELECT name, travel_mode, icon_url 
+          SELECT name, travel_mode, marker_color, icon_url 
           FROM categories 
           WHERE categories.id = demands.category_id 
         ) cat

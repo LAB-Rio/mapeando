@@ -43,11 +43,13 @@ controllers.controller('demandsController', [
             break;
         }
 
-		    return new L.DivIcon({ 
-          html: '<div><span>' + count + '</span></div>', 
+		    var div = new L.DivIcon({ 
+          html: '<div style="background: '+color+'"><span>' + count + '</span></div>', 
           className: 'marker-cluster' + c, 
           iconSize: new L.Point(size, size) 
         });
+
+        return div;
       }
     });
 
@@ -84,7 +86,17 @@ controllers.controller('demandsController', [
 
 
     $scope.layerGroup.addTo($scope.map);
+    $scope.changeMarkerClusterColor(color); 
+
   }
+
+  $scope.changeMarkerClusterColor = function(colorHex) {
+    var e = document.querySelectorAll('.marker-cluster');
+    for ( var i = 0; i < e.length; i++) {
+      e[i].style.border = '2px solid '+ colorHex;
+    }
+  }
+
 
   $scope.subscribeMarkerEvents = function(marker, demand) {
 
@@ -137,11 +149,18 @@ controllers.controller('demandsController', [
   $scope.loadMarkers = function(category_id) {
 
     demandFactory.index({by_category_id: category_id }, function(response) {
+      //console.log(response.demands);
+      var color = (category_id != '' && response.demands[0] !== undefined) ? response.demands[0].category.marker_color : '#ed2654';
+
+
       $scope.map.removeLayer($scope.layerGroup);
-      $scope.showDemandsOnMap(response.demands);
+      $scope.showDemandsOnMap(response.demands, color);
 
       $scope.activeCategory = category_id;
       //$scope.activeCategoriesPool.push(category_id);
+      //
+      
+
     });
   }
 

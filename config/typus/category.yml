@@ -3,6 +3,6 @@
 Category:
   fields:
     default: name, travel_mode, issue, icon_url
-    form: name, travel_mode, issue, icon_url
+    form: name, travel_mode, issue, marker_color, icon_url
   relationships: demands, users
   application: Tabelas 

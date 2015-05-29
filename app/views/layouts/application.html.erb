@@ -12,7 +12,6 @@
     <meta name="author" content="LAB.Rio - labrio.cc"/>
 
 
-    <meta property="og:title" content="Conheça o Mapeando"/>
     <meta property="og:description" content="Plataforma colaborativa para indicar soluções para a cidade do Rio de Janeiro! Ajude a Prefeitura do Rio a melhorar suas políticas públicas indicando suas demandas para a cidade."/>
     <meta property="og:image" content="http://i.imgur.com/DzChsPp.png"/>
     <meta property="og:site_name" content="Mapeando"/>
@@ -23,6 +22,7 @@
 
 
     <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
+    <%= stylesheet_link_tag  "http://fonts.googleapis.com/css?family=Cabin" %>
     <%= stylesheet_link_tag  "application" %>
 
 
@@ -38,7 +38,6 @@
     <div id="header">
       <div class="row">
         <div class="medium-2 small-3 text-left logo columns">
-          <%= link_to image_tag('logo.png', size: '190x35'), '#/', class: 'hide-for-small-only large-logo' %>
           <div class="show-for-small-only">
             <a href="#/" ng-show="$root.showNavBackLink"><%= image_tag('nav-back.png', size: '8x8') %></a>
             <a href="#/"><%= image_tag('logo-icon.png', size: '30x30') %></a>
@@ -47,6 +46,7 @@
 
 
         <div class="medium-4 hide-for-small-only columns">
+          <%= link_to image_tag('logo.png', size: '190x35'), '#/', class: 'hide-for-small-only large-logo' %>
           &nbsp;
         </div>
 
@@ -59,20 +59,21 @@
               </a>
             </li>
 
-            <li class="navigation-link hide-on-mobile">
+           <!-- <li class="navigation-link hide-on-mobile">
               <a href="mailto:luiz@labrio.cc?cc=mapeando@labrio.cc">
                 <span> Sugestões </span>
               </a>
-            </li>
+            </li> -->
 
 
 
 
-            <li class="navigation-link hide-on-mobile">
+           <!-- <li class="navigation-link hide-on-mobile">
               <a href="#/about">
                 <span> Saiba mais </span>
               </a>
             </li>
+            -->
 
            <!-- <li class="navigation-link hide-on-mobile" ng-show="!currentUser">
               <a href="#/signup" class="signup" >
@@ -118,7 +119,7 @@
     </div>
 
 
-
+<!--
     <div id="welcome-screen" ng-click="$root.showWelcomeScreen = true" ng-hide="$root.showWelcomeScreen">
       <div class="row text-center">
 
@@ -134,7 +135,7 @@
         </div>
       </div>
     </div>
-
+-->
 
 
     <div class="view-container">

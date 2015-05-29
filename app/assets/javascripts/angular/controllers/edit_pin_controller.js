@@ -14,6 +14,11 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
     }
     $scope.setupAutoComplete();
   }
+  
+  // TODO: remove the hardcode and put it on the database
+  $scope.allowRoute = function(category_id) {
+    return (category_id == 6 || category_id == 11) 
+  }
 
  
 
@@ -99,6 +104,11 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
   // If route creation is enabled, allow map click event
   $scope.onMapClick = function() {
+
+    if (!$scope.allowRoute($scope.demand.category_id)) {
+      return false;
+    }
+
     $scope.map.on('click', function(event, layerPoint){
       $scope.map.removeLayer($scope.markers);
 

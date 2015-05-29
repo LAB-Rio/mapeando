@@ -41,14 +41,9 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       var lng = place.geometry.location.F;
     
 
-      console.log(lat);
-      console.log(lng);
-
-
       // Text field update
       //console.log(place);
       $scope.demand.pins[0]['fullname'] = place.formatted_address;
-
 
       // Setting the initial marker for routing
       $scope.initialMarker = L.latLng(lat, lng);
@@ -56,8 +51,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       // latitude, longitude
       $scope.showMarkerOnAutocomplete(lat, lng);
 
-
-
+      // First update of demand pin
       $scope.updateDemandPins(lat, lng);
 
       $scope.$apply();
@@ -71,7 +65,14 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       $scope.demand.pins[0]['lat'] = lat;
       $scope.demand.pins[0]['long'] = lng;
 
+
+      // Setting the initial marker for routing
+      $scope.initialMarker = L.latLng(lat, lng);
+
+
+
       $scope.$apply();
+
   }
 
 

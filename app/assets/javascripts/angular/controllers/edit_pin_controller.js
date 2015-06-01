@@ -14,6 +14,11 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
     }
     $scope.setupAutoComplete();
   }
+  
+  // TODO: remove the hardcode and put it on the database
+  $scope.allowRoute = function(category_id) {
+    return (category_id == 6 || category_id == 11) 
+  }
 
  
 
@@ -36,14 +41,9 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       var lng = place.geometry.location.F;
     
 
-      console.log(lat);
-      console.log(lng);
-
-
       // Text field update
       //console.log(place);
       $scope.demand.pins[0]['fullname'] = place.formatted_address;
-
 
       // Setting the initial marker for routing
       $scope.initialMarker = L.latLng(lat, lng);
@@ -51,8 +51,7 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       // latitude, longitude
       $scope.showMarkerOnAutocomplete(lat, lng);
 
-
-
+      // First update of demand pin
       $scope.updateDemandPins(lat, lng);
 
       $scope.$apply();
@@ -66,7 +65,14 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
       $scope.demand.pins[0]['lat'] = lat;
       $scope.demand.pins[0]['long'] = lng;
 
+
+      // Setting the initial marker for routing
+      $scope.initialMarker = L.latLng(lat, lng);
+
+
+
       $scope.$apply();
+
   }
 
 
@@ -99,6 +105,11 @@ controllers.controller('editPinController', ['$scope', 'demandFormFactory', 'map
 
   // If route creation is enabled, allow map click event
   $scope.onMapClick = function() {
+
+    if (!$scope.allowRoute($scope.demand.category_id)) {
+      return false;
+    }
+
     $scope.map.on('click', function(event, layerPoint){
       $scope.map.removeLayer($scope.markers);
 

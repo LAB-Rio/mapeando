@@ -93,125 +93,60 @@ body
 
 #header
   z-index: 10
-  box-shadow: 0 1px 1px #ddd
+  box-shadow: 0 1px 1px #999
   background: white
+  height: 70px
   position: relative
-  padding: .6em 0
 
-.logo img 
+
+#header .navicon, .logo
+  top: 50%
   position: relative
-  
-
-// header's Navigation menu
-ol.navigation
-  position: relative
-  padding: 0
-  margin: 0
-  top: 4px
-  font-size: .9em
-
-.user-logged .hidden
-  display: inline-block !important
+  line-height: 35px
+  transition: .2s all
 
 
-.user-logged .user-avatar
-  a
-    &:hover
-      text-decoration: none !important
-  img
-    position: relative
-    display: inline-block
-  span
-    font-size: .7em
+.logo
+  line-height: 60px
 
-  .user-menu 
-    transition: all .3s
-    display: none
+.navicon:hover
+  background: #e9e9e9
 
-.user-avatar:hover .user-menu
-  box-shadow: 0 1px 1px #666
-  transition: all .3s
+.navicon img
+  transition: .4s all
+
+.navicon a 
+  color: #777
+  font-size: .8em
+  &:hover
+    color: #ed2654
+    img
+      -webkit-transform: scale(1.3)
+.navicon span 
   display: block
-  margin-left: 0
-  position: absolute
-  top: 38px
-  background: white
-  width: 35%
-  min-width: 200px
-  right: 0
-  height: auto
-  z-index: 9999 !important
-  a
-    color: #666
-    font-size: .9em
-    padding: .8em 2em
-    display: block
-
-  li
-    display: block
-    width: 100%
-    list-style-type: none
-    text-align: right 
-    margin-left: 0
-    border-bottom: 1px solid #eee
-    &:hover
-      background: #f9f9f9
-
-
-.menu
-  padding-right: 0 !important
-  margin-right: 0 !important
-
-.menu .navigation-link
   margin: 0
-  display: inline-block
-  padding: 0 1em .4em 0 
-  transition: all .2s
 
+.navicon img
+  position: relative
+  top: 6px
 
+a.add-demand
+  //background: #ed2654
+  display: block
+  color: #ed2654
 
-
-  a
-    position: relative
-    top: 28%
-    color: #333
-    transition: all .2s linear
-    &:hover
-      text-decoration: underline
-    
-    &.current-user
-      img
-        margin: 0
-        padding: 0
-
-
-  &.button-action a
-    background: #ED2654
-    color: white
-    padding: .8em .8em
-    border-radius: 4px
-    &:hover
-      text-decoration: none
-      background: #FF0032
-
-
-
-.index
-  height: 100% 
-  min-height: 100%
 
 .index .row:first-child
   width: 100% !important
   min-width: 100% !important
-  min-height: 100% !important
-  height: 100% !important
-
+  height: 70% !important
 .index .columns
-  height: 100% !important
   padding: 0
+
 #map
   width: 100% !important
-  height: 100% !important 
+  min-height: 400px
+  height: 80%
 
 
 // Marker on index page map
@@ -262,59 +197,59 @@ ol.navigation
 
 
 
-// Filters block
-#filters
-  background: white
-  height: 100%
-  padding: .2em .6em .6em 1em
-  h3
-    font-size: 1.1em !important
-    font-weight: bold
-    padding: .4em 0 .4em 0
-    margin-bottom: .8em
-    border-bottom: 1px solid #e9e9e9
-  ol
-    margin-left: 0
-    margin: 0
-  li
-    list-style-type: none
-    padding: .1em 1.5em
-    display: block
-    clear: both
-    font-size: .8em
-    transition: all .3s
-    -webkit-filter: grayscale(1)
-    -moz-filter: grayscale(1)
-    -ms-filter: grayscale(1)
-    filter: grayscale(1)
-    opacity: .8
-    img 
-      float: left
-      opacity: .4
-      padding: .2em .4em .4em 0
-    &:hover
-      background: #f9f9f9
-      cursor: pointer
-    &.active
-      opacity: 1
-      -webkit-filter: grayscale(0)
-      -moz-filter: grayscale(0)
-      -ms-filter: grayscale(0)
-      filter: grayscale(0)
-      img
-        opacity: 1
-  h5
-    font-weight: bold
-    font-size: .8em !important
-    padding: .2em 1em .3em 1em
-    margin: 0
-  .filter
-    margin: 0 0 .6em 0
+//// Filters block
+//#filters
+  //background: white
+  //height: 100%
+  //padding: .2em .6em .6em 1em
+  //h3
+    //font-size: 1.1em !important
+    //font-weight: bold
+    //padding: .4em 0 .4em 0
+    //margin-bottom: .8em
+    //border-bottom: 1px solid #e9e9e9
+  //ol
+    //margin-left: 0
+    //margin: 0
+  //li
+    //list-style-type: none
+    //padding: .1em 1.5em
+    //display: block
+    //clear: both
+    //font-size: .8em
+    //transition: all .3s
+    //-webkit-filter: grayscale(1)
+    //-moz-filter: grayscale(1)
+    //-ms-filter: grayscale(1)
+    //filter: grayscale(1)
+    //opacity: .8
+    //img 
+      //float: left
+      //opacity: .4
+      //padding: .2em .4em .4em 0
+    //&:hover
+      //background: #f9f9f9
+      //cursor: pointer
+    //&.active
+      //opacity: 1
+      //-webkit-filter: grayscale(0)
+      //-moz-filter: grayscale(0)
+      //-ms-filter: grayscale(0)
+      //filter: grayscale(0)
+      //img
+        //opacity: 1
+  //h5
+    //font-weight: bold
+    //font-size: .8em !important
+    //padding: .2em 1em .3em 1em
+    //margin: 0
+  //.filter
+    //margin: 0 0 .6em 0
 
-.show-all a
-  font-size: .8em
-  color: #666
-  border-bottom: 1px solid #999
+//.show-all a
+  //font-size: .8em
+  //color: #666
+  //border-bottom: 1px solid #999
 
 
 

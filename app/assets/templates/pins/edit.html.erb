@@ -2,7 +2,7 @@
   <div class="row">
 
     <form ng-submit="void()" ng-init="demand.pin_fullname = 'Rua '">
-      <label>Pesquise pelo nome da rua: <br/><input ng-model="demand.pins[0]['fullname']" type="text" name="search" id="searchTextField" placeholder="Digite aqui o nome da rua, logradouro ou bairro" value="Rua " />
+      <label>Pesquise pelo nome da rua e escolha um resultado: <br/><input ng-model="demand.pins[0]['fullname']" type="text" name="search" id="searchTextField" placeholder="Digite aqui o nome da rua, logradouro ou bairro" value="Rua " />
       
         <span ng-show="demand.pins[0]['fullname']" class="info" ng-hide="!demand.pins[0]['fullname']">Dica: você pode <strong>arrastar o ponto no mapa</strong> para onde quiser.</span>
       </label>
@@ -22,7 +22,7 @@
       <a href="#/"  class="reset" ng-click="reset()">Cancelar</a>
     </div>
     <div class="medium-6 small-6 end columns text-right">
-      <button class="button save" ng-click="nextStep()" ng-disabled="demand.pins.length == 0">Salvar indicação</button>
+      <button class="button save" ng-click="nextStep()" ng-disabled="!demand.pins[0]['lat']">Salvar indicação</button>
     </div>
   </div>
 </div>

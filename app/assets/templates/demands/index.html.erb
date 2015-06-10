@@ -3,9 +3,29 @@
 
   <div class="row">
 
-    <div class="medium-12 columns">
+    <div class="medium-8 large-9 columns">
       <div id="map"></div>
+
     </div>
+
+    <div class="show-for-medium-up large-3 medium-4 columns end">
+      <div id="filters">
+        <!--<h3 class="text-center"> Ver demandas indicadas </h3>-->
+        <div class="filter" ng-repeat="(key, value) in categories.categories | groupBy: 'travel_mode' | orderBy: '!travel_mode'">
+          <h5>{{ categoryName[key] }}</h5>
+          <ol>
+            <li ng-click="loadMarkers(category.id)" ng-class="{ 'active': activeCategory == category.id }" ng-repeat="category in value">
+              <img ng-src="{{ category.icon_url }}" width="20" />
+              {{ category.name }} 
+              <sup ng-show="category.issue" ng-hide="!category.issue"><a href="http://pmus.com.br">&nbsp;PMUS</a> </sup>
+            </li>
+          </ol>
+        </div>
+        <div class="show-all text-center" ng-clock><a class="button" ng-click="loadMarkers('')">Ver todas</a></div>
+      </div>
+    </div>
+    <!-- end filters -->
+
 
 
   </div>
@@ -15,21 +35,6 @@
 <!-- end index -->
 
 
-    <div id="filters" class="show-for-medium-up large-3 medium-4 columns end">
-      <h3 class="text-center"> Ver demandas indicadas </h3>
-      <div class="filter" ng-repeat="(key, value) in categories.categories | groupBy: 'travel_mode' | orderBy: '!travel_mode'">
-        <h5>{{ categoryName[key] }}</h5>
-        <ol>
-          <li ng-click="loadMarkers(category.id)" ng-class="{ 'active': activeCategory == category.id }" ng-repeat="category in value">
-            <img ng-src="{{ category.icon_url }}" width="20" />
-            {{ category.name }} 
-            <sup ng-show="category.issue" ng-hide="!category.issue"><a href="http://pmus.com.br">&nbsp;PMUS</a> </sup>
-          </li>
-        </ol>
-      </div>
-      <div class="show-all text-center" ng-clock><a ng-click="loadMarkers('')">Ver todas</a></div>
-    </div>
-    <!-- end filters -->
 
 
 

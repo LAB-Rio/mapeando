@@ -1,0 +1,162 @@
+id,name,ap,count
+1,Água Santa,AP3,1
+2,Abolição,AP3,10
+3,Acari,AP3,8
+4,Alto da Boa Vista,AP2,0
+5,Anchieta,AP3,0
+6,Andarai,AP2,32
+7,Anil,AP4,19
+8,Bancários,AP3,8
+9,Bangu,AP5,1
+10,Barra da Tijuca,AP4,3
+11,Barra de Guaratiba,AP2,0
+12,Barros Filho,AP3,2
+13,Benfica,AP1,14
+14,Bento Ribeiro,AP3,2
+15,Bonsucesso,AP3,14
+16,Botafogo,AP2,42
+17,Bráz de Pina,AP3,0
+18,Cachambi,AP3,26
+19,Cacuia,AP3,0
+20,Caju,AP1,3
+21,Camorim,AP4,0
+22,Campinho,AP3,2
+23,Campo Grande,AP5,2
+24,Campo dos Afonsos,AP5,0
+25,Cascadura,AP3,2
+26,Catete,AP2,22
+27,Catumbi,AP1,6
+28,Cavalcanti,AP3,0
+29,Centro,AP1,46
+30,Cidade Nova,AP1,11
+31,Cidade Universitária,AP3,16
+32,Cidade de Deus,AP4,7
+33,Cocotá,AP3,1
+34,Coelho Neto,AP3,5
+35,Colégio,AP3,5
+36,Complexo do Alemão,AP3,0
+37,Copacabana,AP2,15
+38,Cordovil,AP3,0
+39,Cosme Velho,AP2,9
+40,Cosmos,AP5,1
+41,Costa Barros,AP3,0
+42,Curicica,AP4,7
+43,Del Castilho,AP3,8
+44,Deodoro,AP5,2
+45,Encantado,AP3,8
+46,Engenheiro Leal,AP3,1
+47,Engenho Novo,AP3,19
+48,Engenho da Rainha,AP3,1
+49,Engenho de Dentro,AP3,7
+50,Estácio,AP1,7
+51,Flamengo,AP2,26
+52,Freguesia (Jacarepaguá),AP4,9
+53,Freguesia (ilha),AP3,7
+54,Galeão,AP3,1
+55,Gambôa,AP1,21
+56,Gardênia Azul,AP4,2
+57,Gericinó,AP5,0
+58,Glória,AP2,14
+59,Grajau,AP2,18
+60,Grumari,AP4,0
+61,Guadalupe,AP3,0
+62,Guaratiba,AP2,0
+63,Gávea,AP2,6
+64,Higienópolis,AP3,6
+65,Honório Gurgel,AP3,2
+66,Humaitá,AP2,22
+67,Inhauma,AP3,2
+68,Inhoaíba,AP5,0
+69,Ipanema,AP2,7
+70,Irajá,AP3,6
+71,Itanhangá,AP4,0
+72,Jacarepagua,AP4,0
+73,Jacarezinho,AP3,4
+74,Jacaré,AP3,1
+75,Jardim America,AP3,2
+76,Jardim Botânico,AP2,8
+77,Jardim Carioca,AP3,0
+78,Jardim Guanabara,AP3,2
+79,Jardim Sulacap,AP3,1
+80,Joá,AP4,0
+81,Lagoa,AP2,4
+82,Lapa,AP1,44
+83,Laranjeiras,AP2,36
+84,Leblon,AP2,16
+85,Leme,AP2,8
+86,Lins de Vasconcelos,AP3,12
+87,Madureira,AP3,6
+88,Magalhães Bastos,AP5,4
+89,Mangueira,AP1,15
+90,Manguinhos,AP3,4
+91,Maracanã,AP2,26
+92,Marechal Hermes,AP3,2
+93,Maria da Graça,AP3,10
+94,Maré,AP3,1
+95,Meier,AP3,35
+96,Moneró,AP3,0
+97,Olaria,AP3,12
+98,Oswaldo Cruz,AP3,4
+99,Paciência,AP5,0
+100,Padre Miguel,AP5,1
+101,Paquetá,AP1,1
+102,Parada de Lucas,AP3,0
+103,Parque Anchieta,AP3,0
+104,Parque Colúmbia,AP3,7
+105,Pavuna,AP3,4
+106,Pechincha,AP4,33
+107,Pedra de Guaratiba,"",0
+108,Penha,AP3,10
+109,Penha Circular,AP3,5
+110,Piedade,AP3,8
+111,Pilares,AP3,6
+112,Pitangueiras,AP3,2
+113,Portuguesa,AP3,0
+114,Praia da Bandeira,AP3,3
+115,Praça Seca,AP4,2
+116,Praça da Bandeira,AP2,21
+117,Quintino Bocaiuva,AP3,4
+118,Ramos,AP3,23
+119,Realengo,AP5,1
+120,Recreio dos Bandeirantes,AP4,1
+121,Riachuelo,AP3,11
+122,Ribeira,AP3,0
+123,Ricardo de Albuquerque,AP3,0
+124,Rio Comprido,AP1,11
+125,Rocha,AP3,9
+126,Rocha Miranda,AP3,3
+127,Rocinha,AP2,2
+128,Sampaio,AP3,12
+129,Santa Cruz,AP5,13
+130,Santa Teresa,AP1,0
+131,Santo Cristo,AP1,6
+132,Santíssimo,AP5,3
+133,Saúde,AP1,23
+134,Senador Camará,AP5,0
+135,Senador Vasconcelos,AP5,15
+136,Sepetiba,AP5,0
+137,São Conrado,AP2,0
+138,São Cristovão,AP1,53
+139,São Francisco Xavier,AP3,11
+140,Tanque,AP4,6
+141,Taquara,AP4,11
+142,Tauá,AP3,4
+143,Tijuca,AP2,38
+144,Todos os Santos,AP3,31
+145,Tomás Coelho,AP3,2
+146,Turiaçu,AP3,0
+147,Urca,AP2,7
+148,Vargem Grande,AP4,1
+149,Vargem Pequena,AP4,1
+150,Vasco da Gama,AP1,38
+151,Vicente de Carvalho,AP3,3
+152,Vidigal,AP2,3
+153,Vigário Geral,AP3,0
+154,Vila Isabel,AP2,30
+155,Vila Cosmos,AP3,8
+156,Vila Militar,AP5,0
+157,Vila Valqueire,AP4,2
+158,Vila da Penha,AP3,5
+159,Vista Alegre,AP3,5
+160,Váz Lobo,AP3,0
+161,Zumbi,AP3,1

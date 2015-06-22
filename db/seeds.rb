@@ -36,21 +36,30 @@ require 'csv'
 
 
 
-districts = CSV.read(Rails.root.join('db/sampledata/bairros.csv'), encoding: 'ISO8859-1')
+#districts = CSV.read(Rails.root.join('db/sampledata/bairros.csv'), encoding: 'ISO8859-1')
 
 
-districts.each do |row|
-  District.where(name: row[0].encode('utf-8'), lat: row[1], long: row[2]).first_or_create
-end
+#districts.each do |row|
+  #District.where(name: row[0].encode('utf-8'), lat: row[1], long: row[2]).first_or_create
+#end
 
 #create(first_name: 'Luiz', email: 'eu@luiz.cc', district_id: District.first.id, last_name: 'Claudio', password: '123456')
 
 
 # 
-zones = CSV.read(Rails.root.join("db/sampledata/bairros_zones.csv"), encoding: 'ISO8859-1')
+#zones = CSV.read(Rails.root.join("db/sampledata/bairros_zones.csv"), encoding: 'ISO8859-1')
 
-zones.each do |row|
-  d = District.where(id: row[0]).first
-  r = row[2] || ''
-  d.update_attribute(:zone, r) 
-end
+#zones.each do |row|
+  #d = District.where(id: row[0]).first
+  #r = row[2] || ''
+  #d.update_attribute(:zone, r) 
+#end
+
+
+
+#geom = CSV.read(Rails.root.join("db/sampledata/bairros_geometries.csv"), encoding: 'utf-8')
+
+#geom.each do |row|
+  #d = District.where(name: row[1]).first
+  #d.update_attributes(shape_area: row[6], shape_length: row[7], geo: row[9]) if d
+#end

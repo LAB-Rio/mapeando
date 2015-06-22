@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615194239) do
+ActiveRecord::Schema.define(version: 20150619175655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,8 +39,37 @@ ActiveRecord::Schema.define(version: 20150615194239) do
   add_index "addr", ["tlid", "statefp"], name: "idx_tiger_addr_tlid_statefp", using: :btree
   add_index "addr", ["zip"], name: "idx_tiger_addr_zip", using: :btree
 
-# Could not dump table "addrfeat" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  create_table "addrfeat", primary_key: "gid", force: :cascade do |t|
+    t.integer  "tlid",       limit: 8
+    t.string   "statefp",    limit: 2,                                   null: false
+    t.string   "aridl",      limit: 22
+    t.string   "aridr",      limit: 22
+    t.string   "linearid",   limit: 22
+    t.string   "fullname",   limit: 100
+    t.string   "lfromhn",    limit: 12
+    t.string   "ltohn",      limit: 12
+    t.string   "rfromhn",    limit: 12
+    t.string   "rtohn",      limit: 12
+    t.string   "zipl",       limit: 5
+    t.string   "zipr",       limit: 5
+    t.string   "edge_mtfcc", limit: 5
+    t.string   "parityl",    limit: 1
+    t.string   "parityr",    limit: 1
+    t.string   "plus4l",     limit: 4
+    t.string   "plus4r",     limit: 4
+    t.string   "lfromtyp",   limit: 1
+    t.string   "ltotyp",     limit: 1
+    t.string   "rfromtyp",   limit: 1
+    t.string   "rtotyp",     limit: 1
+    t.string   "offsetl",    limit: 1
+    t.string   "offsetr",    limit: 1
+    t.geometry "the_geom",   limit: {:srid=>4269, :type=>"line_string"}
+  end
+
+  add_index "addrfeat", ["the_geom"], name: "idx_addrfeat_geom_gist", using: :gist
+  add_index "addrfeat", ["tlid"], name: "idx_addrfeat_tlid", using: :btree
+  add_index "addrfeat", ["zipl"], name: "idx_addrfeat_zipl", using: :btree
+  add_index "addrfeat", ["zipr"], name: "idx_addrfeat_zipr", using: :btree
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",      default: "",    null: false
@@ -57,8 +86,21 @@ ActiveRecord::Schema.define(version: 20150615194239) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
 
-# Could not dump table "bg" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  create_table "bg", primary_key: "bg_id", force: :cascade do |t|
+    t.integer  "gid",                                                    default: "nextval('bg_gid_seq'::regclass)", null: false
+    t.string   "statefp",  limit: 2
+    t.string   "countyfp", limit: 3
+    t.string   "tractce",  limit: 6
+    t.string   "blkgrpce", limit: 1
+    t.string   "namelsad", limit: 13
+    t.string   "mtfcc",    limit: 5
+    t.string   "funcstat", limit: 1
+    t.float    "aland"
+    t.float    "awater"
+    t.string   "intptlat", limit: 11
+    t.string   "intptlon", limit: 12
+    t.geometry "the_geom", limit: {:srid=>4269, :type=>"multi_polygon"}
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",                             null: false
@@ -73,8 +115,29 @@ ActiveRecord::Schema.define(version: 20150615194239) do
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
   add_index "categories", ["travel_mode"], name: "index_categories_on_travel_mode", using: :btree
 
-# Could not dump table "county" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  create_table "county", primary_key: "cntyidfp", force: :cascade do |t|
+    t.integer  "gid",                                                    default: "nextval('county_gid_seq'::regclass)", null: false
+    t.string   "statefp",  limit: 2
+    t.string   "countyfp", limit: 3
+    t.string   "countyns", limit: 8
+    t.string   "name",     limit: 100
+    t.string   "namelsad", limit: 100
+    t.string   "lsad",     limit: 2
+    t.string   "classfp",  limit: 2
+    t.string   "mtfcc",    limit: 5
+    t.string   "csafp",    limit: 3
+    t.string   "cbsafp",   limit: 5
+    t.string   "metdivfp", limit: 5
+    t.string   "funcstat", limit: 1
+    t.integer  "aland",    limit: 8
+    t.float    "awater"
+    t.string   "intptlat", limit: 11
+    t.string   "intptlon", limit: 12
+    t.geometry "the_geom", limit: {:srid=>4269, :type=>"multi_polygon"}
+  end
+
+  add_index "county", ["countyfp"], name: "idx_tiger_county", using: :btree
+  add_index "county", ["gid"], name: "uidx_county_gid", unique: true, using: :btree
 
   create_table "county_lookup", id: false, force: :cascade do |t|
     t.integer "st_code",            null: false
@@ -96,8 +159,30 @@ ActiveRecord::Schema.define(version: 20150615194239) do
 
   add_index "countysub_lookup", ["state"], name: "countysub_lookup_state_idx", using: :btree
 
-# Could not dump table "cousub" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  create_table "cousub", primary_key: "cosbidfp", force: :cascade do |t|
+    t.integer  "gid",                                                                   default: "nextval('cousub_gid_seq'::regclass)", null: false
+    t.string   "statefp",  limit: 2
+    t.string   "countyfp", limit: 3
+    t.string   "cousubfp", limit: 5
+    t.string   "cousubns", limit: 8
+    t.string   "name",     limit: 100
+    t.string   "namelsad", limit: 100
+    t.string   "lsad",     limit: 2
+    t.string   "classfp",  limit: 2
+    t.string   "mtfcc",    limit: 5
+    t.string   "cnectafp", limit: 3
+    t.string   "nectafp",  limit: 5
+    t.string   "nctadvfp", limit: 5
+    t.string   "funcstat", limit: 1
+    t.decimal  "aland",                                                  precision: 14
+    t.decimal  "awater",                                                 precision: 14
+    t.string   "intptlat", limit: 11
+    t.string   "intptlon", limit: 12
+    t.geometry "the_geom", limit: {:srid=>4269, :type=>"multi_polygon"}
+  end
+
+  add_index "cousub", ["gid"], name: "uidx_cousub_gid", unique: true, using: :btree
+  add_index "cousub", ["the_geom"], name: "tige_cousub_the_geom_gist", using: :gist
 
   create_table "demands", force: :cascade do |t|
     t.text     "fullname",    default: "", null: false
@@ -120,19 +205,131 @@ ActiveRecord::Schema.define(version: 20150615194239) do
     t.string   "name"
     t.string   "lat"
     t.string   "long"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "zone",       default: "", null: false
+    t.datetime "created_at",                                                       null: false
+    t.datetime "updated_at",                                                       null: false
+    t.string   "zone",                                               default: "",  null: false
+    t.float    "shape_area",                                         default: 0.0, null: false
+    t.float    "shape_length",                                       default: 0.0, null: false
+    t.geometry "geo",          limit: {:srid=>0, :type=>"geometry"}
   end
 
   add_index "districts", ["name"], name: "index_districts_on_name", unique: true, using: :btree
   add_index "districts", ["zone"], name: "index_districts_on_zone", using: :btree
 
-# Could not dump table "edges" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  create_table "edges", primary_key: "gid", force: :cascade do |t|
+    t.string   "statefp",    limit: 2
+    t.string   "countyfp",   limit: 3
+    t.integer  "tlid",       limit: 8
+    t.decimal  "tfidl",                                                        precision: 10
+    t.decimal  "tfidr",                                                        precision: 10
+    t.string   "mtfcc",      limit: 5
+    t.string   "fullname",   limit: 100
+    t.string   "smid",       limit: 22
+    t.string   "lfromadd",   limit: 12
+    t.string   "ltoadd",     limit: 12
+    t.string   "rfromadd",   limit: 12
+    t.string   "rtoadd",     limit: 12
+    t.string   "zipl",       limit: 5
+    t.string   "zipr",       limit: 5
+    t.string   "featcat",    limit: 1
+    t.string   "hydroflg",   limit: 1
+    t.string   "railflg",    limit: 1
+    t.string   "roadflg",    limit: 1
+    t.string   "olfflg",     limit: 1
+    t.string   "passflg",    limit: 1
+    t.string   "divroad",    limit: 1
+    t.string   "exttyp",     limit: 1
+    t.string   "ttyp",       limit: 1
+    t.string   "deckedroad", limit: 1
+    t.string   "artpath",    limit: 1
+    t.string   "persist",    limit: 1
+    t.string   "gcseflg",    limit: 1
+    t.string   "offsetl",    limit: 1
+    t.string   "offsetr",    limit: 1
+    t.decimal  "tnidf",                                                        precision: 10
+    t.decimal  "tnidt",                                                        precision: 10
+    t.geometry "the_geom",   limit: {:srid=>4269, :type=>"multi_line_string"}
+  end
 
-# Could not dump table "faces" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  add_index "edges", ["countyfp"], name: "idx_tiger_edges_countyfp", using: :btree
+  add_index "edges", ["the_geom"], name: "idx_tiger_edges_the_geom_gist", using: :gist
+  add_index "edges", ["tlid"], name: "idx_edges_tlid", using: :btree
+
+  create_table "faces", primary_key: "gid", force: :cascade do |t|
+    t.decimal  "tfid",                                                     precision: 10
+    t.string   "statefp00",  limit: 2
+    t.string   "countyfp00", limit: 3
+    t.string   "tractce00",  limit: 6
+    t.string   "blkgrpce00", limit: 1
+    t.string   "blockce00",  limit: 4
+    t.string   "cousubfp00", limit: 5
+    t.string   "submcdfp00", limit: 5
+    t.string   "conctyfp00", limit: 5
+    t.string   "placefp00",  limit: 5
+    t.string   "aiannhfp00", limit: 5
+    t.string   "aiannhce00", limit: 4
+    t.string   "comptyp00",  limit: 1
+    t.string   "trsubfp00",  limit: 5
+    t.string   "trsubce00",  limit: 3
+    t.string   "anrcfp00",   limit: 5
+    t.string   "elsdlea00",  limit: 5
+    t.string   "scsdlea00",  limit: 5
+    t.string   "unsdlea00",  limit: 5
+    t.string   "uace00",     limit: 5
+    t.string   "cd108fp",    limit: 2
+    t.string   "sldust00",   limit: 3
+    t.string   "sldlst00",   limit: 3
+    t.string   "vtdst00",    limit: 6
+    t.string   "zcta5ce00",  limit: 5
+    t.string   "tazce00",    limit: 6
+    t.string   "ugace00",    limit: 5
+    t.string   "puma5ce00",  limit: 5
+    t.string   "statefp",    limit: 2
+    t.string   "countyfp",   limit: 3
+    t.string   "tractce",    limit: 6
+    t.string   "blkgrpce",   limit: 1
+    t.string   "blockce",    limit: 4
+    t.string   "cousubfp",   limit: 5
+    t.string   "submcdfp",   limit: 5
+    t.string   "conctyfp",   limit: 5
+    t.string   "placefp",    limit: 5
+    t.string   "aiannhfp",   limit: 5
+    t.string   "aiannhce",   limit: 4
+    t.string   "comptyp",    limit: 1
+    t.string   "trsubfp",    limit: 5
+    t.string   "trsubce",    limit: 3
+    t.string   "anrcfp",     limit: 5
+    t.string   "ttractce",   limit: 6
+    t.string   "tblkgpce",   limit: 1
+    t.string   "elsdlea",    limit: 5
+    t.string   "scsdlea",    limit: 5
+    t.string   "unsdlea",    limit: 5
+    t.string   "uace",       limit: 5
+    t.string   "cd111fp",    limit: 2
+    t.string   "sldust",     limit: 3
+    t.string   "sldlst",     limit: 3
+    t.string   "vtdst",      limit: 6
+    t.string   "zcta5ce",    limit: 5
+    t.string   "tazce",      limit: 6
+    t.string   "ugace",      limit: 5
+    t.string   "puma5ce",    limit: 5
+    t.string   "csafp",      limit: 3
+    t.string   "cbsafp",     limit: 5
+    t.string   "metdivfp",   limit: 5
+    t.string   "cnectafp",   limit: 3
+    t.string   "nectafp",    limit: 5
+    t.string   "nctadvfp",   limit: 5
+    t.string   "lwflag",     limit: 1
+    t.string   "offset",     limit: 1
+    t.float    "atotal"
+    t.string   "intptlat",   limit: 11
+    t.string   "intptlon",   limit: 12
+    t.geometry "the_geom",   limit: {:srid=>4269, :type=>"multi_polygon"}
+  end
+
+  add_index "faces", ["countyfp"], name: "idx_tiger_faces_countyfp", using: :btree
+  add_index "faces", ["tfid"], name: "idx_tiger_faces_tfid", using: :btree
+  add_index "faces", ["the_geom"], name: "tiger_faces_the_geom_gist", using: :gist
 
   create_table "featnames", primary_key: "gid", force: :cascade do |t|
     t.integer "tlid",       limit: 8
@@ -233,8 +430,29 @@ ActiveRecord::Schema.define(version: 20150615194239) do
   add_index "pins", ["demand_id", "lat", "long"], name: "index_pins_on_demand_id_and_lat_and_long", unique: true, using: :btree
   add_index "pins", ["demand_id"], name: "index_pins_on_demand_id", using: :btree
 
-# Could not dump table "place" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  create_table "place", primary_key: "plcidfp", force: :cascade do |t|
+    t.integer  "gid",                                                    default: "nextval('place_gid_seq'::regclass)", null: false
+    t.string   "statefp",  limit: 2
+    t.string   "placefp",  limit: 5
+    t.string   "placens",  limit: 8
+    t.string   "name",     limit: 100
+    t.string   "namelsad", limit: 100
+    t.string   "lsad",     limit: 2
+    t.string   "classfp",  limit: 2
+    t.string   "cpi",      limit: 1
+    t.string   "pcicbsa",  limit: 1
+    t.string   "pcinecta", limit: 1
+    t.string   "mtfcc",    limit: 5
+    t.string   "funcstat", limit: 1
+    t.integer  "aland",    limit: 8
+    t.integer  "awater",   limit: 8
+    t.string   "intptlat", limit: 11
+    t.string   "intptlon", limit: 12
+    t.geometry "the_geom", limit: {:srid=>4269, :type=>"multi_polygon"}
+  end
+
+  add_index "place", ["gid"], name: "uidx_tiger_place_gid", unique: true, using: :btree
+  add_index "place", ["the_geom"], name: "tiger_place_the_geom_gist", using: :gist
 
   create_table "place_lookup", id: false, force: :cascade do |t|
     t.integer "st_code",            null: false
@@ -260,15 +478,26 @@ ActiveRecord::Schema.define(version: 20150615194239) do
 
   add_index "secondary_unit_lookup", ["abbrev"], name: "secondary_unit_lookup_abbrev_idx", using: :btree
 
-  create_table "spatial_ref_sys", primary_key: "srid", force: :cascade do |t|
-    t.string  "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string  "srtext",    limit: 2048
-    t.string  "proj4text", limit: 2048
+  create_table "state", primary_key: "statefp", force: :cascade do |t|
+    t.integer  "gid",                                                    default: "nextval('state_gid_seq'::regclass)", null: false
+    t.string   "region",   limit: 2
+    t.string   "division", limit: 2
+    t.string   "statens",  limit: 8
+    t.string   "stusps",   limit: 2,                                                                                    null: false
+    t.string   "name",     limit: 100
+    t.string   "lsad",     limit: 2
+    t.string   "mtfcc",    limit: 5
+    t.string   "funcstat", limit: 1
+    t.integer  "aland",    limit: 8
+    t.integer  "awater",   limit: 8
+    t.string   "intptlat", limit: 11
+    t.string   "intptlon", limit: 12
+    t.geometry "the_geom", limit: {:srid=>4269, :type=>"multi_polygon"}
   end
 
-# Could not dump table "state" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  add_index "state", ["gid"], name: "uidx_tiger_state_gid", unique: true, using: :btree
+  add_index "state", ["stusps"], name: "uidx_tiger_state_stusps", unique: true, using: :btree
+  add_index "state", ["the_geom"], name: "idx_tiger_state_the_geom_gist", using: :gist
 
   create_table "state_lookup", primary_key: "st_code", force: :cascade do |t|
     t.string "name",    limit: 40
@@ -287,11 +516,39 @@ ActiveRecord::Schema.define(version: 20150615194239) do
 
   add_index "street_type_lookup", ["abbrev"], name: "street_type_lookup_abbrev_idx", using: :btree
 
-# Could not dump table "tabblock" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  create_table "tabblock", primary_key: "tabblock_id", force: :cascade do |t|
+    t.integer  "gid",                                                    default: "nextval('tabblock_gid_seq'::regclass)", null: false
+    t.string   "statefp",  limit: 2
+    t.string   "countyfp", limit: 3
+    t.string   "tractce",  limit: 6
+    t.string   "blockce",  limit: 4
+    t.string   "name",     limit: 20
+    t.string   "mtfcc",    limit: 5
+    t.string   "ur",       limit: 1
+    t.string   "uace",     limit: 5
+    t.string   "funcstat", limit: 1
+    t.float    "aland"
+    t.float    "awater"
+    t.string   "intptlat", limit: 11
+    t.string   "intptlon", limit: 12
+    t.geometry "the_geom", limit: {:srid=>4269, :type=>"multi_polygon"}
+  end
 
-# Could not dump table "tract" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  create_table "tract", primary_key: "tract_id", force: :cascade do |t|
+    t.integer  "gid",                                                    default: "nextval('tract_gid_seq'::regclass)", null: false
+    t.string   "statefp",  limit: 2
+    t.string   "countyfp", limit: 3
+    t.string   "tractce",  limit: 6
+    t.string   "name",     limit: 7
+    t.string   "namelsad", limit: 20
+    t.string   "mtfcc",    limit: 5
+    t.string   "funcstat", limit: 1
+    t.float    "aland"
+    t.float    "awater"
+    t.string   "intptlat", limit: 11
+    t.string   "intptlon", limit: 12
+    t.geometry "the_geom", limit: {:srid=>4269, :type=>"multi_polygon"}
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false
@@ -323,8 +580,22 @@ ActiveRecord::Schema.define(version: 20150615194239) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-# Could not dump table "zcta5" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+  create_table "zcta5", id: false, force: :cascade do |t|
+    t.integer  "gid",                                                    default: "nextval('zcta5_gid_seq'::regclass)", null: false
+    t.string   "statefp",  limit: 2,                                                                                    null: false
+    t.string   "zcta5ce",  limit: 5,                                                                                    null: false
+    t.string   "classfp",  limit: 2
+    t.string   "mtfcc",    limit: 5
+    t.string   "funcstat", limit: 1
+    t.float    "aland"
+    t.float    "awater"
+    t.string   "intptlat", limit: 11
+    t.string   "intptlon", limit: 12
+    t.string   "partflg",  limit: 1
+    t.geometry "the_geom", limit: {:srid=>4269, :type=>"multi_polygon"}
+  end
+
+  add_index "zcta5", ["gid"], name: "uidx_tiger_zcta5_gid", unique: true, using: :btree
 
   create_table "zip_lookup", primary_key: "zip", force: :cascade do |t|
     t.integer "st_code"

@@ -32,6 +32,7 @@ gem 'omniauth-facebook'
 # Database
 gem 'pg' # Use postgresql as the database for Active Record
 gem 'postgres_ext-serializers', github: 'crossroads/postgres_ext-serializers'
+gem 'activerecord-postgis-adapter'
 
 
 

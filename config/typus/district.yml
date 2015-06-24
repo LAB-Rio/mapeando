@@ -2,7 +2,7 @@
 
 District:
   fields:
-    default: name, lat, long
+    default: name, lat, long, zone
     form: name, lat, long
   relationships: users
   application: Tabelas 

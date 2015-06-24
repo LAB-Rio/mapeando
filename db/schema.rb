@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526173719) do
+ActiveRecord::Schema.define(version: 20150612190155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,11 +59,13 @@ ActiveRecord::Schema.define(version: 20150526173719) do
     t.string   "name"
     t.string   "lat"
     t.string   "long"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "zone",       default: "", null: false
   end
 
   add_index "districts", ["name"], name: "index_districts_on_name", unique: true, using: :btree
+  add_index "districts", ["zone"], name: "index_districts_on_zone", using: :btree
 
   create_table "pins", force: :cascade do |t|
     t.string   "lat",        default: "", null: false

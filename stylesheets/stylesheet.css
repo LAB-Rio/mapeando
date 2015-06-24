@@ -7,7 +7,12 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #606c71; }
+  color: #606c71;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.text-center { text-align: center; }
 
 a {
   color: #1e6bb8;
@@ -18,11 +23,11 @@ a {
 .btn {
   display: inline-block;
   margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(33, 33, 33, 0.7);
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(0, 0, 0, 0.2);
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
   border-radius: 0.3rem;
   transition: color 0.2s, background-color 0.2s, border-color 0.2s; }
   .btn + .btn {
@@ -31,7 +36,7 @@ a {
 .btn:hover {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #ed2654;
   border-color: rgba(255, 255, 255, 0.3); }
 
 @media screen and (min-width: 64em) {
@@ -54,10 +59,13 @@ a {
       margin-left: 0; } }
 
 .page-header {
-  color: #fff;
+  color: #333;
   text-align: center;
-  background-color: #159957;
-  background-image: linear-gradient(120deg, #155799, #159957); }
+  background-color: white;
+  background-image: url('http://www.labrio.cc/assets/images/mapeando_bg.png');
+  background-repeat: no-repeat; 
+  background-size: 90%;
+}
 
 @media screen and (min-width: 64em) {
   .page-header {

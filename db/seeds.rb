@@ -11,27 +11,29 @@
 #
 require 'csv'
 
-#Category.create([
+if Category.count == 0
+  Category.create([
 
-  ## A pe
-  #{ name: 'Nova travessia de pedestre', travel_mode: 'walking', icon_url: 'http://i.imgur.com/ASDCc9X.png' },
-  #{ name: 'Reajuste do tempo do semáforo', travel_mode: 'walking', icon_url: 'http://i.imgur.com/fdthG3S.png' },
+    # A pe
+    { name: 'Nova travessia de pedestre', travel_mode: 'walking', icon_url: 'http://i.imgur.com/ASDCc9X.png' },
+    { name: 'Reajuste do tempo do semáforo', travel_mode: 'walking', icon_url: 'http://i.imgur.com/fdthG3S.png' },
 
-  ## Coletivo
-  #{ name: 'Novo ponto de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/uwfzE3Y.png' },
-  #{ name: 'Novo terminal de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/zQ0p6pU.png' },
+    # Coletivo
+    { name: 'Novo ponto de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/uwfzE3Y.png' },
+    { name: 'Novo terminal de ônibus', travel_mode: 'bus', icon_url: 'http://i.imgur.com/zQ0p6pU.png' },
 
-  ## Bicicleta
-  #{ name: 'Novo posto de BikeRio', travel_mode: 'biking', icon_url: 'http://i.imgur.com/rWyzqUL.png' },
-  #{ name: 'Quero uma ciclovia passando aqui', travel_mode: 'biking', icon_url: 'http://i.imgur.com/hVY6WqQ.png' },
-
-
-  ## Motorizado individual
-  #{ name: 'Restrição do tráfego de automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/ukGgfHS.png' },
-  #{ name: 'Redução da velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/aNDLZnZ.png' }
+    # Bicicleta
+    { name: 'Novo posto de BikeRio', travel_mode: 'biking', icon_url: 'http://i.imgur.com/rWyzqUL.png' },
+    { name: 'Quero uma ciclovia passando aqui', travel_mode: 'biking', icon_url: 'http://i.imgur.com/hVY6WqQ.png' },
 
 
-#])
+    # Motorizado individual
+    { name: 'Restrição do tráfego de automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/ukGgfHS.png' },
+    { name: 'Redução da velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/aNDLZnZ.png' }
+
+
+  ])
+end
 
 
 
@@ -40,17 +42,17 @@ districts = CSV.read(Rails.root.join('db/sampledata/bairros.csv'), encoding: 'IS
 
 
 districts.each do |row|
-  District.where(name: row[0].encode('utf-8'), lat: row[1], long: row[2]).first_or_create
+  District.where(name: row[0].encode('utf-8'), lat: row[1], long: row[2], zone: row[3]).first_or_create
 end
 
 #create(first_name: 'Luiz', email: 'eu@luiz.cc', district_id: District.first.id, last_name: 'Claudio', password: '123456')
 
 
-# 
-zones = CSV.read(Rails.root.join("db/sampledata/bairros_zones.csv"), encoding: 'ISO8859-1')
+## 
+#zones = CSV.read(Rails.root.join("db/sampledata/bairros_zones.csv"), encoding: 'ISO8859-1')
 
-zones.each do |row|
-  d = District.where(id: row[0]).first
-  r = row[2] || ''
-  d.update_attribute(:zone, r) 
-end
+#zones.each do |row|
+  #d = District.where(id: row[0]).first
+  #r = row[2] || ''
+  #d.update_attribute(:zone, r) 
+#end

@@ -18,4 +18,6 @@ Você pode abrir uma [issue](https://github.com/LAB-Rio/mapeando) no repositóri
 
 ## Licença de uso
 You're free. Você pode usar este produto da forma que quiser, mantendo a identidade do Mapeando, porém sem fins comerciais (senão, perde-se o propósito da ferramenta :).
+
+#
 ![cc-by-nc-sa](http://i.imgur.com/ske74If.png)

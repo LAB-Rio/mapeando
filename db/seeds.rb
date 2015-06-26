@@ -24,13 +24,17 @@ if Category.count == 0
 
     # Bicicleta
     { name: 'Novo posto de BikeRio', travel_mode: 'biking', icon_url: 'http://i.imgur.com/rWyzqUL.png' },
-    { name: 'Quero uma ciclovia passando aqui', travel_mode: 'biking', icon_url: 'http://i.imgur.com/hVY6WqQ.png' },
+    { name: 'Nova rota cicloviária', travel_mode: 'biking', icon_url: 'http://i.imgur.com/hVY6WqQ.png' },
 
 
     # Motorizado individual
     { name: 'Restrição do tráfego de automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/ukGgfHS.png' },
-    { name: 'Redução da velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/aNDLZnZ.png' }
+    { name: 'Redução da velocidade máxima para automóveis', travel_mode: 'driving', icon_url: 'http://i.imgur.com/aNDLZnZ.png' },
 
+    # PMUS
+    { name: 'Novo bicicletário', travel_mode: 'biking', icon_url: 'http://i.imgur.com/Ohen8NH.png', issue: true },
+    { name: 'Alargamento de calçada', travel_mode: 'walking', icon_url: 'http://i.imgur.com/Hkq5Lnc.png', issue: true },
+    { name: 'Novo corredor de alta capacidade', travel_mode: 'bus', icon_url: 'http://i.imgur.com/6Bz1cxJ.png', issue: true }
 
   ])
 end

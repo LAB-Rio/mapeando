@@ -77,9 +77,8 @@ body
 
 
 #logos
-  position: fixed
-  bottom: 2%
-  right: 2%
+  float: right
+  margin-top: -2em
   opacity: .7
   z-index: 14
   &:hover
@@ -95,7 +94,7 @@ body
   z-index: 10
   box-shadow: 0 1px 1px #999
   background: white
-  height: 70px
+  //height: 70px
   position: relative
 
 
@@ -135,22 +134,28 @@ a.add-demand
   //background: #ed2654
   display: block
   color: #ed2654
+  font-weight: bold
 
 
-.index .row:first-child
+.index .map-row
   width: 100% !important
   min-width: 100% !important
   height: 100% !important
+  min-height: 100% !important
 
-.index .columns
-  padding: 0
+.index .map-row .columns
+  padding: .3em .2em
   height: 100%
 
 #map
   width: 100% !important
-  min-height: 200px
-  height: 90% !important
-
+  min-height: 400px !important
+  height: 100% !important
+#map iframe
+  height: 100% !important
+.index
+  height: 99% !important
+  max-height: 99% !important
 
 
 // Marker on index page map
@@ -197,9 +202,45 @@ a.add-demand
   width: 50px !important
 
 
-#filters
+
+// Search & Filter
+
+
+
+#search
   background: white
-  padding: .8em 1.6em
+  box-shadow: 0 1px 1px #666
+  margin: .1em auto .4em auto
+  form
+    padding: .8em
+    input 
+      margin: 0
+.filter-actions
+  font-size: .8em
+  a
+    display: inline-block
+    width: 100%
+    border: 1px solid #ddd
+    color: #aaa
+    margin: 0
+    padding: .4em
+
+#filters 
+  background: white
+  padding: .6em 1em
+  box-shadow: 0 1px 1px #666
+  overflow: auto 
+  height: 84% !important
+  max-height: 84% !important
+
+.filter-search
+  height: 98% !important
+
+#filters h5
+  margin-bottom: .2em
+  padding-bottom: .2em
+  font-size: 1em !important
+  font-weight: 500
 
 #filters ol
   list-style-type: none
@@ -207,7 +248,9 @@ a.add-demand
 
 #filters li  
   padding: .2em .6em
-  font-size: .8em
+  font-size: .8em !important
+  img
+    margin-right: .2em
     
 
 #filters li:hover
@@ -215,63 +258,6 @@ a.add-demand
   cursor: pointer
   padding: .2em .6em
 
-
-/** New filter setting **/
-
-
-//// Filters block
-//#filters
-  //background: white
-  //height: 100%
-  //padding: .2em .6em .6em 1em
-  //h3
-    //font-size: 1.1em !important
-    //font-weight: bold
-    //padding: .4em 0 .4em 0
-    //margin-bottom: .8em
-    //border-bottom: 1px solid #e9e9e9
-  //ol
-    //margin-left: 0
-    //margin: 0
-  //li
-    //list-style-type: none
-    //padding: .1em 1.5em
-    //display: block
-    //clear: both
-    //font-size: .8em
-    //transition: all .3s
-    //-webkit-filter: grayscale(1)
-    //-moz-filter: grayscale(1)
-    //-ms-filter: grayscale(1)
-    //filter: grayscale(1)
-    //opacity: .8
-    //img 
-      //float: left
-      //opacity: .4
-      //padding: .2em .4em .4em 0
-    //&:hover
-      //background: #f9f9f9
-      //cursor: pointer
-    //&.active
-      //opacity: 1
-      //-webkit-filter: grayscale(0)
-      //-moz-filter: grayscale(0)
-      //-ms-filter: grayscale(0)
-      //filter: grayscale(0)
-      //img
-        //opacity: 1
-  //h5
-    //font-weight: bold
-    //font-size: .8em !important
-    //padding: .2em 1em .3em 1em
-    //margin: 0
-  //.filter
-    //margin: 0 0 .6em 0
-
-//.show-all a
-  //font-size: .8em
-  //color: #666
-  //border-bottom: 1px solid #999
 
 
 

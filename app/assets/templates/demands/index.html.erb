@@ -1,30 +1,50 @@
 <div class="index" ng-init="$root.showNavBackLink = false">
 
 
-  <div class="row">
+  <div class="row map-row">
 
     <div class="medium-8 large-9 columns">
       <div id="map"></div>
 
     </div>
 
-    <div class="show-for-medium-up large-3 medium-4 columns end">
+    <div class="show-for-medium-up large-3 medium-4 columns end filter-search">
+
+      <div class="row" id="search">
+        <div class="medium-12 columns">
+          <form>
+            <input type="text" name="search" value="" placeholder="Pesquise um endereço"/>
+          </form>
+
+        </div>
+      </div>
+
       <div id="filters">
-        <!--<h3 class="text-center"> Ver demandas indicadas </h3>-->
+
+
         <div class="filter" ng-repeat="(key, value) in categories.categories | groupBy: 'travel_mode' | orderBy: '!travel_mode'">
           <h5>{{ categoryName[key] }}</h5>
           <ol>
             <li ng-click="loadMarkers(category.id)" ng-class="{ 'active': activeCategory == category.id }" ng-repeat="category in value">
-              <img ng-src="{{ category.icon_url }}" width="20" />
+              <img ng-src="{{ category.icon_url }}" width="18" />
               {{ category.name }} 
               <sup ng-show="category.issue" ng-hide="!category.issue"><a href="http://pmus.com.br">&nbsp;PMUS</a> </sup>
             </li>
           </ol>
         </div>
-        <div class="show-all text-center" ng-clock><a class="button" ng-click="loadMarkers('')">Ver todas</a></div>
+        <div class="show-all text-center filter-actions" ng-clock>
+          <a ng-click="loadMarkers('')">Ver todas as demandas</a>
+        </div>
+
+
       </div>
     </div>
     <!-- end filters -->
+<div id="logos">
+  <a href="http://labrio.cc" target="_blank"><%= image_tag('labrio.png', size: '50x50')  %></a> &nbsp;
+  <a href="http://prefeitura.rio" target="_blank"><%= image_tag('prefeitura.png', size: '60x60')  %></a>
+</div>
+
 
 
 
@@ -38,11 +58,5 @@
 
 
 
-
-<!--
-<div id="logos">
-  <a href="http://labrio.cc" target="_blank"><%= image_tag('labrio.png', size: '50x50')  %></a> &nbsp;
-  <a href="http://prefeitura.rio" target="_blank"><%= image_tag('prefeitura.png', size: '60x60')  %></a>
-</div>-->
 
 

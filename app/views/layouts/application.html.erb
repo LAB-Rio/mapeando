@@ -37,12 +37,6 @@
       <div class="row">
         
 
-        <div class="medium-4 small-4 logo large-4 columns">
-          <%= link_to image_tag('logo.png', size: '190x35'), '#/', class: 'hide-for-small-only large-logo' %>
-          <!--<%= link_to image_tag('logo-icon.png', size: '50x50'), '#/' %>-->
-        </div>
-
-
         <div class="medium-2 small-2 large-2 navicon columns text-center" >
           <a href="/#/"><%= image_tag('navicon-home.png', size: '24x24') %><span>Início</span></a>
         </div>  
@@ -53,11 +47,13 @@
         </div>
 
 
-
-
+        <div class="medium-4 small-4 logo text-center large-4 columns">
+          <%= link_to image_tag('logo.png', size: '190x35'), '#/', class: 'hide-for-small-only large-logo' %>
+          <!--<%= link_to image_tag('logo-icon.png', size: '50x50'), '#/' %>-->
+        </div>
 
         <div class="medium-2 small-2 large-2 navicon columns text-center" >
-          <a href="/#/"><%= image_tag('navicon-search.png', size: '24x24') %><span>Pesquisar</span></a>
+          <a href="/#/about"><%= image_tag('navicon-search.png', size: '24x24') %><span>Saiba mais</span></a>
         </div>
 
 
@@ -66,8 +62,11 @@
           <a href="/#/demands/new" class="add-demand"><%= image_tag('navicon-new-pin.png', size: '24x24') %><span>Indicar demanda</span></a>
         </div>
   
+      </div>
+      <!-- end row -->
 
 
+    </div>
 
 
 
@@ -155,11 +154,6 @@
 
         </div>
         -->
-
-      </div>
-
-    </div>
-
 
 <!--
     <div id="welcome-screen" ng-click="$root.showWelcomeScreen = true" ng-hide="$root.showWelcomeScreen">

@@ -3,5 +3,13 @@
   "description": "Mapa colaborativo de demandas",
   "repository": "https://github.com/LAB-Rio/mapeando",
   "logo": "http://i.imgur.com/u20gJJ0.png",
-  "keywords": ["ruby", "rails", "angular"]
+  "keywords": ["ruby", "rails", "angular"],
+  "success_url": "/admin",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate db:seed"
+  },
+
+  "addons": [
+    "mandrill:starter"
+  ]
 }

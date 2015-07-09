@@ -17,7 +17,6 @@ controllers.controller('newDemandController', [
       $scope.demand.user = $scope.session.user;
     }
 
-    $scope.setDemandTypes();
     $scope.categories = categoryFactory.index();
   }
 
@@ -26,20 +25,6 @@ controllers.controller('newDemandController', [
   $scope.nextStep = function() {
     $location.path('/demands/new/pins');
   }
-
-
-
-
-  $scope.setDemandTypes = function() {
-    var current_param = $route.current.params.type;
-    $scope.paramType = ( current_param != undefined) ? current_param : 'demand';
-
-    $scope.isIssue    = !($scope.paramType == 'demand');
-    $scope.isDemand   = !($scope.paramType == 'issue');
-
-    $scope.demand.issue = $scope.isIssue;
-  }
-
 
 
 

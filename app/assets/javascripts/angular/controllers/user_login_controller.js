@@ -1,4 +1,6 @@
-controllers.controller("userLoginController", ['$scope', '$location', '$rootScope', 'Auth', 'currentUserFactory' , function($scope, $location, $rootScope, Auth, currentUserFactory){
+controllers.controller("userLoginController", [
+  '$scope', '$location', '$rootScope', 'Auth', 'currentUserFactory' , 
+  function($scope, $location, $rootScope, Auth, currentUserFactory){
 
 
   $scope.user;
@@ -18,6 +20,8 @@ controllers.controller("userLoginController", ['$scope', '$location', '$rootScop
 
     Auth.login(credentials).then(function(user){
       $scope.loginErrorMessage = user;
+      console.log('credentials');
+      console.log(user);
 
     }, function(error) {
       $scope.loginError = true;

@@ -1,6 +1,6 @@
 controllers.controller('demandsController', [
-  '$scope', 'mapFactory', 'demandFactory', 'categoryFactory', '$http', '$q', '$filter', 
-  function($scope, mapFactory, demandFactory, categoryFactory, $http, $q, $filter){
+  '$scope', 'mapFactory', 'demandFactory', 'categoryFactory', '$http', '$q', '$filter', 'GmapsAutocompleteFactory', 
+  function($scope, mapFactory, demandFactory, categoryFactory, $http, $q, $filter, GmapsAutocompleteFactory){
  
   
    
@@ -15,6 +15,34 @@ controllers.controller('demandsController', [
     $scope.categories = categoryFactory.index(); 
 
     $scope.loadDemands({});
+    $scope.setupAutocomplete();
+  }
+
+
+  $scope.setupAutocomplete = function(){
+    var autocomplete = GmapsAutocompleteFactory.setup('searchField');
+
+    google.maps.event.addListener(autocomplete, 'place_changed', function(){
+
+      var place = autocomplete.getPlace();
+      var lat = place.geometry.location.A;
+      var lng = place.geometry.location.F;
+
+      var icon = L.icon({ iconUrl: 'http://i.imgur.com/S7CbL0Q.png', iconSize: [0,0], iconAnchor: [60, 100] });
+      var marker = L.marker([lat, lng], { icon: icon, draggable: true });
+
+
+
+      $scope.markers = L.layerGroup([marker])
+
+      $scope.markers.addTo( $scope.map );
+
+      $scope.map.setView(new L.LatLng(lat, lng), 17)
+
+
+
+    });
+
   }
 
 

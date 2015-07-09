@@ -20,7 +20,7 @@
 
 
 
-
+    <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
     <%= stylesheet_link_tag  "http://fonts.googleapis.com/css?family=Cabin" %>
     <%= stylesheet_link_tag  "application" %>
@@ -41,119 +41,53 @@
           <a href="/#/"><%= image_tag('navicon-home.png', size: '24x24') %><span>Início</span></a>
         </div>  
 
-
         <div class="medium-2 small-2 large-2 navicon columns text-center" >
-          <a href="/#/"><%= image_tag('navicon-contact.png', size: '24x24') %><span>Contato</span></a>
+          <a href="/#/about"><%= image_tag('new-info-icon.png', size: '24x24') %><span>Saiba mais</span></a>
         </div>
-
 
         <div class="medium-4 small-4 logo text-center large-4 columns">
           <%= link_to image_tag('logo.png', size: '190x35'), '#/', class: 'hide-for-small-only large-logo' %>
           <!--<%= link_to image_tag('logo-icon.png', size: '50x50'), '#/' %>-->
         </div>
 
-        <div class="medium-2 small-2 large-2 navicon columns text-center" >
-          <a href="/#/about"><%= image_tag('navicon-search.png', size: '24x24') %><span>Saiba mais</span></a>
+
+
+        <div class="medium-2 small-2 large-2 navicon columns text-center" ng-controller="userSessionController">
+       
+            <a href="/#/" ng-cloak ng-show="!currentUser"><%= image_tag('navicon-contact.png', size: '24x24') %><span>Sugestões</span></a>
+            <a href="/#/demands/new" ng-cloak ng-show="currentUser" class="add-demand"><%= image_tag('new-pin-icon.png', size: '24x24') %><span>Indique demandas</span></a>
         </div>
 
 
 
-        <div class="medium-2 small-2 large-2 navicon columns end text-center">
-          <a href="/#/demands/new" class="add-demand"><%= image_tag('navicon-new-pin.png', size: '24x24') %><span>Indicar demanda</span></a>
+        <div class="medium-2 small-2 large-2 navicon columns user-navigation end text-center" ng-controller="userSessionController">
+
+
+
+          <a href="#/" ng-cloak ng-show="currentUser" class="view-profile">
+               
+            <span><img src="{{ currentUser.avatar }}" width="30" height="30" alt="Avatar"/> <em>▼</em></span>
+            <span class="user-name">  {{ currentUser.first_name }} </span>
+          </a>
+
+          <a href="/#/demands/new" ng-cloak ng-show="!currentUser" class="add-demand">
+            <%= image_tag('new-pin-icon.png', size: '24x24') %><span>Indique demandas</span>
+          </a>
+
+          <ul class="user-menu" ng-cloak ng-show="currentUser">
+            <li> <a href="#/user/{{ currentUser.id }}/profile"> Meu perfil </a> </li>
+            <li> <a href="mailto:luiz@labrio.cc?cc=mapeando@labrio.cc"> Enviar sugestões </a> </li>
+            <li> <a href="#/logout"> Sair </a> </li>
+          </ul>
+
         </div>
   
       </div>
       <!-- end row -->
-
-
     </div>
+    <!-- end HEADER -->
 
 
-
-
-
-
-        <!--
-        <div class="medium-2 small-3 text-left logo columns">
-          <div class="show-for-small-only">
-            <a href="#/" ng-show="$root.showNavBackLink"><%= image_tag('nav-back.png', size: '8x8') %></a>
-          </div>
-        </div>-->
-
-
-        <!--
-        <div class="medium-4 hide-for-small-only columns">
-          <%= link_to image_tag('logo.png', size: '190x35'), '#/', class: 'hide-for-small-only large-logo' %>
-          &nbsp;
-        </div>
-
-        <div class="medium-6 small-9 columns menu text-right end" ng-controller="userSessionController">
-          <ol class="navigation" ng-class="{ 'user-logged': currentUser }">
-            <li class="navigation-link button-action">
-              <a href="#/demands/new"> 
-                <span>Indique uma demanda</span>
-
-              </a>
-            </li>-->
-
-           <!-- <li class="navigation-link hide-on-mobile">
-              <a href="mailto:luiz@labrio.cc?cc=mapeando@labrio.cc">
-                <span> Sugestões </span>
-              </a>
-            </li> -->
-
-
-
-
-           <!-- <li class="navigation-link hide-on-mobile">
-              <a href="#/about">
-                <span> Saiba mais </span>
-              </a>
-            </li>
-            -->
-
-           <!-- <li class="navigation-link hide-on-mobile" ng-show="!currentUser">
-              <a href="#/signup" class="signup" >
-                <span> Registrar</span>
-              </a>
-            </li>-->
-
-           <!--
-            <li class="navigation-link" ng-show="!currentUser">
-              <a href="#/login" class="login" >
-                <span> Entrar </span>
-              </a>
-            </li>
-
-            <li class="navigation-link hidden" ng-show="currentUser">
-              <a href="#/login" class="login" >
-                <span> Minhas demandas </span>
-              </a>
-            </li>
-
-
-            <li class="navigation-link hidden user-avatar" ng-show="currentUser">
-              <a class="current-user">
-                <img ng-src="{{ currentUser.avatar }}" width="30" height="30" alt="avatar"/>
-                <span>&#x25BC;</span>
-              </a>
-
-
-              <ul class="user-menu">
-                <li> <a href="#/user/{{ currentUser.id }}/profile"> Meu perfil </a> </li>
-                <li> <a href="mailto:luiz@labrio.cc?cc=mapeando@labrio.cc"> Reportar um erro/sugestão! </a> </li>
-                <li> <a href="#/logout"> Sair </a> </li>
-
-              </ul>
-              </li>
-              
-
-
-          </ol>
-           
-
-        </div>
-        -->
 
 <!--
     <div id="welcome-screen" ng-click="$root.showWelcomeScreen = true" ng-hide="$root.showWelcomeScreen">

@@ -106,13 +106,23 @@ body
 
 
 .logo
-  line-height: 67px
+  line-height: 70px
 
 .navicon:hover
   background: #e9e9e9
 
 .navicon img
   transition: .4s all
+  -webkit-filter: grayscale(1)
+  opacity: .4
+.navicon:hover
+  img
+    -webkit-filter: grayscale(0) 
+    opacity: 1
+
+.add-demand img, .view-profile img
+  opacity: 1
+  -webkit-filter: grayscale(0)
 
 .navicon a 
   color: #777
@@ -132,9 +142,51 @@ body
 
 a.add-demand
   //background: #ed2654
-  display: block
-  color: #ed2654
+  color: #ed2654 
   font-weight: bold
+
+
+.user-menu
+  list-style-type: none
+  display: none
+  margin: 0
+  padding: 0
+
+.user-navigation:hover
+  .user-menu
+    display: block
+    position: absolute
+    top: 70px
+    width: 100%
+    min-width: 200px
+    text-align: left
+    background: #e9e9e9 
+    box-shadow: 0 1px 1px #333
+    margin: 0
+    left: 0
+    li
+      border-bottom: 1px solid #ccc
+      margin: 0
+      padding: .6em 1.4em
+      width: 100%
+      &:hover
+        background: #ed2654
+        a
+          display: inline-block
+          width: 100%
+          color: white
+
+
+.view-profile
+  em 
+    top: 15%
+    font-size: .6em
+    padding-left: .2em
+    position: absolute 
+
+
+
+
 
 
 .index .map-row
@@ -215,6 +267,18 @@ a.add-demand
     padding: .8em
     input 
       margin: 0
+      display: inline-block
+      &:focus
+        background: white
+
+#searchBtn
+  position: absolute
+  padding: .1em .6em
+  margin: 0
+  background: none 
+  top: 30%
+  right: 5%
+
 .filter-actions
   font-size: .8em
   a

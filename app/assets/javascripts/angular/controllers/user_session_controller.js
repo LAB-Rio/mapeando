@@ -7,7 +7,9 @@ controllers.controller('userSessionController', [
   Auth.currentUser().then(function(user){
     $scope.currentUser = user.user;
     $scope.session.user = user.user;
+    console.log(user.user);
   }, function(error){
+    console.log(error);
     $scope.currentUser = false;
     $scope.session.user = false;
   });
@@ -20,6 +22,8 @@ controllers.controller('userSessionController', [
     $scope.session.user = currentUser.user;
     var url = $scope.session.referrer || '/';
     
+    console.log(currentUser);
+    console.log(url);
     $location.path(url);
   });
 

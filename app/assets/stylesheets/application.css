@@ -13,10 +13,10 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
- *= require leaflet 
- *= require leaflet.markercluster
- *= require leaflet.markercluster.default
- *= require leaflet-routing-machine
+ * require leaflet 
+ * require leaflet.markercluster
+ * require leaflet.markercluster.default
+ * require leaflet-routing-machine
 
 
  */

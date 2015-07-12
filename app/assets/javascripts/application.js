@@ -25,8 +25,12 @@
 //= require_tree ./angular/factories
 //= require_tree ./angular/controllers
 //
-//= require leaflet
-//= require leaflet.markercluster
-//= require leaflet-routing-machine
-//= require leaflet-routing-graphhopper
+// require leaflet
+// require leaflet.markercluster
+// require leaflet-routing-machine
+// require leaflet-routing-graphhopper
+//
+//
+//= require js-marker-clusterer-fork
+//
 //= require_tree .

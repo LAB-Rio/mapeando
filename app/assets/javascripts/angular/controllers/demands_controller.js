@@ -6,6 +6,7 @@ controllers.controller('demandsController', [
    
   $scope.activeCategoriesPool = [];
   $scope.activeCategory;
+  $scope.markerCluster;
 
   $scope.map, $scope.result, $scope.markers, $scope.layerGroup;
 
@@ -18,6 +19,120 @@ controllers.controller('demandsController', [
     $scope.setupAutocomplete();
   }
 
+  $scope.loadDemands = function(params) {
+    demandFactory.index(params, function(response){
+      $scope.showDemandsOnMap(response.demands);
+    });
+  }
+
+
+  $scope.showDemandsOnMap = function(demands, color) {
+    var markers = [];
+    var size = demands.length;
+
+    for (i = 0; i < size; i++) {
+
+      if (demands[i].pins && demands[i].pins.length > 0) {
+
+        var dm = demands[i];
+
+        var pins      = dm.pins;
+        var icon      = dm.category.icon_url;
+        var pinCount  = dm.pins.length;
+
+
+        for (index = 0; index < pinCount; index++) {
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(pins[index].lat, pins[index].long), 
+            icon: icon
+          });
+        
+          markers.push(marker);
+
+        }
+      }
+    }
+
+    $scope.markerCluster = new MarkerClusterer($scope.map, markers, { gridSize: 100 });
+
+
+  }
+
+
+
+/*    $scope.layerGroup = new L.MarkerClusterGroup({ */
+      //disableClusteringAtZoom: 14,
+      //iconCreateFunction: function(cluster) {
+        
+        //var c = ' marker-cluster-';
+        //var count = cluster.getChildCount();
+        //var size = 40;
+
+        //switch(true) {
+          //case(count <= 25):
+            //c += 'small';
+            //size = 40;
+            //break;
+          //case(count > 25 || count <= 100):
+            //c += 'medium';
+            //size = 50;
+            //break;
+          //case(count > 100):
+            //c += 'large';
+            //size = 60;
+            //break;
+        //}
+
+				//var div = new L.DivIcon({ 
+          //html: '<div style="background: '+color+'"><span>' + count + '</span></div>', 
+          //className: 'marker-cluster' + c, 
+          //iconSize: new L.Point(size, size) 
+        //});
+
+        //return div;
+      //}
+    //});
+
+    //var size = demands.length;
+
+    //for (i = 0; i < size; i++) {
+
+      ////console.log(demands[i]);
+
+      //if (demands[i].pins && demands[i].pins.length > 0) {
+
+        //var pin   = demands[i].pins;
+        //var icon_url  = demands[i].category.icon_url;
+
+
+        //var pin_size = demands[i].pins.length;
+
+        //for (index = 0; index < pin_size; index++) {
+
+          
+          //var icon = L.icon({ iconUrl: icon_url, iconSize: [22, 22]});
+
+          //marker = L.marker([pin[index].lat, pin[index].long], { icon: icon, riseOnHover: true }); 
+          //$scope.layerGroup.addLayer(marker);
+
+
+          //$scope.subscribeMarkerEvents(marker, demands[i]);
+
+
+        //}
+      //}
+      
+    //}
+
+
+    //$scope.layerGroup.addTo($scope.map);
+    //$scope.changeMarkerClusterColor(color); 
+    /*$scope.watchColorChange(color);*/
+
+
+
+
+
 
   $scope.setupAutocomplete = function(){
     var autocomplete = GmapsAutocompleteFactory.setup('searchField');
@@ -28,16 +143,8 @@ controllers.controller('demandsController', [
       var lat = place.geometry.location.A;
       var lng = place.geometry.location.F;
 
-      var icon = L.icon({ iconUrl: 'http://i.imgur.com/S7CbL0Q.png', iconSize: [0,0], iconAnchor: [60, 100] });
-      var marker = L.marker([lat, lng], { icon: icon, draggable: true });
-
-
-
-      $scope.markers = L.layerGroup([marker])
-
-      $scope.markers.addTo( $scope.map );
-
-      $scope.map.setView(new L.LatLng(lat, lng), 17)
+      $scope.map.panTo(new google.maps.LatLng(lat, lng));
+      $scope.map.setZoom(17);
 
 
 
@@ -46,77 +153,7 @@ controllers.controller('demandsController', [
   }
 
 
-  $scope.showDemandsOnMap = function(demands, color) {
 
-    $scope.layerGroup = new L.MarkerClusterGroup({ 
-      disableClusteringAtZoom: 14,
-      iconCreateFunction: function(cluster) {
-        
-        var c = ' marker-cluster-';
-        var count = cluster.getChildCount();
-        var size = 40;
-
-        switch(true) {
-          case(count <= 25):
-            c += 'small';
-            size = 40;
-            break;
-          case(count > 25 || count <= 100):
-            c += 'medium';
-            size = 50;
-            break;
-          case(count > 100):
-            c += 'large';
-            size = 60;
-            break;
-        }
-
-		    var div = new L.DivIcon({ 
-          html: '<div style="background: '+color+'"><span>' + count + '</span></div>', 
-          className: 'marker-cluster' + c, 
-          iconSize: new L.Point(size, size) 
-        });
-
-        return div;
-      }
-    });
-
-    var size = demands.length;
-
-    for (i = 0; i < size; i++) {
-
-      //console.log(demands[i]);
-
-      if (demands[i].pins && demands[i].pins.length > 0) {
-
-        var pin   = demands[i].pins;
-        var icon_url  = demands[i].category.icon_url;
-
-
-        var pin_size = demands[i].pins.length;
-
-        for (index = 0; index < pin_size; index++) {
-
-          
-          var icon = L.icon({ iconUrl: icon_url, iconSize: [22, 22]});
-
-          marker = L.marker([pin[index].lat, pin[index].long], { icon: icon, riseOnHover: true }); 
-          $scope.layerGroup.addLayer(marker);
-
-
-          $scope.subscribeMarkerEvents(marker, demands[i]);
-
-
-        }
-      }
-      
-    }
-
-
-    $scope.layerGroup.addTo($scope.map);
-    $scope.changeMarkerClusterColor(color); 
-    $scope.watchColorChange(color);
-  }
 
   $scope.watchColorChange = function(colorHex) {
     var scope = $scope;
@@ -160,11 +197,7 @@ controllers.controller('demandsController', [
   }
 
 
-  $scope.loadDemands = function(params) {
-    demandFactory.index(params, function(response){
-      $scope.showDemandsOnMap(response.demands);
-    });
-  }
+
 
 
   $scope.$on('$locationChangeStart', function(){
@@ -188,7 +221,7 @@ controllers.controller('demandsController', [
       var color = (category_id != '' && response.demands[0] !== undefined) ? response.demands[0].category.marker_color : '#ed2654';
 
 
-      $scope.map.removeLayer($scope.layerGroup);
+      $scope.markerCluster.clearMarkers();
       $scope.showDemandsOnMap(response.demands, color);
 
       $scope.activeCategory = category_id;

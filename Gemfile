@@ -62,7 +62,8 @@ gem 'leaflet-markercluster-rails'
 gem 'rails-assets-leaflet-routing-machine'
 gem 'rails-assets-leaflet-routing-graphhopper', '1.0.7'
 
-
+# Google Maps Marker Clusterer
+gem 'rails-assets-js-marker-clusterer-fork'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

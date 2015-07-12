@@ -11,7 +11,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, omniauth_providers: [:facebook]
   
   has_many :demands
+
+
   belongs_to :district 
+
+  has_and_belongs_to_many :likes, class_name: Demand, join_table: :demands_users 
+
 
   validates :first_name, :last_name, :district_id, :avatar, presence: true
 

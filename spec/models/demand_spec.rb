@@ -8,6 +8,7 @@ describe Demand do
     it { should validate_presence_of :user }
     it { should validate_presence_of :category }
 
+    it { should have_and_belong_to_many :likes }
     it { should have_many :pins }
   end
 

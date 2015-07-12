@@ -10,6 +10,8 @@ class Demand < ActiveRecord::Base
  
   has_many :pins
   
+  has_and_belongs_to_many :likes, class_name: User, join_table: :demands_users 
+
   scope :by_category_id, ->(id) { where(category_id: id) }
 
 

@@ -10,6 +10,8 @@ describe User do
     it { should belong_to :district }
     it { should have_many :demands }
 
+    it { should have_and_belong_to_many :likes }
+
   end
 
 

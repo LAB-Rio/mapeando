@@ -15,7 +15,7 @@ describe DemandsController do
           fullname: demand.fullname,
           user_id: demand.user_id,
           category_id: demand.category_id,
-          category: { name: demand.category.name, travel_mode: demand.category.travel_mode, icon_url: demand.category.icon_url},
+          category: { name: demand.category.name, travel_mode: demand.category.travel_mode, icon_url: demand.category.icon_url, marker_color: demand.category.marker_color },
           pins: demand.pins.map {|p|{ lat: p.lat, long: p.long, fullname: p.fullname }},
           user: { first_name: demand.user.first_name , last_name: demand.user.last_name, avatar: demand.user.avatar, district: demand.user.district.name }
        ]

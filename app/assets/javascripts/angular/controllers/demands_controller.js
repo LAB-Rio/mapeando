@@ -53,7 +53,7 @@ controllers.controller('demandsController', [
       }
     }
 
-    $scope.markerCluster = new MarkerClusterer($scope.map, markers, { gridSize: 100 });
+    $scope.markerCluster = new MarkerClusterer($scope.map, markers, { gridSize: 100, maxZoom: 14 });
 
 
   }

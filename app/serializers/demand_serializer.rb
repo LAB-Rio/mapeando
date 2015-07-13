@@ -1,6 +1,19 @@
 class DemandSerializer < ActiveModel::Serializer
-  attributes :id, :fullname, :user_id, :category_id, :category, :pins, :user
- 
+  attributes :id, :fullname, :user_id, :category_id, :category, :pins, :user, :likes_count
+
+  def likes_count
+    object.likes.count
+  end
+
+  def likes_count__sql
+    %Q{
+      (
+        SELECT count(*) FROM demands_users du
+        WHERE du.demand_id = demands.id
+      )
+  
+    }
+  end
 
   def category__sql
     '(  

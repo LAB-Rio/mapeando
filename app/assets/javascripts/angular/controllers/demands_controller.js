@@ -139,24 +139,32 @@ controllers.controller('demandsController', [
     $scope.setPopupContent(marker, demand, 'mouseover');
    }
 
-
+  // TODO: Move this to a template
   $scope.setPopupContent = function(marker, demand, binding){
     var truncate = $filter('truncate');
 
     marker.on(binding, function(event) {
       var html = '<div class="marker-view">';
-      var text = (demand.pins.length > 1) ? 'Ver esta rota' : 'Ver mais detalhes';
+      var text = (demand.pins.length > 1) ? 'Ver rota' : 'Ver mais';
 
       html += '<img src="' + demand.user.avatar + '" width="40" height="40"/>';
-      html += '<h6><strong>' + demand.user.first_name + ' quer</strong> em ' + demand.pins[0].fullname + ' </h6>';
-      html += '<div class="marker-content"><h5>'+ demand.category.name + '</h5>';
-      html += '<blockquote>' + truncate(demand.fullname, 140) + '</blockquote></div>';
+      html += '<h6><strong style="text-transform: capitalize">' + demand.user.first_name + '</strong> quer '
+      html += '<strong style="color: '+demand.category.marker_color+'">'+ demand.category.name + '</strong> ' 
+      html += 'em ' + demand.pins[0].fullname + ' </h6>';
+      html += '<blockquote>' + demand.fullname + '</blockquote>';
 
-
-      html += '<p class="text-center"><a class="button" href="#/demands/show/'+ demand.id + '">'+ text +'</a></p>';
+  
+      html += '<p class="text-right">';
+      html += '<a class="act-button" href="#/demands/show/'+ demand.id + '"><img src="http://i.imgur.com/jTeulhw.png" width="20" height="20"/>'+ text +'</a>';
+      html += '<a class="act-button" ng-click="userFavorite('+demand.id+')"><img src="http://i.imgur.com/VLZFxn1.png" width="20" height="20"/>Curtir ('+demand.likes_count+')</a>';
+      html += '</p>';
       html += '</div>';
       marker.bindPopup(html).openPopup();   
     });
+  }
+
+  $scope.userFavorite = function(demandId) {
+   alert(demandId);   
   }
 
 
@@ -171,7 +179,8 @@ controllers.controller('demandsController', [
     $scope.map.remove();
   });
 
-  
+ 
+  // TODO: move this to the bank
   $scope.categoryName = {
     driving: "Transporte Individual Motorizado",
     biking: "Transporte Individual não Motorizado",

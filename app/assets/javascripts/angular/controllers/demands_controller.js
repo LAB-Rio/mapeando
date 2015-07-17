@@ -156,7 +156,7 @@ controllers.controller('demandsController', [
   
       html += '<p class="text-right">';
       html += '<a class="act-button" href="#/demands/show/'+ demand.id + '"><img src="http://i.imgur.com/jTeulhw.png" width="20" height="20"/>'+ text +'</a>';
-      html += '<a class="act-button" ng-click="userFavorite('+demand.id+')"><img src="http://i.imgur.com/VLZFxn1.png" width="20" height="20"/>Curtir ('+demand.likes_count+')</a>';
+      html += '<a class="act-button" ng-click="userFavorite('+demand.id+')"><img src="http://i.imgur.com/VLZFxn1.png" width="20" height="20"/>Apoio! ('+demand.likes_count+')</a>';
       html += '</p>';
       html += '</div>';
       marker.bindPopup(html).openPopup();   

@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :demands, only: [:index, :create, :show]
+  resources :demands, only: [:index, :create, :show] do
+    member do
+      post :like
+    end
+  end
   resources :categories, only: [:index]
   resources :districts, only: [:index]
 

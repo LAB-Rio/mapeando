@@ -51,7 +51,8 @@ controllers.controller('demandsController', [
     $scope.layerGroup = new L.MarkerClusterGroup({ 
       disableClusteringAtZoom: 14,
       iconCreateFunction: function(cluster) {
-        
+
+        var color = (color == undefined) ? '#ed2654' : color;
         var c = ' marker-cluster-';
         var count = cluster.getChildCount();
         var size = 40;

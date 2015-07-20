@@ -2,14 +2,15 @@
 source 'https://rubygems.org'
 
 # Assets
-source 'https://rails-assets.org'
 
 ruby '2.2.0'
 
 
 gem 'rails', '4.2.1'
 gem 'puma'
-gem 'typus', github: 'typus/typus'
+gem 'sprockets', '~> 2.12.3' # Downgrading due to .gz assets not being generated.
+gem 'rack-cors'
+
 
 # Prerender partials so scrappers can get them
 gem 'prerender_rails'
@@ -28,6 +29,8 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 
+# Admin
+gem 'typus', github: 'typus/typus'
 
 # Database
 gem 'pg' # Use postgresql as the database for Active Record
@@ -46,37 +49,26 @@ end
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
-gem 'rails-assets-angular-devise'
-gem 'rails-assets-angular-loading-bar'
-gem 'rails-assets-angular-filter'
-gem 'rails-assets-angular-easyfb'
-gem 'rails-assets-angulartics'
-gem 'rails-assets-angular'
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
 gem 'font-awesome-rails'
-
-# Gem to work with maps: http://leafletjs.com/
-gem 'rails-assets-leaflet'
 gem 'leaflet-markercluster-rails'
-gem 'rails-assets-leaflet-routing-machine'
-gem 'rails-assets-leaflet-routing-graphhopper', '1.0.7'
 
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-angular-devise'
+  gem 'rails-assets-angular-loading-bar'
+  gem 'rails-assets-angular-filter'
+  gem 'rails-assets-angular-easyfb'
+  gem 'rails-assets-angulartics'
+  gem 'rails-assets-angular'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+  # Gem to work with maps: http://leafletjs.com/
+  gem 'rails-assets-leaflet'
+  gem 'rails-assets-leaflet-routing-machine'
+  gem 'rails-assets-leaflet-routing-graphhopper', '1.0.7'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-#gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-#gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+end
 
 group :test do
   gem 'poltergeist' # Node.js is required to run spec/features/ tests: https://github.com/teampoltergeist/poltergeist
@@ -91,8 +83,6 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  #gem 'spring'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 

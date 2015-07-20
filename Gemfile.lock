@@ -116,6 +116,7 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.0)
+    hike (1.2.3)
     i18n (0.7.0)
     jasmine-core (2.2.0)
     jquery-rails (4.0.3)
@@ -173,7 +174,8 @@ GEM
       rack
     puma (2.11.1)
       rack (>= 1.1, < 2.0)
-    rack (1.6.1)
+    rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-zippy (2.0.2)
@@ -254,8 +256,11 @@ GEM
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
     slop (3.6.0)
-    sprockets (3.1.0)
+    sprockets (2.12.4)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
       rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
     sprockets-rails (2.3.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -305,22 +310,27 @@ DEPENDENCIES
   postgres_ext-serializers!
   prerender_rails
   puma
+  rack-cors
   rack-zippy
   rails (= 4.2.1)
-  rails-assets-angular
-  rails-assets-angular-devise
-  rails-assets-angular-easyfb
-  rails-assets-angular-filter
-  rails-assets-angular-loading-bar
-  rails-assets-angulartics
-  rails-assets-leaflet
-  rails-assets-leaflet-routing-graphhopper (= 1.0.7)
-  rails-assets-leaflet-routing-machine
+  rails-assets-angular!
+  rails-assets-angular-devise!
+  rails-assets-angular-easyfb!
+  rails-assets-angular-filter!
+  rails-assets-angular-loading-bar!
+  rails-assets-angulartics!
+  rails-assets-leaflet!
+  rails-assets-leaflet-routing-graphhopper (= 1.0.7)!
+  rails-assets-leaflet-routing-machine!
   rails_12factor
   responders
   rspec-rails
   sass-rails
   shoulda-matchers
+  sprockets (~> 2.12.3)
   typus!
   uglifier
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.5

@@ -12,7 +12,9 @@ class Demand < ActiveRecord::Base
   
   has_and_belongs_to_many :likes, class_name: User, join_table: :demands_users 
 
-  scope :by_category_id, ->(id) { where(category_id: id) }
+  default_scope { order('id DESC') }
+
+  scope :by_category_id,  ->(int) { where(category_id: int) }
 
 
   validates :user, :category, presence: true

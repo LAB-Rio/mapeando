@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20150710202419) do
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
   add_index "categories", ["travel_mode"], name: "index_categories_on_travel_mode", using: :btree
 
-
   create_table "demands", force: :cascade do |t|
     t.text     "fullname",    default: "", null: false
     t.datetime "created_at",               null: false
@@ -56,7 +55,12 @@ ActiveRecord::Schema.define(version: 20150710202419) do
   add_index "demands", ["category_id"], name: "index_demands_on_category_id", using: :btree
   add_index "demands", ["user_id"], name: "index_demands_on_user_id", using: :btree
 
+  create_table "demands_users", force: :cascade do |t|
+    t.integer "demand_id", null: false
+    t.integer "user_id",   null: false
+  end
 
+  add_index "demands_users", ["demand_id", "user_id"], name: "index_demands_users_on_demand_id_and_user_id", unique: true, using: :btree
 
   create_table "districts", force: :cascade do |t|
     t.string   "name"
@@ -70,14 +74,6 @@ ActiveRecord::Schema.define(version: 20150710202419) do
   add_index "districts", ["name"], name: "index_districts_on_name", unique: true, using: :btree
   add_index "districts", ["zone"], name: "index_districts_on_zone", using: :btree
 
-
-  create_table "demands_users", force: :cascade do |t|
-    t.integer "demand_id", null: false
-    t.integer "user_id",   null: false
-  end
-
-  add_index "demands_users", ["demand_id", "user_id"], name: "index_demands_users_on_demand_id_and_user_id", unique: true, using: :btree
-
   create_table "pins", force: :cascade do |t|
     t.string   "lat",        default: "", null: false
     t.string   "long",       default: "", null: false
@@ -89,9 +85,6 @@ ActiveRecord::Schema.define(version: 20150710202419) do
 
   add_index "pins", ["demand_id", "lat", "long"], name: "index_pins_on_demand_id_and_lat_and_long", unique: true, using: :btree
   add_index "pins", ["demand_id"], name: "index_pins_on_demand_id", using: :btree
-
-
-
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false
@@ -122,7 +115,6 @@ ActiveRecord::Schema.define(version: 20150710202419) do
   add_index "users", ["district_id"], name: "index_users_on_district_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
 
   add_foreign_key "pins", "demands"
 end

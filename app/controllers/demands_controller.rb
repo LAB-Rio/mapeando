@@ -2,6 +2,8 @@ class DemandsController < ApplicationController
 
   respond_to :json, :html
   has_scope :by_category_id
+  has_scope :limit
+  has_scope :offset
 
 
   before_filter only: [:create] do 

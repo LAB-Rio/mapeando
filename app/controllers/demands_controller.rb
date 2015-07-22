@@ -4,6 +4,7 @@ class DemandsController < ApplicationController
   has_scope :by_category_id
   has_scope :limit
   has_scope :offset
+  has_scope :skip_fullname
 
 
   before_filter only: [:create] do 

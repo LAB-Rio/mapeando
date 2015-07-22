@@ -15,6 +15,7 @@ class Demand < ActiveRecord::Base
   default_scope { order('id DESC') }
 
   scope :by_category_id,  ->(int) { where(category_id: int) }
+  scope :skip_fullname,   -> { where("demands.fullname <> '' ") }
 
 
   validates :user, :category, presence: true

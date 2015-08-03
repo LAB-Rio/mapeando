@@ -2,6 +2,7 @@
 
 Mapa colaborativo de demandas. Você pode ver a plataforma online no endereço http://mapeando.rio.gov.br.
 
+![Mapeando](http://cl.ly/image/2H0028220e2u/Image%202015-08-03%20at%206.53.17%20PM.png)
 
 
 

@@ -31,8 +31,9 @@ controllers.controller('editPinController', [
     google.maps.event.addListener(autocomplete, 'place_changed', function(){
 
       var place = autocomplete.getPlace();
-      var lat = place.geometry.location.A;
-      var lng = place.geometry.location.F;
+      //console.log(place.geometry.location);
+      var lat = place.geometry.location.lat();
+      var lng = place.geometry.location.lng();
     
 
       // Text field update

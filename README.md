@@ -1,6 +1,9 @@
 # Mapeando
 
-Mapa colaborativo de demandas. Você pode ver a plataforma online no endereço http://mapeando.rio.gov.br.
+Mapa colaborativo de demandas para cidades. 
+Você pode ver a plataforma online no endereço http://mapeando.rio.gov.br.
+
+Acompanhe o desenvolvimento do Mapeando em todas as cidades do Brasil: https://trello.com/b/LgPNEE4W/mapeando
 
 ![Mapeando](http://cl.ly/image/2H0028220e2u/Image%202015-08-03%20at%206.53.17%20PM.png)
 

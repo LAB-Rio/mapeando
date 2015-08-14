@@ -52,7 +52,8 @@ controllers.controller('demandsController', [
       disableClusteringAtZoom: 14,
       iconCreateFunction: function(cluster) {
 
-        var currentColor = (typeof(color) === undefined) ? '#ed2654' : color;
+        var currentColor = color || "#ed2654";
+
         var c = ' marker-cluster-';
         var count = cluster.getChildCount();
         var size = 40;

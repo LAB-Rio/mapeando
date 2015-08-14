@@ -25,8 +25,8 @@ controllers.controller('demandsController', [
     google.maps.event.addListener(autocomplete, 'place_changed', function(){
 
       var place = autocomplete.getPlace();
-      var lat = place.geometry.location.A;
-      var lng = place.geometry.location.F;
+      var lat = place.geometry.location.lat();
+      var lng = place.geometry.location.lng();
 
       var icon = L.icon({ iconUrl: 'http://i.imgur.com/S7CbL0Q.png', iconSize: [0,0], iconAnchor: [60, 100] });
       var marker = L.marker([lat, lng], { icon: icon, draggable: true });
@@ -52,7 +52,7 @@ controllers.controller('demandsController', [
       disableClusteringAtZoom: 14,
       iconCreateFunction: function(cluster) {
 
-        var color = (color == undefined) ? '#ed2654' : color;
+        var color = (color == "") ? '#ed2654' : color;
         var c = ' marker-cluster-';
         var count = cluster.getChildCount();
         var size = 40;

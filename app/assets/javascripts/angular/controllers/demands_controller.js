@@ -52,7 +52,7 @@ controllers.controller('demandsController', [
       disableClusteringAtZoom: 14,
       iconCreateFunction: function(cluster) {
 
-        //var color = (color == "") ? '#ed2654' : color;
+        var currentColor = (typeof(color) === undefined) ? '#ed2654' : color;
         var c = ' marker-cluster-';
         var count = cluster.getChildCount();
         var size = 40;
@@ -73,7 +73,7 @@ controllers.controller('demandsController', [
         }
 
 		    var div = new L.DivIcon({ 
-          html: '<div style="background: '+color+'"><span>' + count + '</span></div>', 
+          html: '<div style="background: '+ currentColor + '"><span>' + count + '</span></div>', 
           className: 'marker-cluster' + c, 
           iconSize: new L.Point(size, size) 
         });

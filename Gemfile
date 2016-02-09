@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 
-gem 'rails', '4.2.1'
+gem 'rails', '~> 4.2.4'
 gem 'puma'
 gem 'sprockets', '~> 2.12.3' # Downgrading due to .gz assets not being generated.
 gem 'rack-cors'
@@ -33,7 +33,7 @@ gem 'omniauth-facebook'
 gem 'typus', github: 'typus/typus'
 
 # Database
-gem 'pg' # Use postgresql as the database for Active Record
+gem 'pg', '~> 0.18.2' # Use postgresql as the database for Active Record
 gem 'postgres_ext-serializers', github: 'crossroads/postgres_ext-serializers'
 
 
@@ -60,7 +60,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-loading-bar'
   gem 'rails-assets-angular-filter'
   gem 'rails-assets-angular-easyfb'
-  gem 'rails-assets-angulartics'
+  #gem 'rails-assets-angulartics'
   gem 'rails-assets-angular'
 
   # Gem to work with maps: http://leafletjs.com/

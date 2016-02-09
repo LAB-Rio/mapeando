@@ -21,11 +21,11 @@ Clique no botão abaixo e faça uma conta no Heroku (serviço de hospedagem grat
     $ bundle install 
     $ sudo service postgresql start
     
-    $rake db:create && rake db:migrade
-    $rails server 
+    $ rake db:create && rake db:migrade
+    $ rails server 
     
     #For cloud9
-        $rails server -b $IP -p $PORT
+        $ rails server -b $IP -p $PORT
         sudo su - postgres
         
         Or the more modern form:
@@ -42,6 +42,68 @@ Clique no botão abaixo e faça uma conta no Heroku (serviço de hospedagem grat
 rake db:create RAILS_ENV=development
 rake db:migrate RAILS_ENV=development
 ```
+
+
+Create a new username and password for postgresql on cloud9:
+```
+$ sudo service postgresql start
+$ sudo sudo -u postgres psql
+postgres=# CREATE USER username SUPERUSER PASSWORD 'password';
+postgres=# \q
+Create ENV variables on cloud9:
+
+$ echo "export USERNAME=username" >> ~/.profile
+$ echo "export PASSWORD=password" >> ~/.profile
+$ source ~/.profile
+My database.yml for rails 4.2.0 on cloud9:
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['USERNAME'] %>
+  password: <%= ENV['PASSWORD'] %>
+  host:     <%= ENV['IP'] %>
+
+development:
+  <<: *default
+  database: sample_app_development
+
+test:
+  <<: *default
+  database: sample_app_test
+
+production:
+  <<: *default
+  database: sample_app_production
+Include the gem pg in Gemfile and install:
+
+gem 'pg', '~> 0.18.2'
+$ bundle install
+
+```
+Update template1 postgresql for database.yml on cloud9:
+
+```
+postgres=# UPDATE pg_database SET datistemplate = FALSE WHERE datname = 'template1';
+postgres=# DROP DATABASE template1;
+postgres=# CREATE DATABASE template1 WITH TEMPLATE = template0 ENCODING = 'UNICODE';
+postgres=# UPDATE pg_database SET datistemplate = TRUE WHERE datname = 'template1';
+postgres=# \c template1
+postgres=# VACUUM FREEZE;
+postgres=# \q
+```
+From command line run:
+
+```
+bundle exec rake db:create
+```
+
+
+
+
+
+
 ##### Referências
 *[Criando Banco](http://stackoverflow.com/questions/28404482/rails-fatal-database-myapp-development-does-not-exist)
 *[Criando usuario postgre](http://stackoverflow.com/questions/11919391/postgresql-error-fatal-role-username-does-not-exist)
@@ -56,3 +118,4 @@ You're free. Você pode usar este produto da forma que quiser, mantendo a identi
 #
 ![cc-by-nc-sa](http://i.imgur.com/ske74If.png)
 
+username SUPERUSER PASSWORD 'password';

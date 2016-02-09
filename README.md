@@ -55,8 +55,10 @@ Create ENV variables on cloud9:
 $ echo "export USERNAME=username" >> ~/.profile
 $ echo "export PASSWORD=password" >> ~/.profile
 $ source ~/.profile
-My database.yml for rails 4.2.0 on cloud9:
+```
 
+My database.yml for rails 4.2.0 on cloud9:
+```
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -76,8 +78,11 @@ test:
 production:
   <<: *default
   database: sample_app_production
+```
+
 Include the gem pg in Gemfile and install:
 
+```
 gem 'pg', '~> 0.18.2'
 $ bundle install
 
@@ -117,5 +122,3 @@ You're free. Você pode usar este produto da forma que quiser, mantendo a identi
 
 #
 ![cc-by-nc-sa](http://i.imgur.com/ske74If.png)
-
-username SUPERUSER PASSWORD 'password';

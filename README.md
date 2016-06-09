@@ -18,7 +18,9 @@ Clique no botão abaixo e faça uma conta no Heroku (serviço de hospedagem grat
 ## Para colaborar
 Você pode abrir uma [issue](https://github.com/LAB-Rio/mapeando) no repositório ou pode dar feedbacks pelo email mapeando@labrio.cc.
 
+## Documentação
 
+- [Guia para desenvolvedores](https://github.com/LAB-RIO/mapeando/tree/fs/instructions-run-project-mapeando#como-rodar-o-projeto)
 
 ## Licença de uso
 You're free. Você pode usar este produto da forma que quiser, mantendo a identidade do Mapeando, porém sem fins comerciais (senão, perde-se o propósito da ferramenta :).

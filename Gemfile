@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.6'
 gem 'puma'
 gem 'sprockets', '~> 2.12.3' # Downgrading due to .gz assets not being generated.
 gem 'rack-cors'

@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <title>Mapeando</title>
-  
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ed2654"/>
@@ -31,15 +31,15 @@
   </head>
 
   <body ng-app="demandsApp">
- 
+
 
     <div id="header">
       <div class="row">
-        
+
 
         <div class="medium-2 small-2 large-2 navicon columns text-center" >
           <a href="/#/"><%= image_tag('navicon-home.png', size: '24x24') %><span>Início</span></a>
-        </div>  
+        </div>
 
         <div class="medium-2 small-2 large-2 navicon columns text-center" >
           <a href="/#/about"><%= image_tag('new-info-icon.png', size: '24x24') %><span>Saiba mais</span></a>
@@ -53,7 +53,7 @@
 
 
         <div class="medium-2 small-2 large-2 navicon columns text-center" ng-controller="userSessionController">
-       
+
             <a href="https://docs.google.com/forms/d/1S7PezA5WCQnleMUyRf3Kep6HmOEwFbtkOO6bbGUjURM/viewform?usp=send_form" ng-cloak ng-show="!currentUser"><%= image_tag('navicon-contact.png', size: '24x24') %><span>Sugestões</span></a>
             <a href="/#/demands/new" ng-cloak ng-show="currentUser" class="add-demand"><%= image_tag('new-pin-icon.png', size: '24x24') %><span>Indique demandas</span></a>
         </div>
@@ -65,7 +65,7 @@
 
 
           <a href="#/" ng-cloak ng-show="currentUser" class="view-profile">
-               
+
             <span><img src="{{ currentUser.avatar }}" width="30" height="30" alt="Avatar"/> <em>▼</em></span>
             <span class="user-name">  {{ currentUser.first_name }} </span>
           </a>
@@ -81,7 +81,7 @@
           </ul>
 
         </div>
-  
+
       </div>
       <!-- end row -->
     </div>
@@ -89,23 +89,23 @@
 
 
 
-<!--
+
     <div id="welcome-screen" ng-click="$root.showWelcomeScreen = true" ng-hide="$root.showWelcomeScreen">
       <div class="row text-center">
 
 
         <div class="medium-7 small-12 medium-centered welcome-text columns">
           <p><%= image_tag "logo-icon.png", size: '96x96' %></p>
-          <h3>Olá, este é o Mapeando, a plataforma colaborativa para indicar soluções para a cidade do Rio de Janeiro!</h3>
+          <h2>BEM VINDO AO MAPEANDO</h2>
           <br/>
-          <h5>Ajude a Prefeitura do Rio a melhorar suas políticas públicas indicando no mapa suas demandas para a cidade.</h5>
+          <h5>Entenda como funcionou a plataforma, os resultados que tivemos e tenha a oportunidade de baixar o relatório geral do mapeando e se quiser replicar a página, fazer o dowwload github.</h5>
 
 
-          <p><a ng-click="$root.showWelcomeScreen = true" class="button">Continuar</a></p>
+          <p><a ng-href="http://governoaberto.cc/mapeando" class="button">Saiba Mais</a></p>
         </div>
       </div>
     </div>
--->
+
 
 
     <div class="view-container">

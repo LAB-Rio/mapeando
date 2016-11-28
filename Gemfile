@@ -34,7 +34,7 @@ gem 'typus', github: 'typus/typus'
 
 # Database
 gem 'pg'
-gem 'postgres_ext-serializers'
+gem 'postgres_ext-serializers', github: 'crossroads/postgres_ext-serializers'
 
 
 

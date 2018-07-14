@@ -1,29 +1,3 @@
-GIT
-  remote: git://github.com/crossroads/postgres_ext-serializers.git
-  revision: 84dad0e4b21717bab4c5a8de56e44ca028bcfedb
-  specs:
-    postgres_ext-serializers (0.0.3)
-      active_model_serializers (~> 0.8.0)
-      postgres_ext (~> 2.1)
-
-GIT
-  remote: git://github.com/pivotal/jasmine-gem.git
-  revision: 4ddc2b5b4aab6f482f76e7949294eff8878c1c46
-  specs:
-    jasmine (2.2.0)
-      jasmine-core (~> 2.2)
-      phantomjs
-      rack (>= 1.2.1)
-      rake
-
-GIT
-  remote: git://github.com/typus/typus.git
-  revision: 1c96f51561ce0ec93804f97724136984aed5316d
-  specs:
-    typus (4.0.0.beta1)
-      bcrypt (~> 3.1.10)
-      rails (~> 4.2.1)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -70,8 +44,14 @@ GEM
     angularjs-rails (1.3.14)
     arel (6.0.0)
     bcrypt (3.1.10)
+    bcrypt-ruby (3.1.5)
+      bcrypt (>= 3.1.3)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    brainsome_typus (4.0.0.beta13)
+      bcrypt-ruby (~> 3.1.2)
+      jquery-rails
+      rails (~> 4)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -118,7 +98,12 @@ GEM
     hashie (3.4.0)
     hike (1.2.3)
     i18n (0.7.0)
-    jasmine-core (2.2.0)
+    jasmine (2.2.0)
+      jasmine-core (~> 2.2)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.99.2)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -159,7 +144,7 @@ GEM
     orm_adapter (0.5.0)
     pg (0.18.1)
     pg_array_parser (0.0.9)
-    phantomjs (1.9.8.0)
+    phantomjs (2.1.1.0)
     poltergeist (1.6.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -169,6 +154,9 @@ GEM
       activerecord (>= 4.0.0)
       arel (>= 4.0.1)
       pg_array_parser (~> 0.0.9)
+    postgres_ext-serializers (0.0.3)
+      active_model_serializers (~> 0.8.0)
+      postgres_ext (~> 2.1)
     prerender_rails (1.1.2)
       activesupport
       rack
@@ -203,7 +191,7 @@ GEM
       rails-assets-SHA-1
       rails-assets-angular (>= 1.1.5)
       rails-assets-waypoints (~> 2.0.3)
-    rails-assets-jquery (2.1.3)
+    rails-assets-jquery (3.3.1)
     rails-assets-leaflet (0.7.3)
     rails-assets-leaflet-routing-graphhopper (1.0.7)
     rails-assets-leaflet-routing-machine (2.3.0)
@@ -293,6 +281,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.8.3)
   angular_rails_csrf
   angularjs-rails
+  brainsome_typus (~> 4.0.0.beta1)
   byebug
   database_cleaner
   devise
@@ -300,37 +289,33 @@ DEPENDENCIES
   font-awesome-rails
   foundation-rails
   has_scope
-  jasmine!
+  jasmine (= 2.2.0)
   jquery-rails
   leaflet-markercluster-rails
   newrelic_rpm
   omniauth-facebook
   pg
   poltergeist
-  postgres_ext-serializers!
+  postgres_ext-serializers (= 0.0.3)
   prerender_rails
   puma
   rack-cors
   rack-zippy
   rails (= 4.2.1)
-  rails-assets-angular!
-  rails-assets-angular-devise!
-  rails-assets-angular-easyfb!
-  rails-assets-angular-filter!
-  rails-assets-angular-loading-bar!
-  rails-assets-angulartics!
-  rails-assets-leaflet!
+  rails-assets-angular (= 1.3.14)!
+  rails-assets-angular-devise (= 1.0.2)!
+  rails-assets-angular-easyfb (= 1.2.1)!
+  rails-assets-angular-filter (= 0.5.4)!
+  rails-assets-angular-loading-bar (= 0.7.1)!
+  rails-assets-angulartics (= 0.17.2)!
+  rails-assets-leaflet (= 0.7.3)!
   rails-assets-leaflet-routing-graphhopper (= 1.0.7)!
-  rails-assets-leaflet-routing-machine!
+  rails-assets-leaflet-routing-machine (= 2.3.0)!
   rails_12factor
   responders
   rspec-rails
   sass-rails
   shoulda-matchers
   sprockets (~> 2.12.3)
-  typus!
   uglifier
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.5

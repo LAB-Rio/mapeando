@@ -1,3 +1,5 @@
+require "typus"
+
 Typus.setup do |config|
 
   # Application name.

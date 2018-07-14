@@ -1,0 +1,20 @@
+version: "3.6"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: puma
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    volumes:
+      - .:/usr/src/app
+    links:
+      - postgres
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432

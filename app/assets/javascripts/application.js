@@ -18,8 +18,7 @@
 //= require angular-loading-bar
 //= require angular-filter
 //= require angular-easyfb
-//= require angulartics/angulartics
-//= require angulartics/angulartics-ga
+//= require angulartics
 //
 //= require demands
 //= require_tree ./angular/factories

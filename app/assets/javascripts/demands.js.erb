@@ -2,13 +2,12 @@ demandsApp = angular.module('demandsApp', [
   'angular-loading-bar',
   'angular.filter',
   'ezfb',
-  'controllers', 
-  'ngAnimate', 
-  'ngRoute', 
+  'controllers',
+  'ngAnimate',
+  'ngRoute',
   'ngResource',
   'Devise',
-  'angulartics',
-  'angulartics.google.analytics',
+  'angulartics'
 ]);
 
 demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', function($routeProvider, $locationProvider, ezfbProvider){
@@ -29,7 +28,7 @@ demandsApp.config(['$routeProvider', '$locationProvider', 'ezfbProvider', functi
 
   ezfbProvider.setLocale('pt_BR');
 
-  //$locationProvider.html5Mode(true); 
+  //$locationProvider.html5Mode(true);
 }]);
 
 
